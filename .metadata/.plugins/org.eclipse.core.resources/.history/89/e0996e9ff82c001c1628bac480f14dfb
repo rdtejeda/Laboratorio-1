@@ -156,25 +156,20 @@ int main(void)
 	return EXIT_SUCCESS;
 }
 /*
- struct{
-	int type;
+ * typedef struct{
+	int type; //0 LCD 1 LED
 	float price;
 	int id;
 	char name[128];
 	char address[128];
 	int flagEmpty; //0 ocupada 1 vacia
 }Display;
-struct{
-	int cuit;
+typedef struct{
+	int cuit; //0 LCD 1 LED
 	int cantidadDias;
 	int idContratacion;
 	char nombreArchivo[128];
 	int id;
-	int flagEmptyC;
+	int flagEmptyC; //0 ocupada 1 vacia
 }Contrataciones;
-struct{
-char cuit[12];
-int facturacion;
-int idContrtacion;
-}Cliente;
-*/
+ */
