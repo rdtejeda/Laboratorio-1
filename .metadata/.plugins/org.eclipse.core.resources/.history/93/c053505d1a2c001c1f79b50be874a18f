@@ -1,0 +1,24 @@
+/*
+ * Pantalla.h
+ *
+ *  Created on: 30 sep. 2021
+ *      Author: usuario
+ */
+#ifndef PANTALLA_H_
+#define PANTALLA_H_
+
+typedef struct{
+	int type; //0 LCD 1 LED
+	float price;
+	int id;
+	char name[128];
+	char address[128];
+	int flagEmpty; //0 ocupada 1 vacia
+}Display;
+
+int iniciarEarray(Display *plistDisplay,int len);
+int altaDisplay(Display pDisplay[],int len);
+int buscarLugarLibreArray(Display *pDisplay, int len);
+int disp_loadDisplay(Display *pDisplay, int len);
+
+#endif /* PANTALLA_H_ */

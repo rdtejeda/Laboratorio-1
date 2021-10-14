@@ -1,0 +1,162 @@
+/*
+ ============================================================================
+ Name        : Parcial_1_Lab_I_2017.c
+ Author      : 
+ Version     :
+ Copyright   : Your copyright notice
+ Description : Hello World in C, Ansi-style
+ ============================================================================
+ */
+
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <stdio_ext.h>
+#include <string.h>
+#include <ctype.h>
+#include <limits.h>
+
+#include "Pantalla.h"
+#include "Pedir.h"
+#include "Contrataciones.h"
+#include "Menu.h"
+
+#define TAMANO_ARRAY 10
+#define OCUPADO 0
+#define LIBRE -1
+#define MINIMO 1
+#define MAXIMO 11
+#define INTENTOS 3
+
+int main(void)
+{
+	Display displays[TAMANO_ARRAY];
+	Contrataciones contrataciones[TAMANO_ARRAY];
+
+	int menuPrincipal;
+	int cargado;
+	//int retornoModif;
+	int idBaja;
+
+	iniciarEarray(displays, TAMANO_ARRAY);
+	iniciarEarrayC(contrataciones, TAMANO_ARRAY);
+	do
+	{
+		imprimirMenuInicial();
+		pedirInt(&menuPrincipal, "Ingrese opción deseada", "Entre 1 y 11", MINIMO, MAXIMO, INTENTOS);
+		cargado=largoArrayD(displays, TAMANO_ARRAY);
+		switch (menuPrincipal)
+		{
+			case 1:
+
+				harcodearunaltaD(displays, 1, 0, 0, 123, "Calle Principal", "Corriente 23", 0);
+				harcodearunaltaD(displays, 2, 1, 0, 14, "Calle Principal", "Corriente 23", 1);
+				harcodearunaltaD(displays, 3, 0, 0, 125, "Calle Principal", "Corriente 23", 2);
+				harcodearunaltaD(displays, 4, 1, 0, 1245, "Calle Principal", "Corriente 23", 3);
+				harcodearunaltaD(displays, 5, 1, 0, 125, "Calle Principal", "Corriente 23", 4);
+
+				//altaDisplay(displays, TAMANO_ARRAY);
+				break;
+			case 2:
+				if(cargado>0)
+				{
+					modificarUnDisplay(displays, TAMANO_ARRAY);
+				}else
+					puts("NO HYA DATOS CARGADOS");
+
+				break;
+			case 3:
+				if(cargado>0)
+				{
+					imprimirDisplayCargado(displays, TAMANO_ARRAY);
+					pedirInt(&idBaja, "Ingrese BAja", "Id no valido", 1, TAMANO_ARRAY, INTENTOS);
+					bajaLogicaUnDisplay(displays, TAMANO_ARRAY, idBaja);
+
+					//imprimirDisplayCargado(displays, TAMANO_ARRAY);
+					//bajaLogicaUnDisplay(displays, TAMANO_ARRAY,);
+				}else
+					puts("NO HYA DATOS CARGADOS");
+
+				break;
+			case 4:
+
+				harcodearunaltaC(contrataciones, 2, "20182231258", 0, 4, 1, "tepe", 0);
+				harcodearunaltaC(contrataciones, 1, "20182231258", 0, 8, 2, "Ptte", 1);
+				harcodearunaltaC(contrataciones, 4, "20182231258", 0, 9, 3, "Prte", 2);
+				harcodearunaltaC(contrataciones, 3, "20182231258", 0, 3, 4, "Pepe", 3);
+				harcodearunaltaC(contrataciones, 2, "20182231258", 0, 23, 5, "Luis", 4);
+
+/*
+				altaContrato(contrataciones, displays, TAMANO_ARRAY);
+*/							break;
+
+			case 5:
+				puts("LOS DIPLAY CARGADOS SON");
+
+			//	retornoModif=modificarUnDisplay(displays, TAMANO_ARRAY);
+				break;
+
+			case 6:
+
+				break;
+			case 7:
+
+							break;
+			case 8:
+				if(largoArrayC(contrataciones, TAMANO_ARRAY)>0)
+				{
+					imprimirDisplayCargadoC(contrataciones, TAMANO_ARRAY);
+				}else
+									puts("NO HYA DATOS CARGADOS");
+
+
+
+
+							break;
+
+
+
+			case 9:
+				if(largoArrayD(displays, TAMANO_ARRAY)>0)
+				{
+					ordenaDisplayPorDireccioYPrecio(displays, TAMANO_ARRAY);
+				imprimirDisplayCargado(displays, TAMANO_ARRAY);
+				}else
+					puts("NO HYA DATOS CARGADOS");
+
+				break;
+
+			case 10:
+
+				imprimirMenuInformes();
+
+				break;
+
+			default:
+				break;
+		}
+	}while(menuPrincipal!=11);
+
+	puts("!!!Que hay de nuevo viejo!!!");
+
+
+	return EXIT_SUCCESS;
+}
+/*
+ * typedef struct{
+	int type; //0 LCD 1 LED
+	float price;
+	int id;
+	char name[128];
+	char address[128];
+	int flagEmpty; //0 ocupada 1 vacia
+}Display;
+typedef struct{
+	int cuit; //0 LCD 1 LED
+	int cantidadDias;
+	int idContratacion;
+	char nombreArchivo[128];
+	int id;
+	int flagEmptyC; //0 ocupada 1 vacia
+}Contrataciones;
+ */

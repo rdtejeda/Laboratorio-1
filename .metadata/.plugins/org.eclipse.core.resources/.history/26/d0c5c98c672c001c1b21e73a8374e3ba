@@ -1,0 +1,33 @@
+/*
+ * Contrataciones.h
+ *
+ *  Created on: 12 oct. 2021
+ *      Author: usuario
+ */
+
+#ifndef CONTRATACIONES_H_
+#define CONTRATACIONES_H_
+
+typedef struct{
+	char cuit[12]; //0 LCD 1 LED
+	int cantidadDias;
+	int idContratacion;
+	char nombreArchivo[128];
+	int id;
+	int flagEmptyC; //0 ocupada 1 vacia
+}Contrataciones;
+
+int iniciarEarrayC(Contrataciones *plistContrato,int len);
+int altaContrato(Contrataciones pContrato[],Display pDispay[], int len);
+int buscarUnIdContrato(Contrataciones *pContrato,int len,int id);
+int buscarUnCUIL(Contrataciones *pContra, int len, char cuitBusacado[]);
+
+//int altaContrato(Contrataciones pContrato[],int len);
+//int disp_loadContrato(Contrataciones *pContrato, int len);
+int buscarLugarLibreContrato(Contrataciones *pContrato, int len);
+int disp_loadContrato(Contrataciones *pContrato, Display * pDispla, int len);
+int largoArrayC(Contrataciones *plistContra,int len);
+int imprimirDisplayCargadoC(Contrataciones pContra[], int len);
+
+
+#endif /* CONTRATACIONES_H_ */

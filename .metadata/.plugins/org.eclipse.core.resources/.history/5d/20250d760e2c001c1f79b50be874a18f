@@ -1,0 +1,23 @@
+/*
+ *  Pedir.c
+ *  Created on: 7 oct. 2021
+ *  Author: Tejeda Roberto
+ */
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <stdio_ext.h>
+#include <string.h>
+#include <ctype.h>
+
+#include "Pantalla.h"
+#include "Pedir.h"
+#include "Contrataciones.h"
+#include "Menu.h"
+
+#define TAMANO_ARRAY 10
+#define OCUPADO 0
+#define LIBRE -1
+#define MINIMO 1
+#define MAXIMO 11
+#define INTENTOS 3
