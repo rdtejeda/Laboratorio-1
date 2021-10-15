@@ -29,7 +29,7 @@
 #define MAXIMO 11
 #define INTENTOS 3
 /*
- * typedef struct{
+typedef struct{
 	char cuit[12];
 	int cantidadDias;
 	int idContratacion;
@@ -37,6 +37,7 @@
 	int id;
 	int flagEmptyC;
 }Contrataciones;
+
 typedef struct{
 	int type; //0 LCD 1 LED
 	float price;
@@ -45,146 +46,199 @@ typedef struct{
 	char address[128];
 	int flagEmpty; //0 ocupada 1 vacia
 }Display;
- */
-/*
- * 10)
-Informar:
-1. Lista​ ​ de​ ​ cada​ ​ cliente​ ​ con​ ​ cantidad​ ​ de​ ​ contrataciones​ ​ e ​ ​ importe​ ​ a ​ ​ pagar​ ​ por​ ​ cada​ ​ una.
- */
-	/**
-	* \brief busca el cuil e imprime los costos por pantalla
-	* \param recibe un estructura por puntero, el largo y el idbuscado
-	* \return Retorna posicion en el array del id buscado o -1 si no lo alla
-	*/
-int listClientesYContrator(Contrataciones *pContra, Display *pDisplay, Cliente *pClientes, int len)
-{
-		int retorno=-1;
-		char bufferCUIT[12];
-		int bufferCantidadContra;
-		int sumaporcliente;
-		int bufferMontoporCliente;
-		int k=-1;
-		int i=0;
-		int j=0;
-		if(pContra!=NULL && pDisplay!=NULL && len>0)
-		{
-			for (i=0;i<len;++i)
-			{
-				strncpy(bufferCUIT, pContra[i].cuit, sizeof(bufferCUIT));
-				bufferCantidadContra=0;
 
-						printf("\nCLIENTE CUIT numero %s\n",bufferCUIT);
-						for (j = 0; j < len; ++j)
-							{
-							if(strcmp(bufferCUIT, pContra[j].cuit)==0 && esNumericaCUIT(pContra[j].cuit)==0)
-								{
-									bufferMontoporCliente=buscarPorCuityOperar2(pContra, pDisplay, TAMANO_ARRAY, pContra[j].cuit, pContra[j].id);
-									bufferCantidadContra++;
-									sumaporcliente=bufferMontoporCliente+sumaporcliente;
-								}
-							}
-						printf("\nEl CLIENTE CUIT numero %s tiene %d contratos\n",bufferCUIT, bufferCantidadContra);
-						strncpy(pClientes[k+1].cuit, bufferCUIT, sizeof(pClientes[k+1].cuit));
-						pClientes[k+1].facturacion=sumaporcliente;
-						pClientes[k+1].idContrtacion=pContra[j].idContratacion;
-						k++;
-			}
-		retorno=0;
-		}
-return retorno;
-}
-/*
- * typedef struct
+typedef struct
 {
 char cuit[12];
-float facturacion;
-int idContrtacion;
+int flaisEmpty;
 }Cliente;
- */
-/**
-* \brief busca un cuit y un id de pantalla imprime los costos de la misma
-* \param recibe un estructura por puntero, el largo y el idbuscado
-* \return Retorna costo del contrato  o -1 si no lo alla
 */
-int buscarPorCuityOperar2(Contrataciones *pContra, Display *pDisplay, int len, char cuitBusacado[], int idpantalla)
+
+/* 10) Informar:
+1. Lista​ ​ de​ ​ cada​ ​ cliente​ ​ con​ ​ cantidad​ ​ de​ ​ contrataciones​
+	e​ ​ importe​ ​ a ​ ​ pagar​ ​ por​ ​ cada​ ​ una.
+*/
+void informe_10_1_ListaClienteEImpote(Contrataciones *pContato, Display *pDisplay, int len)
 {
-	int retorno=-1;
-	int posPantalla;
-	float importe;
-	if(pContra!=NULL && pDisplay!=NULL && len>0)
+	Cliente clientes[TAMANO_ARRAY];
+	hacerListaCliente(clientes, TAMANO_ARRAY, pContato);
+	int j;
+	for (j = 0; j < len; ++j)
 	{
-		for (int i=0;i<len;++i)
-		{
-			if(strcmp(pContra[i].cuit, cuitBusacado)==0 && idpantalla==pContra[i].id && pContra[i].flagEmptyC==OCUPADO)
+
+		if(clientes[j].flagIsEmpty==0 && pDisplay!=NULL && len>0 && pContato!=NULL)
 			{
-				posPantalla=buscarUnIdDisplay(pDisplay,len,pContra[i].id);
-				importe=pContra[i].cantidadDias*pDisplay[posPantalla].price;
-				printf("\nEL IMPORTE A PAGAR POR El CONTRATO %d ES %.2f\n",pContra[i].idContratacion,importe);
+				printf("\nEl Cliente %s y y el importe a pagar es %.2f\n",
+				clientes[j].cuit, calcularImportePorCliente(pDisplay, pContato, TAMANO_ARRAY, clientes[j].cuit));
+
 			}
-		}
-		retorno=importe;
+
 	}
-	return retorno;
+	if(clientes[0].flagIsEmpty!=0)
+		{
+		puts("La lista de clientes no ha sido inizialisado");
+		}
 }
 /*
-if(strcmp(pContra[i].cuit, cuitBusacado)==0 && pContra[i].flagEmptyC==OCUPADO)
-									{
-
-
-
-
-										printf("\n\t%d \t%d \t%d \t%s \t%s \t%d\n",
-											pContra[i].flagEmptyC,pContra[i].id,pContra[i].cantidadDias,
-											pContra[i].cuit,pContra[i].nombreArchivo,pContra[i].idContratacion);
-
-										//posPantalla=buscarUnIdDisplay(pDisplay, len,pContra[i].id);
-										//importe=pContra[i].cantidadDias*pDisplay[posPantalla].price;
-										//printf("\nEL IMPORTE A PAGAR POR ESTA PUBLICACION ES %.2f\n",importe);
-									}
-*/
-//==============================================================================
+* 10) Informar:
+2. Cliente​ ​ con​ ​ importe​ ​ más​ ​ alto​ ​ a ​ ​ facturar​
+(si​ ​ hay​ ​ más​ ​ de​ ​ uno​ ​ indicar​ ​ el​ ​ primero)
+ */
+//========================================================================
 /**
-* \brief Ordena el array de Cont por orden CUIT ascendente
-* \param recibe un array de estructura, el largo
-* \return Retorna -1 todo mal 0 todo bien
+* \brief calcula el importe mayor y gaurda la posicion del cuit
+* \param  *pDisplay *pContrato recibo array por referencia, len tamaño del array
+* \return
 */
-int ordenaContrPorDireccioYPrecio(Display *pDisplay, int len)
+void informe_10_2_ClienteMayorFacturacion(Contrataciones *pContato, Display *pDisplay, int len)
 {
-	int banderaSwapp=-1;
-	Display auxiliar;
-	int limite=len;
-	int estadostrcmp;
-	if(pDisplay!=NULL && len>0)
-	{
-		do
-		{
-			banderaSwapp=0;
-			limite=limite-1;
-			for (int i=0; i<limite; i++)
-			{
-				estadostrcmp=strcmp(pDisplay[i].address, pDisplay[i+1].address);
-				if(estadostrcmp>0)
-				{
-					banderaSwapp=1;
-					auxiliar=pDisplay[i];
-					pDisplay[i]=pDisplay[i+1];
-					pDisplay[i+1]=auxiliar;
-				}
-				if (estadostrcmp==0)
-				{
-					if(pDisplay[i].price>pDisplay[i+1].price)
-						{
-							banderaSwapp=1;
-							auxiliar=pDisplay[i];
-							pDisplay[i]=pDisplay[i+1];
-							pDisplay[i+1]=auxiliar;
-						}
-				}
-			}
-		}while(banderaSwapp==1);
-	}
-	return banderaSwapp;
-}
-//=============================================================================
+	Cliente clientes[TAMANO_ARRAY];
+	hacerListaCliente(clientes, TAMANO_ARRAY, pContato);
 
+	int j=0;
+	float importeMax=0;
+	int posicionClienteMaximo;
+	if(clientes[0].flagIsEmpty==0 && pDisplay!=NULL && len>0 && pContato!=NULL)
+	{
+		importeMax=calcularImportePorCliente(pDisplay, pContato, TAMANO_ARRAY, clientes[0].cuit);
+		posicionClienteMaximo=0;
+			for (j=0;j<len;j++)
+			{
+				if(clientes[j].flagIsEmpty==0 && calcularImportePorCliente(pDisplay, pContato, TAMANO_ARRAY, clientes[j].cuit)>importeMax)
+				{
+						importeMax=calcularImportePorCliente(pDisplay, pContato, TAMANO_ARRAY, clientes[j].cuit); //SEGUIR MAXIMO
+						posicionClienteMaximo=j;
+				}else
+				{
+					break;
+				}
+
+			}
+			printf("\nEl cliente con mayor facturacion es %s\n",clientes[posicionClienteMaximo].cuit);
+			printf("\nEl monto es %f\n",calcularImportePorCliente(pDisplay, pContato, TAMANO_ARRAY, clientes[posicionClienteMaximo].cuit));
+
+	}else
+	{
+		puts("La lista de clientes no ha sido inizialisado");
+	}
+}
+//========================================================================
+/**
+* \brief calcula el importe total de uin cuit
+* \param  *pDisplay *pContrato recibo array por referencia, len tamaño del array
+* \return Retorna acumulado del cuit y -1 si no lo encuentra
+*/
+float calcularImportePorCliente(Display *pDisplay, Contrataciones *pContrato, int len, char cuit[])
+{
+	float retorno=-1;
+	float importeAcumulado=0;
+	float importe;
+	int j;
+	if(pDisplay!=NULL && len>0 && pContrato!=NULL)
+	{
+		for (j=0;j<len;j++)
+		{
+			if(pContrato[j].flagEmptyC==0 && strcmp(pContrato[j].cuit,cuit)==0)
+			{
+				importe=pContrato[j].cantidadDias*precioPorDiaDeDisplay(pDisplay,len,pContrato[j].id);
+				importeAcumulado=importeAcumulado+importe;
+				retorno=importeAcumulado;
+			}
+		}
+	}
+return retorno;
+}
+//========================================================================
+/**
+* \brief busca el precio por dia de un iddisplay
+* \param  *pCliente *pContrato recibo array por referencia, len tamaño del array
+* \return Retorna 0 si encontro el cuit y -1 si no lo encuentra
+*/
+float precioPorDiaDeDisplay(Display *pDisplay, int len, int idDisplay)
+{
+	float retorno=-1;
+	int posicioDisplay;
+	if (pDisplay!=NULL && len>0 && idDisplay>0)
+	{
+		posicioDisplay=buscarUnId(pDisplay, len, idDisplay);
+			if(posicioDisplay>=0)
+			{
+				retorno=pDisplay[posicioDisplay].price;
+			}
+	}
+return retorno;
+}
+//========================================================================
+/**
+ * \brief hace la lista de Clientes con CUIT activos sin repetir
+ * \param  *pCliente *pContrato recibo array por referencia, len tamaño del array
+ * \return Retorna 0 si encontro el cuit y -1 si no lo encuentra
+ */
+int hacerListaCliente(Cliente *pCliente, int len, Contrataciones *pContrato)
+{
+	int retorno=-1;
+	int j=0;
+	int iListaCliente=0;
+
+	inicializarListaCliente(pCliente, len);
+	if(pCliente!=NULL && len>0 && pContrato!=NULL)
+	{
+		for (j=0;j<len;j++)
+		{
+			if(pContrato[j].flagEmptyC==0 && estaUnCuitListaCliente(pCliente,len,pContrato[j].cuit)==-1)
+			{
+				pCliente[iListaCliente].flagIsEmpty=0;
+				strcpy(pCliente[iListaCliente].cuit, pContrato[j].cuit);
+				iListaCliente++;
+			}
+		}
+	}
+
+return retorno;
+}
+
+//========================================================================
+/**
+ * \brief busca un cuit en la lista de Clientes
+ * \param  *pCliente recibo array por referencia, len tamaño del array y el cuit buscado
+ * \return Retorna 0 si encontro el cuit y -1 si no lo encuentra
+ */
+int estaUnCuitListaCliente(Cliente *pCliente, int len, char cuit[])
+{
+	int estado=-1;
+	int j;
+	if (pCliente!=NULL && len>0)
+		{
+		  for (j=0;j<len;j++)
+			  {
+				  if(pCliente[j].flagIsEmpty==0 && strcmp(pCliente[j].cuit,cuit)==0)
+						{
+							estado=0;
+							break;
+						}
+			  }
+		 }
+return estado;
+}
+//=========================================================================
+/**
+ * \brief inicializa todas las posiciones del array contrato como Libres pone la bander isEmpty en -1
+ * \param  *pCliente recibo array por referencia, len tamaño del array
+ * \return Retorna 0 si todo bien y -1 si no logro inicializar el array
+ */
+int inicializarListaCliente(Cliente *pCliente,int len)
+{
+	int estado=-1;
+	int j;
+	   if (pCliente!=NULL && len>0)
+	   {
+		  for (j=0;j<len;j++)
+		   {
+			  pCliente[j].flagIsEmpty=LIBRE;
+			  estado=0;
+		   }
+	   }
+return estado;
+}
+//=======================================================================
 

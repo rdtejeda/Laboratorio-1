@@ -33,7 +33,6 @@ int main(void)
 {
 	Display displays[TAMANO_ARRAY];
 	Contrataciones contrataciones[TAMANO_ARRAY];
-	Cliente clientes[TAMANO_ARRAY];
 
 	int menuPrincipal;
 	int menuInformes;
@@ -134,13 +133,13 @@ int main(void)
 			case 10:
 				imprimirMenuInformes();
 				pedirInt(&menuInformes, "Ingrese Opcion deseada 1 a 3", "Ingrese Opcion valida", MINIMO, INTENTOS, INTENTOS);
-				switch (menuInformes) {
+				switch (menuInformes)
+				{
 					case 1:
-						listClientesYContrator(contrataciones, displays, clientes, TAMANO_ARRAY);
-						//listClientesYContrator(contrataciones, displays, TAMANO_ARRAY);
+						informe_10_1_ListaClienteEImpote(contrataciones, displays, TAMANO_ARRAY);
 						break;
 					case 2:
-
+						informe_10_2_ClienteMayorFacturacion(contrataciones, displays, TAMANO_ARRAY);
 						break;
 					case 3:
 						break;

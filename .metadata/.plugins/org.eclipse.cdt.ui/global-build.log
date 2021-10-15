@@ -1,3 +1,61 @@
-13:56:22 **** Incremental Build of configuration Debug for project Parcial_1_Lab_I_2017 ****
+11:33:29 **** Incremental Build of configuration Debug for project Parcial_1_Lab_I_2017 ****
 make all 
-make: No se hace nada para 'all'.
+Building file: ../src/Info.c
+Invoking: GCC C Compiler
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Info.d" -MT"src/Info.o" -o "src/Info.o" "../src/Info.c"
+../src/Info.c: In function ‘informe_10_1_ListaClienteEImpote’:
+../src/Info.c:66:8: warning: unused variable ‘importe’ [-Wunused-variable]
+   66 |  float importe;
+      |        ^~~~~~~
+Finished building: ../src/Info.c
+ 
+Building target: Parcial_1_Lab_I_2017
+Invoking: GCC C Linker
+gcc  -o "Parcial_1_Lab_I_2017"  ./src/Contrataciones.o ./src/Info.o ./src/Menu.o ./src/Pantalla.o ./src/Parcial_1_Lab_I_2017.o ./src/Pedir.o   
+Finished building target: Parcial_1_Lab_I_2017
+ 
+11:34:03 **** Incremental Build of configuration Debug for project Parcial_1_Lab_I_2017 ****
+make all 
+Building file: ../src/Info.c
+Invoking: GCC C Compiler
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Info.d" -MT"src/Info.o" -o "src/Info.o" "../src/Info.c"
+../src/Info.c: In function ‘informe_10_1_ListaClienteEImpote’:
+../src/Info.c:66:8: warning: unused variable ‘importe’ [-Wunused-variable]
+   66 |  float importe;
+      |        ^~~~~~~
+Finished building: ../src/Info.c
+ 
+Building target: Parcial_1_Lab_I_2017
+Invoking: GCC C Linker
+gcc  -o "Parcial_1_Lab_I_2017"  ./src/Contrataciones.o ./src/Info.o ./src/Menu.o ./src/Pantalla.o ./src/Parcial_1_Lab_I_2017.o ./src/Pedir.o   
+Finished building target: Parcial_1_Lab_I_2017
+ 
+11:38:39 **** Incremental Build of configuration Debug for project Parcial_1_Lab_I_2017 ****
+make all 
+Building file: ../src/Info.c
+Invoking: GCC C Compiler
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Info.d" -MT"src/Info.o" -o "src/Info.o" "../src/Info.c"
+Finished building: ../src/Info.c
+ 
+Building file: ../src/Parcial_1_Lab_I_2017.c
+Invoking: GCC C Compiler
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Parcial_1_Lab_I_2017.d" -MT"src/Parcial_1_Lab_I_2017.o" -o "src/Parcial_1_Lab_I_2017.o" "../src/Parcial_1_Lab_I_2017.c"
+Finished building: ../src/Parcial_1_Lab_I_2017.c
+ 
+Building target: Parcial_1_Lab_I_2017
+Invoking: GCC C Linker
+gcc  -o "Parcial_1_Lab_I_2017"  ./src/Contrataciones.o ./src/Info.o ./src/Menu.o ./src/Pantalla.o ./src/Parcial_1_Lab_I_2017.o ./src/Pedir.o   
+Finished building target: Parcial_1_Lab_I_2017
+ 
+11:41:07 **** Incremental Build of configuration Debug for project Parcial_1_Lab_I_2017 ****
+make all 
+Building file: ../src/Info.c
+Invoking: GCC C Compiler
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Info.d" -MT"src/Info.o" -o "src/Info.o" "../src/Info.c"
+Finished building: ../src/Info.c
+ 
+Building target: Parcial_1_Lab_I_2017
+Invoking: GCC C Linker
+gcc  -o "Parcial_1_Lab_I_2017"  ./src/Contrataciones.o ./src/Info.o ./src/Menu.o ./src/Pantalla.o ./src/Parcial_1_Lab_I_2017.o ./src/Pedir.o   
+Finished building target: Parcial_1_Lab_I_2017
+ 

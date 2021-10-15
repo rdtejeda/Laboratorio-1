@@ -6,8 +6,9 @@
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
-		<item key="selection" value="rdenaDisplayPorDireccioYPrecio("/>
+		<item key="selection" value="strncpy"/>
 		<list key="findhistory">
+			<item value="strncpy"/>
 			<item value="rdenaDisplayPorDireccioYPrecio("/>
 			<item value="buscarUnIdPantallaContrato"/>
 			<item value="buscarUnIdContrato"/>
