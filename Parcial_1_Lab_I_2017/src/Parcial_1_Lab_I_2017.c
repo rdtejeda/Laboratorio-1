@@ -1,7 +1,7 @@
 /*
  ============================================================================
  Name        : Parcial_1_Lab_I_2017.c
- Author      : 
+ Author      :
  Version     :
  Copyright   : Your copyright notice
  Description : Hello World in C, Ansi-style

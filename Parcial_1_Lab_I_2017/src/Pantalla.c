@@ -68,8 +68,8 @@ int altaDisplay(Display *pDisplay,int len)
 	int libre;
 	if(pDisplay!=NULL && len>0)
 	{
-		libre=buscarLugarLibreArray(pDisplay, TAMANO_ARRAY);
-		if(buscarLugarLibreArray(pDisplay, TAMANO_ARRAY)>=0)
+		libre=buscarLugarLibreArrayS(pDisplay, TAMANO_ARRAY);
+		if(buscarLugarLibreArrayS(pDisplay, TAMANO_ARRAY)>=0)
 			{
 				printf("\nEl primer lugar libre es %d\n",libre);
 				if(disp_loadDisplay(&pDisplay[libre], TAMANO_ARRAY)==0)
@@ -373,7 +373,7 @@ int largoArrayD(Display *plistDisplay,int len)
 * \param recibe un estructura por puntero y el largo
 * \return Retorna lugar el primer lugar libre de la lista o -1 si no encuentra ninguno libre
 */
-int buscarLugarLibreArray(Display *pDisplay, int len)
+int buscarLugarLibreArrayS(Display *pDisplay, int len)
 {
 	int retorno=-1;
 	if(pDisplay!=NULL && len>0)

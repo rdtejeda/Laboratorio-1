@@ -1,7 +1,11 @@
 /*
- *  Pedir.c
- *  Created on: 7 oct. 2021
- *  Author: Tejeda Roberto
+ ============================================================================
+ Name        : Parcial_1_14Octubre_2021.c
+ Author      : Tejeda Roberto
+ Version     : 1.1
+ Copyright   : Your copyright notice
+ Description : Estamos en el año 1990!
+ ============================================================================
  */
 
 #include <stdio.h>
@@ -9,20 +13,60 @@
 #include <stdio_ext.h>
 #include <string.h>
 #include <ctype.h>
+#include <limits.h>
 
-#include "Pantalla.h"
 #include "Pedir.h"
-#include "Contrataciones.h"
+#include "Salon.h"
+#include "Arcade.h"
 #include "Menu.h"
-#include "Info.h"
+#include "Juego.h"
+#include "IdArcade.h"
 
-#define TAMANO_ARRAY 10
+#define CAN_SALON 100
+#define CAN_ARCADE 1000
 #define OCUPADO 0
 #define LIBRE -1
+#define INTENTOS 5
+#define SHOPPING 1
+#define LOCAL 2
+#define MONO 1
+#define STEREO 2
 #define MINIMO 1
-#define MAXIMO 11
-#define INTENTOS 3
+#define MAXIMO10 10
 
+//=====================================================================================================
+/**
+* \brief pide un char al ususario
+* \param puntero cahr, reintentos y textos de pedido y erro
+* \return Retorna -1  salio mal, 0 salio bien y 2 sin reintento
+*/
+int pedirCharAUsuario(char *pChar, int reintentos, char *txt, char *txtError)
+{
+
+	int retorno=-1;
+	int i;
+	char bufferCadenaAux[32];
+	if(pChar != NULL && reintentos >=0 && txt != NULL && txtError != NULL)
+	{
+		for (i=0; i<=reintentos; i++)
+		{
+			printf("\n%s\n", txt);
+			__fpurge(stdin);
+			if(myGets(bufferCadenaAux,sizeof(bufferCadenaAux))==0)
+				{
+				if(esAlfabetica(pChar)==0)
+				strncpy(pChar, bufferCadenaAux,1);
+					retorno = 0;
+					break;
+				}else
+				{
+						printf("%s", txtError);
+
+				}
+		}
+	}
+	return retorno;
+}
 //==============================================================
 /**
 * \brief pide un texto al ususario
@@ -289,67 +333,37 @@ int esAlfaumerica(char *cadena)
 	}
 	return retorno;
 }
-//===========================================================================================
+//===================================================================================================
 /**
-* \brief pide un CUIT al ususario
-* \param *pResultado, len tamaño del array, *mensaje, *mensajeError, intentos
-* \return Retorna -1  salio mal, 0 salio bien
+* \brief Verifica si la cadena ingresada es alfabetica
+* \param *cadena Paso por referencia Cadena de caracteres a ser analizada
+* \return Retorna 0 si la cadena es alfa numerica y -1 si no lo es
 */
-int pedirUnCUIT(char *pResultado, int len, char *mensaje, char *mensajeError, int intentos)
+int esAlfabetica(char *cadena)
 {
-	int retorno = -1;
-	int i;
-	char bufferCadenaAux[128];
-	if(pResultado != NULL && mensaje != NULL && mensajeError != NULL && intentos >= 0)
+	int i=0;
+	int retorno = 0;
+	if(cadena != NULL && strlen(cadena) > 0)
 	{
-		for(i=0; i<=intentos; i++)
-		{
-
-			printf("\n%s\n", mensaje);
-			__fpurge(stdin);
-			if(myGets(bufferCadenaAux,sizeof(bufferCadenaAux))==0  && strlen(bufferCadenaAux)>0)
+		while(cadena[i] != '\0')
 			{
-				strncpy(pResultado, bufferCadenaAux,len);
-				if (esNumericaCUIT(pResultado)==0)
-				{
-					retorno = 0;
-				break;
-				}
-			}else
-				{
-					printf("%s", mensajeError);
-				}
-		}
+				if((cadena[i]<'A'||cadena[i]>'Z')&&(cadena[i]<'a'||cadena[i]>'z')&&cadena[i]==164&&cadena[i]==165)
+					{
+						if (cadena[i]==' ')
+						{
+							if(i==0)
+							{
+								retorno=-1;
+								break;
+							}
+						}else
+						{
+							retorno = -1;
+							break;
+						}
+					}
+				i++;
+			}
 	}
 	return retorno;
 }
-//=====================================================================================================
- /**
-  * \brief Verifica si la cadena ingresada es un cuit y tiene 11 numeros
-  * \param *cadena Puntero al espacio de memoria donde se dejara el resultado de la funcion
-  * \return Retorna 0 si se obtiene un cuit  y -1 si no
- */
- int esNumericaCUIT(char *cadena)
- {
- 	int i=0;
- 	int retorno=-1;
- 	if(cadena!=NULL && strlen(cadena)> 0 && strlen(cadena)==11)
- 	{
- 		retorno=0;
- 		while(cadena[i]!='\0')
- 			{
- 				if(cadena[i]<'0'||cadena[i]> '9')
- 					{
- 					retorno=-1;
- 					break;
- 					}
- 				i++;
- 			}
- 	}
- 	return retorno;
- }
- //======================================================================================================
-
-
-
-

@@ -6,21 +6,32 @@
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
-		<item key="selection" value="strncpy"/>
+		<item key="selection" value="pArcades"/>
 		<list key="findhistory">
+			<item value="pSalones"/>
+			<item value="pDisplay"/>
+			<item value="pArcades"/>
+			<item value="eArcade"/>
+			<item value="NO HAY DIPLAYS CARGADOS"/>
+			<item value="la posicion"/>
+			<item value="i"/>
+			<item value="auxPosArcade"/>
+			<item value="pContrato"/>
+			<item value="MONO"/>
+			<item value="pAcades"/>
+			<item value="SHOPPING"/>
 			<item value="strncpy"/>
 			<item value="rdenaDisplayPorDireccioYPrecio("/>
 			<item value="buscarUnIdPantallaContrato"/>
-			<item value="buscarUnIdContrato"/>
-			<item value="altaContrato"/>
-			<item value="i"/>
-			<item value="pedirText"/>
-			<item value="pDisplay"/>
-			<item value="pContrato"/>
-			<item value="DISPLAY_NUM"/>
-			<item value="dame"/>
 		</list>
 		<list key="replacehistory">
+			<item value="pArcades"/>
+			<item value="pSalones"/>
+			<item value="eSalon"/>
+			<item value="auxPosArcade"/>
+			<item value="STEREO"/>
+			<item value="pAcades"/>
+			<item value="LOCAL"/>
 			<item value="buscarUnIdPantallaContrato"/>
 			<item value="idPantalla"/>
 			<item value="pedirTextNumerica"/>
@@ -32,8 +43,8 @@
 		</list>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
-		<item key="DIALOG_X_ORIGIN" value="1067"/>
-		<item key="DIALOG_Y_ORIGIN" value="169"/>
+		<item key="DIALOG_X_ORIGIN" value="664"/>
+		<item key="DIALOG_Y_ORIGIN" value="157"/>
 		<item key="DIALOG_WIDTH" value="333"/>
 		<item key="DIALOG_HEIGHT" value="428"/>
 		<item key="DIALOG_FONT_NAME" value="1|Ubuntu|10.0|0|GTK|1|"/>

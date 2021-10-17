@@ -18,7 +18,7 @@ typedef struct{
 
 int iniciarEarray(Display *plistDisplay,int len);
 int altaDisplay(Display *pDisplay,int len);
-int buscarLugarLibreArray(Display *pDisplay, int len);
+int buscarLugarLibreArrayS(Display *pDisplay, int len);
 int disp_loadDisplay(Display *pDisplay, int len);
 int buscarUnIdDisplay(Display *pDisplay,int len,int id);
 int largoArrayD(Display *plistDisplay,int len);
