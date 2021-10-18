@@ -19,7 +19,6 @@
 #include "Salon.h"
 #include "Arcade.h"
 #include "Juego.h"
-#include "IdArcade.h"
 #include "Informes.h"
 
 #define CAN_SALON 100

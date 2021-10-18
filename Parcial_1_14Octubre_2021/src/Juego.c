@@ -20,7 +20,6 @@
 #include "Arcade.h"
 #include "Menu.h"
 #include "Juego.h"
-#include "IdArcade.h"
 #include "Informes.h"
 
 #define CAN_SALON 100
@@ -158,61 +157,7 @@ float precioPorDiaDeeSalon(eSalon *pSalones, int lenA, int ideSalon)
 	}
 return retorno;
 }*/
-/*
-int informeA_SalonMascuatroArcade(eArcade *pArcades,int lenA,eSalon *pSalones,int lenS)
-{
-	int retorno=-1;
-	int contadordeIdSalon=0;
-	int auxIdSalon=0;
-	int idSalonesainformar[CAN_SALON];
-		printf("_________________________________________________\n");
-		printf("Nombre del Juego\n");
-		printf("__________________________________________________\n");
-		if(pArcades!=NULL && lenA>0 && pSalon!=0 && lenS>0)
-			{
-			for (int i= 0;  i< lenA; i++)
-				{
-				if(pArcades[i]->isEmptyArcade==0)
-					{
-					pArcades[i].idSalon=auxIdSalon
-						for (int j = 0; j < lenA; ++j)
-							{
-								if(pArcades[j].idSalon==auxIdSalon)
-								{
-									contadordeIdSalon++;
-								}
-								if(contadordeIdSalon>4)
-								{
-									idSalonesainformar[i]=auxIdSalon;
-								}
-							}
-					}
-				}
-			}
-		if(idSalonesainformar[0]=)
 
-								{
-								printf(" %-30s %-30s \t%d\t\t%d\t   %d\n",
-								pSalones[i].nombreSalon,pSalones[i].direccionSalon,pSalones[i].tipoSalon, pSalones[i].idSalon,pSalones[i].isEmptySalon);
-								}
-
-					if(pArcades[i].isEmptyArcade==OCUPADO)
-					{
-						if()
-						printf("%-30s\n",listaJuegos[i].nombreJuego);
-						contadordeCargados++;
-					}
-				}
-				printf("______________________________________________\n");
-				estado=0;
-				if(contadordeCargados==0)
-					{
-						puts("NO HAY DATOS CARGADOS");
-					}
-			}
-	return retorno;
-}
-*/
 /**
  * \brief imprime la lista de eJuegos con juegos  activos sin repetir
  * \param  *pArcade recibo array por referencia, len tamaño del array

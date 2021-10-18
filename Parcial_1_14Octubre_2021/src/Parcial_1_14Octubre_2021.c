@@ -20,7 +20,6 @@
 #include "Arcade.h"
 #include "Menu.h"
 #include "Juego.h"
-#include "IdArcade.h"
 #include "Informes.h"
 
 #define CAN_SALON 100
@@ -44,21 +43,14 @@ int main(void)
 	char menuInformes;
 	int cargadoS;
 	int cargadoA;
-	/*
-	int idBaja;
-	int confirmarBaja;
-
-	printf("\ncargdoa dice%d\n",cargadoA);
-	*/
-
 	iniciarEarrayS(salones, CAN_SALON);
 
-	harcodearunSalon(salones,"Alavarez","Laprida 430",SHOPPING,7,6);
 	harcodearunSalon(salones,"Tejeda","Triunvirato 1239",SHOPPING,2,1);
 	harcodearunSalon(salones,"Arrúa","Urquiza 234",SHOPPING,3,2);
 	harcodearunSalon(salones,"Perez","La plata 2345",LOCAL,4,3);
 	harcodearunSalon(salones,"Lopez","Guemes 1234",LOCAL,5,4);
 	harcodearunSalon(salones,"Kirchner","Sin Nombre SN",LOCAL,6,5);
+	harcodearunSalon(salones,"Alavarez","Laprida 430",SHOPPING,7,6);
 
 	iniciarEarrayA(arcades, CAN_ARCADE);
 
@@ -68,6 +60,16 @@ int main(void)
 	harcodearunArcade(arcades, "Ruso","Formula 1",STEREO,3,400,5,5,4);
 	harcodearunArcade(arcades, "Hungaro","Raly Mundial",STEREO,4,500,6,6,5);
 	harcodearunArcade(arcades, "Criollo","Age of imperior",STEREO,5,1000,7,7,6);
+	harcodearunArcade(arcades, "Criollo","Age of imperior",STEREO,5,1000,8,7,7);
+	harcodearunArcade(arcades, "Criollo","Age of imperior",STEREO,5,1000,9,7,8);
+	harcodearunArcade(arcades, "Criollo","Age of imperior",STEREO,5,1000,10,7,9);
+	harcodearunArcade(arcades, "Criollo","Age of imperior",STEREO,5,1000,11,7,10);
+	harcodearunArcade(arcades, "Hungaro","Raly Mundial",STEREO,4,500,12,6,11);
+	harcodearunArcade(arcades, "Hungaro","Raly Mundial",STEREO,4,500,13,6,12);
+	harcodearunArcade(arcades, "Hungaro","Raly Mundial",STEREO,4,500,14,6,13);
+	harcodearunArcade(arcades, "Hungaro","Raly Mundial",STEREO,4,500,15,6,14);
+	harcodearunArcade(arcades, "Criollo","Age of imperior",STEREO,5,1000,16,7,15);
+
 	do
 		{
 			imprimirMenuInicial();
@@ -83,7 +85,6 @@ int main(void)
 					 * 1) ALTA DE SALÓN Se deberá dar de alta un salón con los siguientes datos: Nombre, dirección y tipo.
 						Se generará un ID único para gestionar los SALONES.Este salón se imprimirá por pantalla si el alta es correcta
 					 */
-
 					break;
 				case 2:
 					/*
@@ -103,7 +104,6 @@ int main(void)
 						imprimirSalonCargado(salones, CAN_SALON);
 					}else
 						puts("NO HYA DATOS CARGADOS");
-
 					break;
 				case 4:
 					/*
@@ -123,7 +123,8 @@ int main(void)
 					if(cargadoA>0)
 						{
 						modificarUnArcade(arcades, CAN_ARCADE);
-						}
+						}else
+							puts("NO HYA DATOS CARGADOS");
 					break;
 				case 6:
 					/*
@@ -131,7 +132,6 @@ int main(void)
 						Se ingresa un ID y previo a dar de baja se deberá solicitar confirmación, imprimiendo el arcade a dar de baja y
 						confirmando si está seguro dar de baja esté mismo.
 					 */
-
 					if(cargadoA>0)
 						{
 							eliminarArcadeDeLista(arcades,CAN_ARCADE);
@@ -156,7 +156,6 @@ int main(void)
 						imprimirListaJuegos(arcades, CAN_ARCADE);
 					}else
 						puts("NO HYA DATOS CARGADOS");
-
 					break;
 				case 9:
 					/*
@@ -174,6 +173,7 @@ int main(void)
 							{
 							case 65:
 								puts("PUSO A");
+								informeA(arcades,CAN_ARCADE,salones,CAN_SALON);
 								break;
 							case 66:
 								puts("PUSO B");
@@ -181,18 +181,23 @@ int main(void)
 								break;
 							case 67:
 								puts("PUSO C");
+								informeC(salones, CAN_SALON,arcades,CAN_ARCADE);
 								break;
 							case 68:
 								puts("PUSO D");
+								informeD(arcades,CAN_ARCADE,salones,CAN_SALON);
 								break;
 							case 69:
 								puts("PUSO E");
+								informeE(arcades, CAN_ARCADE,salones,CAN_SALON);
 								break;
 							case 70:
 								puts("PUSO F");
+								informeF(arcades, CAN_ARCADE,salones,CAN_SALON);
 								break;
 							case 71:
-								puts("PUSO H");
+								puts("PUSO G");
+								informeG(arcades, CAN_ARCADE);
 								break;
 							default:
 								break;
@@ -203,14 +208,13 @@ int main(void)
 						}
 
 						}while(menuInformes!=72);
-					}
+					}else
+						puts("NO HYA DATOS CARGADOS");
 					break;
-
 				default:
 					break;
 			}
 		}while(menuPrincipal!=10);
-	puts("!!!Usted ha salido del menu de SLONES Y ARCADES!!!");
-	puts("!!!Que hay de buevo viejo!!!");
+	puts("!!!Usted ha salido del menu de SALONES Y ARCADES!!!");
 	return EXIT_SUCCESS;
 }

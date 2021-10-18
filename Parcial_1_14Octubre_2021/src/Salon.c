@@ -20,7 +20,6 @@
 #include "Arcade.h"
 #include "Menu.h"
 #include "Juego.h"
-#include "IdArcade.h"
 #include "Informes.h"
 
 #define CAN_SALON 100
