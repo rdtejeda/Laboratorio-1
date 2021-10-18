@@ -242,22 +242,23 @@ int imprimirSalonCargado(eSalon *pSalones, int len)
 	int estado=-1;
 	int contadordeCargados=0;
 	ordenaSalonPorDireccion(pSalones, CAN_SALON);
-	printf("_____________________________________________________________________________________________________\n");
-	printf("\nNombre del Salon\t\tDirección\t\t\tTipo de Salon\tId Salon IsEmtySalon\n");
-	printf("_____________________________________________________________________________________________________\n");
+	printf("______________________________________________________________________________________________\n");
+	printf("\nNombre del Salon\t\tDirección\t\t\tTipo de Salon\tId Salon\n");
+	printf("______________________________________________________________________________________________\n");
 	if (pSalones!=NULL && len>0)
 	{
 		for (int i= 0;  i< len; i++)
 		{
 			if(pSalones[i].isEmptySalon==OCUPADO)
 			{
-				printf(" %-30s %-30s \t%d\t\t%d\t   %d\n",
-				pSalones[i].nombreSalon,pSalones[i].direccionSalon,pSalones[i].tipoSalon, pSalones[i].idSalon,pSalones[i].isEmptySalon);
+				printf(" %-30s %-30s \t%d\t\t%d\n",
+				pSalones[i].nombreSalon,pSalones[i].direccionSalon,pSalones[i].tipoSalon,
+				pSalones[i].idSalon);
 				contadordeCargados++;
 				estado=contadordeCargados;
 			}
 		}
-		printf("_____________________________________________________________________________________________________\n");
+		printf("______________________________________________________________________________________________\n");
 		if(contadordeCargados==0)
 			{
 				puts("NO HAY DIPLAYS CARGADOS");

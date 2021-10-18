@@ -220,7 +220,7 @@ int eliminarArcadeDeLista(eArcade *pArcades,int lenArcade)
 		imprimirArcadeCargado(pArcades, CAN_ARCADE);
 		pedirInt(&idBaja, "Ingrese ID de ARCADE a dar de baja", "Ingrese ID valido",MINIMO,CAN_ARCADE,INTENTOS);
 		auxPosArcade=buscarPosicionDeArcadeporSuId(pArcades, CAN_ARCADE,idBaja);
-		if(pArcades[auxPosArcade].isEmptyArcade==OCUPADO)
+		if(pArcades[auxPosArcade].isEmptyArcade==OCUPADO && auxPosArcade>=0)
 		{
 			printf("Esta por dar de baja este Arcade\n");
 			printf("____________________________________________________________________________________________________________________\n");
@@ -326,23 +326,23 @@ int imprimirArcadeCargado(eArcade *pArcades, int len)
 	int estado=-1;
 	int contadordeCargados=0;
 	ordenaArcadePorNombreJuego(pArcades, CAN_ARCADE);
-	printf("____________________________________________________________________________________________________________________\n");
-	printf("Id Nacionalidad de Arcade\t  Nombre Juego\t\t\tSonido Jugadores Max.Fichas Id Salon IsEmpty Arcade\n");
-	printf("____________________________________________________________________________________________________________________\n");
+	printf("____________________________________________________________________________________________________________\n");
+	printf("Id Nacionalidad de Arcade\t  Nombre Juego\t\t\tSonido Jugadores Max.Fichas Id Salon\n");
+	printf("____________________________________________________________________________________________________________\n");
 	if (pArcades!=NULL && len>0)
 	{
 		for (int i= 0;  i< len; i++)
 		{
 			if(pArcades[i].isEmptyArcade==OCUPADO)
 			{
-				printf(" %d %-30s %-30s %d\t%d\t  %d\t\t%d\t%d\n",
+				printf(" %d %-30s %-30s %d\t%d\t  %d\t\t%d\n",
 				pArcades[i].idArcade,pArcades[i].nacionalidadArcade,pArcades[i].nombreJuego,pArcades[i].tipoSonidoArcade,pArcades[i].cantidadJugadorArcade,
-				pArcades[i].capMaxFichaArcade,pArcades[i].idSalon,pArcades[i].isEmptyArcade);
+				pArcades[i].capMaxFichaArcade,pArcades[i].idSalon);
 				contadordeCargados++;
 				estado=contadordeCargados;
 			}
 		}
-		printf("___________________________________________________________________________________________________________________\n");
+		printf("___________________________________________________________________________________________________________\n");
 		if(contadordeCargados==0)
 			{
 				puts("NO HAY DATOS CARGADOS");

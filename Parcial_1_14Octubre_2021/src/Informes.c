@@ -146,20 +146,26 @@ int informeD(eArcade *pArcades,int lenA,eSalon *pSalones,int lenS)
 		posSalon=buscarPosicionDeSalonporSuId(pSalones, lenS, idSalon);
 		if(posSalon>=0)
 		{
+			printf("_________________________________________________________________\n");
+			printf("\nNombre del Salon\t\tId Salon\n");
+			printf("__________________________________________________________________\n");
 			printf(" %-30s \t%d\n",pSalones[posSalon].nombreSalon,pSalones[posSalon].idSalon);
+			printf("__________________________________________________________________\n");
+			printf("Id Nacionalidad de Arcade\t  Nombre Juego\t\t\tSonido Jugadores Max.Fichas Id Salon\n");
+			printf("__________________________________________________________________________________________________________\n");
 		}else
 			puts("Ingrese Id Valido");
 		for (int j=0;j<lenA; ++j)
 		{
 			if(pArcades[j].idSalon==idSalon)
 			{
-				printf(" %d %-30s %-30s %d\t%d\t  %d\t\t%d\t%d\n",
+				printf(" %d %-30s %-30s %d\t%d\t  %d\t\t%d\n",
 				pArcades[j].idArcade,pArcades[j].nacionalidadArcade,pArcades[j].nombreJuego,pArcades[j].tipoSonidoArcade,pArcades[j].cantidadJugadorArcade,
-				pArcades[j].capMaxFichaArcade,pArcades[j].idSalon,pArcades[j].isEmptyArcade);
+				pArcades[j].capMaxFichaArcade,pArcades[j].idSalon);
 				estado=0;
 			}
 		}
-
+		printf("__________________________________________________________________________________________________________\n");
 	}
 		return estado;
 }
@@ -211,25 +217,25 @@ int informeF(eArcade *pArcades,int lenA,eSalon *pSalones,int lenS)
 	float montoMaximo;
 	if(pArcades!=NULL && lenA>0 && pSalones!=0 && lenS>0)
 	{
-		puts("Hasta aca llego");
 		imprimirSalonCargado(pSalones, lenS);
 		pedirInt(&idSalon, "Ingrese Id de Salon","Id invalido",MINIMO,CAN_SALON,INTENTOS);
 		posSalon=buscarPosicionDeSalonporSuId(pSalones, lenS, idSalon);
 		if(posSalon>=0)
 		{
 			pedirFloat(&valorFicha,"Ingrese valor de la ficha en Pesos","Error Valor entre 1 y 10 Pesos",MINIMO,MAXIMO10,INTENTOS);
+			for (int j=0;j<lenA; ++j)
+					{
+						if(pArcades[j].idSalon==idSalon)
+						{
+							sumatoriaDeFichas=sumatoriaDeFichas+pArcades[j].capMaxFichaArcade;
+							estado=0;
+						}
+					}
+					montoMaximo=valorFicha*sumatoriaDeFichas;
+					printf("\n\tEl monto máximo que puede facturar el Salon es %.2f Pesos\n\n",montoMaximo);
 		}else
 			puts("Ingrese Id Valido");
-		for (int j=0;j<lenA; ++j)
-		{
-			if(pArcades[j].idSalon==idSalon)
-			{
-				sumatoriaDeFichas=sumatoriaDeFichas+pArcades[j].capMaxFichaArcade;
-				estado=0;
-			}
-		}
-		montoMaximo=valorFicha*sumatoriaDeFichas;
-		printf("El monto máximo que puede facturar el Salon es %.2fPesos\n9",montoMaximo);
+
 	}
 		return estado;
 }
@@ -257,12 +263,19 @@ int informeG(eArcade *pArcades,int lenA)
 					estado=0;
 				}
 			}
+		if(cantidad==1)
+			{
+			printf("\n\tEl juego %s esta contenido en %d arcade\n\n",auxNombreJuego,cantidad);
+			}else
+				{
+				printf("\n\tEl juego %s esta contenido en %d arcades\n\n",auxNombreJuego,cantidad);
+				}
+
 		}else
 		{
 			puts("El juego buscado no esta en la lista de Arcades disponibles");
 		}
 	}
-	printf("El juego %s es en %d Arcade\n",auxNombreJuego,cantidad);
 return estado;
 }
 //================================================================================================================

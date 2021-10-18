@@ -1,4 +1,39 @@
-15:06:28 **** Clean-only build of configuration Debug for project Parcial_1_14Octubre_2021 ****
-make clean 
-rm -rf  ./src/Arcade.o ./src/Informes.o ./src/Juego.o ./src/Menu.o ./src/Parcial_1_14Octubre_2021.o ./src/Pedir.o ./src/Salon.o  ./src/Arcade.d ./src/Informes.d ./src/Juego.d ./src/Menu.d ./src/Parcial_1_14Octubre_2021.d ./src/Pedir.d ./src/Salon.d  Parcial_1_14Octubre_2021
+22:32:58 **** Incremental Build of configuration Debug for project Parcial_1_14Octubre_2021 ****
+make all 
+Building file: ../src/Parcial_1_14Octubre_2021.c
+Invoking: GCC C Compiler
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Parcial_1_14Octubre_2021.d" -MT"src/Parcial_1_14Octubre_2021.o" -o "src/Parcial_1_14Octubre_2021.o" "../src/Parcial_1_14Octubre_2021.c"
+Finished building: ../src/Parcial_1_14Octubre_2021.c
+ 
+Building target: Parcial_1_14Octubre_2021
+Invoking: GCC C Linker
+gcc  -o "Parcial_1_14Octubre_2021"  ./src/Arcade.o ./src/Informes.o ./src/Juego.o ./src/Menu.o ./src/Parcial_1_14Octubre_2021.o ./src/Pedir.o ./src/Salon.o   
+Finished building target: Parcial_1_14Octubre_2021
+ 
+22:33:05 **** Incremental Build of configuration Debug for project Parcial_1_14Octubre_2021 ****
+make all 
+make: No se hace nada para 'all'.
+22:37:45 **** Incremental Build of configuration Debug for project Parcial_1_14Octubre_2021 ****
+make all 
+Building file: ../src/Informes.c
+Invoking: GCC C Compiler
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Informes.d" -MT"src/Informes.o" -o "src/Informes.o" "../src/Informes.c"
+Finished building: ../src/Informes.c
+ 
+Building target: Parcial_1_14Octubre_2021
+Invoking: GCC C Linker
+gcc  -o "Parcial_1_14Octubre_2021"  ./src/Arcade.o ./src/Informes.o ./src/Juego.o ./src/Menu.o ./src/Parcial_1_14Octubre_2021.o ./src/Pedir.o ./src/Salon.o   
+Finished building target: Parcial_1_14Octubre_2021
+ 
+22:38:34 **** Incremental Build of configuration Debug for project Parcial_1_14Octubre_2021 ****
+make all 
+Building file: ../src/Informes.c
+Invoking: GCC C Compiler
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Informes.d" -MT"src/Informes.o" -o "src/Informes.o" "../src/Informes.c"
+Finished building: ../src/Informes.c
+ 
+Building target: Parcial_1_14Octubre_2021
+Invoking: GCC C Linker
+gcc  -o "Parcial_1_14Octubre_2021"  ./src/Arcade.o ./src/Informes.o ./src/Juego.o ./src/Menu.o ./src/Parcial_1_14Octubre_2021.o ./src/Pedir.o ./src/Salon.o   
+Finished building target: Parcial_1_14Octubre_2021
  
