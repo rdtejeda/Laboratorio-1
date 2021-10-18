@@ -1,5 +1,10 @@
-00:22:06 **** Incremental Build of configuration Debug for project Parcial_1_14Octubre_2021 ****
+22:27:15 **** Incremental Build of configuration Debug for project Parcial_1_14Octubre_2021 ****
 make all 
+Building file: ../src/Informes.c
+Invoking: GCC C Compiler
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Informes.d" -MT"src/Informes.o" -o "src/Informes.o" "../src/Informes.c"
+Finished building: ../src/Informes.c
+ 
 Building file: ../src/Parcial_1_14Octubre_2021.c
 Invoking: GCC C Compiler
 gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Parcial_1_14Octubre_2021.d" -MT"src/Parcial_1_14Octubre_2021.o" -o "src/Parcial_1_14Octubre_2021.o" "../src/Parcial_1_14Octubre_2021.c"
@@ -7,42 +12,45 @@ Finished building: ../src/Parcial_1_14Octubre_2021.c
  
 Building target: Parcial_1_14Octubre_2021
 Invoking: GCC C Linker
-gcc  -o "Parcial_1_14Octubre_2021"  ./src/Arcade.o ./src/IdArcade.o ./src/Juego.o ./src/Menu.o ./src/Parcial_1_14Octubre_2021.o ./src/Pedir.o ./src/Salon.o   
+gcc  -o "Parcial_1_14Octubre_2021"  ./src/Arcade.o ./src/IdArcade.o ./src/Informes.o ./src/Juego.o ./src/Menu.o ./src/Parcial_1_14Octubre_2021.o ./src/Pedir.o ./src/Salon.o   
 Finished building target: Parcial_1_14Octubre_2021
  
-00:22:38 **** Incremental Build of configuration Debug for project Parcial_1_14Octubre_2021 ****
+22:27:18 **** Incremental Build of configuration Debug for project Parcial_1_14Octubre_2021 ****
 make all 
-Building file: ../src/Parcial_1_14Octubre_2021.c
+make: No se hace nada para 'all'.
+22:31:57 **** Incremental Build of configuration Debug for project Parcial_1_14Octubre_2021 ****
+make all 
+Building file: ../src/Informes.c
 Invoking: GCC C Compiler
-gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Parcial_1_14Octubre_2021.d" -MT"src/Parcial_1_14Octubre_2021.o" -o "src/Parcial_1_14Octubre_2021.o" "../src/Parcial_1_14Octubre_2021.c"
-Finished building: ../src/Parcial_1_14Octubre_2021.c
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Informes.d" -MT"src/Informes.o" -o "src/Informes.o" "../src/Informes.c"
+Finished building: ../src/Informes.c
  
 Building target: Parcial_1_14Octubre_2021
 Invoking: GCC C Linker
-gcc  -o "Parcial_1_14Octubre_2021"  ./src/Arcade.o ./src/IdArcade.o ./src/Juego.o ./src/Menu.o ./src/Parcial_1_14Octubre_2021.o ./src/Pedir.o ./src/Salon.o   
+gcc  -o "Parcial_1_14Octubre_2021"  ./src/Arcade.o ./src/IdArcade.o ./src/Informes.o ./src/Juego.o ./src/Menu.o ./src/Parcial_1_14Octubre_2021.o ./src/Pedir.o ./src/Salon.o   
 Finished building target: Parcial_1_14Octubre_2021
  
-00:29:49 **** Incremental Build of configuration Debug for project Parcial_1_14Octubre_2021 ****
+22:32:43 **** Incremental Build of configuration Debug for project Parcial_1_14Octubre_2021 ****
 make all 
-Building file: ../src/Arcade.c
+Building file: ../src/Informes.c
 Invoking: GCC C Compiler
-gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Arcade.d" -MT"src/Arcade.o" -o "src/Arcade.o" "../src/Arcade.c"
-Finished building: ../src/Arcade.c
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Informes.d" -MT"src/Informes.o" -o "src/Informes.o" "../src/Informes.c"
+Finished building: ../src/Informes.c
  
 Building target: Parcial_1_14Octubre_2021
 Invoking: GCC C Linker
-gcc  -o "Parcial_1_14Octubre_2021"  ./src/Arcade.o ./src/IdArcade.o ./src/Juego.o ./src/Menu.o ./src/Parcial_1_14Octubre_2021.o ./src/Pedir.o ./src/Salon.o   
+gcc  -o "Parcial_1_14Octubre_2021"  ./src/Arcade.o ./src/IdArcade.o ./src/Informes.o ./src/Juego.o ./src/Menu.o ./src/Parcial_1_14Octubre_2021.o ./src/Pedir.o ./src/Salon.o   
 Finished building target: Parcial_1_14Octubre_2021
  
-00:30:35 **** Incremental Build of configuration Debug for project Parcial_1_14Octubre_2021 ****
+22:33:23 **** Incremental Build of configuration Debug for project Parcial_1_14Octubre_2021 ****
 make all 
-Building file: ../src/Arcade.c
+Building file: ../src/Informes.c
 Invoking: GCC C Compiler
-gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Arcade.d" -MT"src/Arcade.o" -o "src/Arcade.o" "../src/Arcade.c"
-Finished building: ../src/Arcade.c
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Informes.d" -MT"src/Informes.o" -o "src/Informes.o" "../src/Informes.c"
+Finished building: ../src/Informes.c
  
 Building target: Parcial_1_14Octubre_2021
 Invoking: GCC C Linker
-gcc  -o "Parcial_1_14Octubre_2021"  ./src/Arcade.o ./src/IdArcade.o ./src/Juego.o ./src/Menu.o ./src/Parcial_1_14Octubre_2021.o ./src/Pedir.o ./src/Salon.o   
+gcc  -o "Parcial_1_14Octubre_2021"  ./src/Arcade.o ./src/IdArcade.o ./src/Informes.o ./src/Juego.o ./src/Menu.o ./src/Parcial_1_14Octubre_2021.o ./src/Pedir.o ./src/Salon.o   
 Finished building target: Parcial_1_14Octubre_2021
  

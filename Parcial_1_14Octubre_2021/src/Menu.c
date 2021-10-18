@@ -20,6 +20,7 @@
 #include "Arcade.h"
 #include "Juego.h"
 #include "IdArcade.h"
+#include "Informes.h"
 
 #define CAN_SALON 100
 #define CAN_ARCADE 1000
@@ -32,6 +33,8 @@
 #define STEREO 2
 #define MINIMO 1
 #define MAXIMO10 10
+#define MAXIMO500 500
+#define MAXIMO3 3
 
 //==========================================================
 /**
@@ -78,11 +81,9 @@ void imprimirMenuInformes()
 */
 void imprimirMenuModificar()
 {
-	puts("1- TIPO DE DIPLAY");
-	puts("2- PRECIO DE LA PUBLICACION");
-	puts("3- NOMBRE DE LA PUBLICACION");
-	puts("4- DIRECCION DE LA PANTALLA");
-	puts("5- SALIR");
+	puts("1- Cantidad de jugadores");
+	puts("2- Juego que contiene");
+	puts("3- SALIR");
 }
 //============================================================
 

@@ -19,6 +19,8 @@ typedef struct{
 	int isEmptySalon;
 }eSalon;
 
+
+
 int iniciarEarrayS(eSalon *pSalones,int len);
 int largoArrayS(eSalon *pSalones,int len);
 int imprimirSalonCargado(eSalon *pSalones, int len);

@@ -33,3 +33,5 @@
 #define STEREO 2
 #define MINIMO 1
 #define MAXIMO10 10
+#define MAXIMO500 500
+#define MAXIMO3 3

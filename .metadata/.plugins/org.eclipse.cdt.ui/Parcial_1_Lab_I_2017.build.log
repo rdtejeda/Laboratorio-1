@@ -1,40 +1,7 @@
-14:36:43 **** Build of configuration Debug for project Parcial_1_Lab_I_2017 ****
-make all 
-Building file: ../src/Contrataciones.c
-Invoking: GCC C Compiler
-gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Contrataciones.d" -MT"src/Contrataciones.o" -o "src/Contrataciones.o" "../src/Contrataciones.c"
-Finished building: ../src/Contrataciones.c
- 
-Building file: ../src/Info.c
-Invoking: GCC C Compiler
-gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Info.d" -MT"src/Info.o" -o "src/Info.o" "../src/Info.c"
-Finished building: ../src/Info.c
- 
-Building file: ../src/Menu.c
-Invoking: GCC C Compiler
-gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Menu.d" -MT"src/Menu.o" -o "src/Menu.o" "../src/Menu.c"
-Finished building: ../src/Menu.c
- 
-Building file: ../src/Pantalla.c
-Invoking: GCC C Compiler
-gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Pantalla.d" -MT"src/Pantalla.o" -o "src/Pantalla.o" "../src/Pantalla.c"
-Finished building: ../src/Pantalla.c
- 
-Building file: ../src/Parcial_1_Lab_I_2017.c
-Invoking: GCC C Compiler
-gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Parcial_1_Lab_I_2017.d" -MT"src/Parcial_1_Lab_I_2017.o" -o "src/Parcial_1_Lab_I_2017.o" "../src/Parcial_1_Lab_I_2017.c"
-Finished building: ../src/Parcial_1_Lab_I_2017.c
- 
-Building file: ../src/Pedir.c
-Invoking: GCC C Compiler
-gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Pedir.d" -MT"src/Pedir.o" -o "src/Pedir.o" "../src/Pedir.c"
-Finished building: ../src/Pedir.c
- 
-Building target: Parcial_1_Lab_I_2017
-Invoking: GCC C Linker
-gcc  -o "Parcial_1_Lab_I_2017"  ./src/Contrataciones.o ./src/Info.o ./src/Menu.o ./src/Pantalla.o ./src/Parcial_1_Lab_I_2017.o ./src/Pedir.o   
-Finished building target: Parcial_1_Lab_I_2017
+07:34:07 **** Clean-only build of configuration Debug for project Parcial_1_Lab_I_2017 ****
+make clean 
+rm -rf  ./src/Contrataciones.o ./src/Info.o ./src/Menu.o ./src/Pantalla.o ./src/Parcial_1_Lab_I_2017.o ./src/Pedir.o  ./src/Contrataciones.d ./src/Info.d ./src/Menu.d ./src/Pantalla.d ./src/Parcial_1_Lab_I_2017.d ./src/Pedir.d  Parcial_1_Lab_I_2017
  
 
-14:36:45 Build Finished. 0 errors, 0 warnings. (took 1s.973ms)
+07:34:08 Build Finished. 0 errors, 0 warnings. (took 1s.13ms)
 

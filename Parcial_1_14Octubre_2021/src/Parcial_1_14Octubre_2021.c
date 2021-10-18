@@ -21,6 +21,7 @@
 #include "Menu.h"
 #include "Juego.h"
 #include "IdArcade.h"
+#include "Informes.h"
 
 #define CAN_SALON 100
 #define CAN_ARCADE 1000
@@ -105,13 +106,13 @@ int main(void)
 
 					break;
 				case 4:
-					altaArcade(arcades, salones, CAN_ARCADE, CAN_SALON);
-					imprimirArcadeCargado(arcades, CAN_ARCADE);
 					/*
 					 * 4) INCORPORAR ARCADE Se da de alta un arcade con la nacionalidad, tipo de sonido, cantidad de jugadores, capacidad máxima de
 						fichas, ID del salón al que pertenece (Validar que exista) y nombre del juego que contiene (hasta 63 caracteres).
 						Se generará un ID único para gestionar los ARCADE.
 					 */
+					altaArcade(arcades, salones, CAN_ARCADE, CAN_SALON);
+					imprimirArcadeCargado(arcades, CAN_ARCADE);
 					break;
 				case 5:
 					/*
@@ -119,13 +120,10 @@ int main(void)
 						Al elegir modificar el juego que contiene este arcade, mostrar en un listado los nombres de los juegos ya
 						cargados en el sistema y se permitirá ingresar un texto con el nombre del nuevo juego.
 					 */
-					/*
-					if(cargadoC>0)
+					if(cargadoA>0)
 						{
-							pedirUnCUIT(cuitModificar, 12, "Ingrese CUIT a modificar", "Ingrese CUIT valido", INTENTOS);
-							buscarYModifPorCUIL(contrataciones, TAMANO_ARRAY, cuitModificar);
+						modificarUnArcade(arcades, CAN_ARCADE);
 						}
-						*/
 					break;
 				case 6:
 					/*
@@ -152,13 +150,13 @@ int main(void)
 					/*
 					 * 8) IMPRIMIR JUEGOS Se imprime la lista de juegos que contienen todos los arcades sin repetir.
 					 */
-					/*
-					if(cargadoC>0)
+
+					if(cargadoA>0)
 					{
-						imprimirDisplayCargadoC(contrataciones, TAMANO_ARRAY);
+						imprimirListaJuegos(arcades, CAN_ARCADE);
 					}else
 						puts("NO HYA DATOS CARGADOS");
-						*/
+
 					break;
 				case 9:
 					/*
@@ -179,6 +177,7 @@ int main(void)
 								break;
 							case 66:
 								puts("PUSO B");
+								informeB(arcades,CAN_ARCADE,salones,CAN_SALON);
 								break;
 							case 67:
 								puts("PUSO C");

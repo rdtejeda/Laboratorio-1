@@ -21,6 +21,7 @@
 #include "Menu.h"
 #include "Juego.h"
 #include "IdArcade.h"
+#include "Informes.h"
 
 #define CAN_SALON 100
 #define CAN_ARCADE 1000
@@ -34,6 +35,7 @@
 #define MINIMO 1
 #define MAXIMO10 10
 #define MAXIMO500 500
+#define MAXIMO3 3
 
 static int dameUnIdNuevoA(void);
 /*
@@ -49,7 +51,56 @@ static int dameUnIdNuevoA(void);
 }eArcade;
  */
 
+//=============================================================================
+/**
+* \brief Modifica un display dando opciones
+* \param recibe un estructura por puntero, el largo
+* \return Retorna -1 todo mal 0 todo bien
+*/
+ int modificarUnArcade(eArcade *pArcade, int len)
+ {
+	 int retorno=-1;
+	 int idamodificar;
+	 int posicion;
+	 char bufferNomJuA[64];
+	 int bufferCantJugA;
+	 int opcion;
 
+	 if(pArcade!=NULL && len>0)
+	 {
+		 imprimirArcadeCargado(pArcade, len);
+		 pedirInt(&idamodificar, "Ingrese Id a modificar", "Error",MINIMO,CAN_ARCADE,INTENTOS);
+		 posicion=buscarPosicionDeArcadeporSuId(pArcade, len, idamodificar);
+		 if (posicion>=0)
+			 {
+			 do
+				 {
+					 puts("INGRESE OPCION A MOFIFICAR");
+					 imprimirMenuModificar();
+					 pedirInt(&opcion, "INGRESE OPCION A MOFIFICAR", "Ingrese entre 1 y 3",MINIMO,MAXIMO3,INTENTOS);
+					 switch (opcion)
+					 {
+						case 1:
+							pedirInt(&bufferCantJugA,"Ingrese Cantidad de Jugadores","Ingrese tipo valido",MINIMO,MAXIMO10,INTENTOS);
+							pArcade[posicion].cantidadJugadorArcade=bufferCantJugA;
+							break;
+						case 2:
+							imprimirListaJuegos(pArcade, CAN_ARCADE);
+							pedirText(bufferNomJuA,sizeof(pArcade->nombreJuego),"Ingrese el Nombre del Juego","Nombre no valido",INTENTOS);
+							strncpy(pArcade[posicion].nombreJuego,bufferNomJuA,sizeof(pArcade[posicion].nombreJuego));
+							break;
+						default:
+							break;
+					 }
+					 imprimirArcadeCargado(pArcade, len);
+				 }while(opcion<3);
+			retorno=0;
+			 }else
+				 puts("Id no Valido5"
+						 "");
+		 }
+	 return retorno;
+ }
 //=============================================================================
 /**
 * \brief da de alta un salon en el array de Display
@@ -104,7 +155,7 @@ int pedirDatosArcade(eArcade *pArcades,eSalon *pSalones,int lenA,int lenS)
 			  	  {
 				  if(pedirText(bufferNacA, sizeof(pArcades->nacionalidadArcade), "Ingrese la Nacionalidad", "Nacionalidad invalido",INTENTOS)==0)
 				   	  {
-					  if(pedirInt(&bufferCantJugA,"Ingrese Cantidad de Jugadores", "Ingrese tipo valido",MINIMO,MAXIMO10,INTENTOS)==0)
+					  if(pedirInt(&bufferCantJugA,"Ingrese Cantidad de Jugadores","Ingrese Cantidad valido",MINIMO,MAXIMO10,INTENTOS)==0)
 					  	  {
 						  if(pedirInt(&bufferCantMAxFA,"Ingrese Cantidad Maxima de fichas", "Ingrese tipo valido",MAXIMO10,MAXIMO500,INTENTOS)==0)
 						  	  {
