@@ -1,3 +1,15 @@
-17:30:00 **** Incremental Build of configuration Debug for project Parcial_1_14Octubre_2021 ****
+17:53:55 **** Incremental Build of configuration Debug for project Parcial_1_Oct_21_Harcodeado ****
+make all 
+Building file: ../src/Parcial_1_Oct_21_Harcodeado.c
+Invoking: GCC C Compiler
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Parcial_1_Oct_21_Harcodeado.d" -MT"src/Parcial_1_Oct_21_Harcodeado.o" -o "src/Parcial_1_Oct_21_Harcodeado.o" "../src/Parcial_1_Oct_21_Harcodeado.c"
+Finished building: ../src/Parcial_1_Oct_21_Harcodeado.c
+ 
+Building target: Parcial_1_Oct_21_Harcodeado
+Invoking: GCC C Linker
+gcc  -o "Parcial_1_Oct_21_Harcodeado"  ./src/Arcade.o ./src/Informes.o ./src/Juego.o ./src/Menu.o ./src/Parcial_1_Oct_21_Harcodeado.o ./src/Pedir.o ./src/Salon.o   
+Finished building target: Parcial_1_Oct_21_Harcodeado
+ 
+17:53:59 **** Incremental Build of configuration Debug for project Parcial_1_Oct_21_Harcodeado ****
 make all 
 make: No se hace nada para 'all'.
