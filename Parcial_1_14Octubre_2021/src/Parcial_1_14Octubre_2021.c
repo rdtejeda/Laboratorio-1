@@ -36,7 +36,6 @@
 
 int main(void)
 {
-
 	eSalon salones[CAN_SALON];
 	eArcade arcades[CAN_ARCADE];
 	int menuPrincipal;
@@ -45,32 +44,6 @@ int main(void)
 	int cargadoA;
 	iniciarEarrayS(salones, CAN_SALON);
 	iniciarEarrayA(arcades, CAN_ARCADE);
-
-	harcodearunSalon(salones,"Tejeda","Triunvirato 1239",SHOPPING,2,1);
-	harcodearunSalon(salones,"Arrúa","Urquiza 234",SHOPPING,3,2);
-	harcodearunSalon(salones,"Perez","La plata 2345",LOCAL,4,3);
-	harcodearunSalon(salones,"Lopez","Guemes 1234",LOCAL,5,4);
-	harcodearunSalon(salones,"Kirchner","Sin Nombre SN",LOCAL,6,5);
-	harcodearunSalon(salones,"Alavarez","Laprida 430",SHOPPING,7,6);
-
-
-
-	harcodearunArcade(arcades, "Chino","El juego del calamar",MONO,10,100,2,2,1);
-	harcodearunArcade(arcades, "Peruano","El abominable",MONO,1,200,3,3,2);
-	harcodearunArcade(arcades, "Cubano","La invensible",MONO,2,300,4,4,3);
-	harcodearunArcade(arcades, "Ruso","Formula 1",STEREO,3,400,5,5,4);
-	harcodearunArcade(arcades, "Hungaro","Raly Mundial",STEREO,4,500,6,6,5);
-	harcodearunArcade(arcades, "Criollo","Age of imperior",STEREO,5,1000,7,7,6);
-	harcodearunArcade(arcades, "Criollo","Age of imperior",STEREO,5,1000,8,7,7);
-	harcodearunArcade(arcades, "Criollo","Age of imperior",STEREO,5,1000,9,7,8);
-	harcodearunArcade(arcades, "Criollo","Age of imperior",STEREO,5,1000,10,7,9);
-	harcodearunArcade(arcades, "Criollo","Age of imperior",STEREO,5,1000,11,7,10);
-	harcodearunArcade(arcades, "Hungaro","Raly Mundial",STEREO,4,500,12,6,11);
-	harcodearunArcade(arcades, "Hungaro","Raly Mundial",STEREO,4,500,13,6,12);
-	harcodearunArcade(arcades, "Hungaro","Raly Mundial",STEREO,4,500,14,6,13);
-	harcodearunArcade(arcades, "Hungaro","Raly Mundial",STEREO,4,500,15,6,14);
-	harcodearunArcade(arcades, "Criollo","Age of imperior",STEREO,5,1000,16,7,15);
-
 	do
 		{
 			imprimirMenuInicial();
@@ -81,12 +54,11 @@ int main(void)
 			{
 				case 1:
 					altaSalon(salones, CAN_SALON);
-					imprimirSalonCargado(salones, CAN_SALON);
 					break;
 				case 2:
 					if(cargadoS>0)
 					{
-						eliminarSalonDeLista(salones, CAN_SALON);
+						bajaDeSalonYsusArcadesDeLista(salones,CAN_SALON,arcades,CAN_ARCADE);
 					}else
 						puts("NO HYA DATOS CARGADOS");
 					break;

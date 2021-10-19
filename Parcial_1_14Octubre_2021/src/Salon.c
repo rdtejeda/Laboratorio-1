@@ -7,7 +7,6 @@
  Description : Estamos en el año 1990!
  ============================================================================
  */
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdio_ext.h>
@@ -37,17 +36,7 @@
 #define MAXIMO3 3
 
 static int dameUnIdNuevoS(void);
-/*
- * typedef struct{
-	char nombreSalon[24];
-	char direccionSalon[48];
-	int tipoSalon;
-	int idSalon;
-	int isEmptySalon;
-}eSalon;
- */
 
-//=============================================================================
 /**
 * \brief da de alta un salon en el array de Display
 * \param recibe un array de estructura, el largo
@@ -64,6 +53,7 @@ int altaSalon(eSalon *pSalones,int len)
 			{
 			if(pedirDatosSalon(&pSalones[libre],len)==0)
 				{
+				imprimirUnSalonCargado(pSalones,len,pSalones[libre].idSalon);
 				retorno=0;
 				puts("Se ha completado la carga");
 				}else
@@ -74,10 +64,10 @@ int altaSalon(eSalon *pSalones,int len)
 				{
 					puts("No hay espacio libre en el array");
 				}
-	}
+	}else
+		 puts("No se ha podido procesar");
 return retorno;
 }
-//=============================================================================
 /**
 * \brief caraga de datos para Dar de alta un salon
 * \param recibe un estructura por puntero y el largo
@@ -103,14 +93,14 @@ int pedirDatosSalon(eSalon *pSalones, int len)
 			    			 strncpy(pSalones->direccionSalon,bufferdireccioS,sizeof(pSalones->direccionSalon));
 			    			 pSalones->idSalon=dameUnIdNuevoS();
 			    			 pSalones->isEmptySalon=OCUPADO;
-			    			 estado=OCUPADO;
+			    			 estado=0;
 			    		 }
 			    	 }
 			     }
-	   }
+	   }else
+			 puts("No se ha podido procesar");
 	   return estado;
 }
-//=============================================================================
 /**
 * \brief busca el primer index del array con flag emty
 * \param recibe un estructura por puntero y el largo
@@ -129,12 +119,13 @@ int buscarLugarLibreArrayS(eSalon *pSalones, int len)
 				break;
 			}
 		}
-	}
+	}else
+		 puts("No se ha podido procesar");
 	return retorno;
 }
-//=============================================================================
 /**
-* \brief elimina un salon, imprime lista y da la baja
+* \brief Se imprime la lista de salas listando ID, nombre y dirección.
+* Se ingresa un ID y la misma generará la baja del salón,
 * \param recibe un estructura por puntero, el largo
 * \return Retorna si logor eliminar y -1 si no
 */
@@ -155,10 +146,10 @@ int eliminarSalonDeLista(eSalon *pSalones,int len)
 		}else
 			puts("Debe ingresar un Id de Salon valido");
 		imprimirSalonCargado(pSalones, len);
-	}
+	}else
+		 puts("No se ha podido procesar");
 	return retorno;
 }
-//=========================================================================
  /**
  * \brief Da de baja en forma logica un ID = Emty
  * \param recibe un estructura por puntero, el largo y el id a dar de baja
@@ -173,12 +164,12 @@ int eliminarSalonDeLista(eSalon *pSalones,int len)
 	 {
 		 pSalones[posicion].isEmptySalon=LIBRE;
 		 retorno=0;
-	 }
+	 }else
+		 puts("No se ha podido procesar");
 	 return retorno;
  }
-//==========================================================================================
 /**
-* \brief Busca  un Salon recibiendo como parámetro de búsqueda el Id.
+* \brief Busca  la posicion en el array de salon de un Salon recibiendo como parámetro de búsqueda el Id.
 * \param  *parcade recibo array por referencia,len tamaño del array, id
 * \return Retorna la posicion en el array del id solicitado o -1 si el no exixte
 */
@@ -195,10 +186,10 @@ int buscarPosicionDeSalonporSuId(eSalon *pSalones,int len,int id)
 					break;
 				}
 			}
-		}
-		return retorno;
+		}else
+			 puts("No se ha podido procesar");
+	return retorno;
 }
-//==============================================================================
 /**
 * \brief Ordena el array de Salon por orden alfabetico ascendente de nombre
 * \param recibe un array de estructura, el largo
@@ -228,10 +219,10 @@ int ordenaSalonPorDireccion(eSalon *pSalones, int len)
 				}
 			}
 		}while(banderaSwapp==1);
-	}
+	}else
+		 puts("No se ha podido procesar");
 	return banderaSwapp;
 }
-//=============================================================================
 /**
 * \brief busca e Imprime el array Salon cargado con datos flag busy
 * \param recibe un estructura por puntero y el largo
@@ -261,12 +252,12 @@ int imprimirSalonCargado(eSalon *pSalones, int len)
 		printf("______________________________________________________________________________________________\n");
 		if(contadordeCargados==0)
 			{
-				puts("NO HAY DIPLAYS CARGADOS");
+				puts("NO HAY Aracdes CARGADOS");
 			}
-	}
+	}else
+		 puts("No se ha podido procesar");
 	return estado;
 }
-//=========================================================================
 /**
  * \brief inicializa todas las posiciones del array salones como Libres pone la bander isEmpty en -1
  * \param  *plist recibo array por referencia, len tamaño del array
@@ -282,10 +273,10 @@ int iniciarEarrayS(eSalon *pSalones,int len)
 			  pSalones[j].isEmptySalon=LIBRE;
 			  estado=0;
 		   }
-	   }
+	   }else
+			 puts("No se ha podido procesar");
 	   return estado;
 }
-//===========================================================================
 /**
  * \brief busca cantidad de posiciones ocupadas en el array
 * \param *plistEmployee recibo array por referencia, len tamaño del array
@@ -308,19 +299,34 @@ int largoArrayS(eSalon *pSalones,int len)
 		{
 			retorno=contBusy;
 		}
-	}
+	}else
+		 puts("No se ha podido procesar");
 	return retorno;
 }
-//============================================================
-void harcodearunSalon(eSalon *pSalones,char nombreSalon[24],char direccionSalon[48],int tipoSalon,int idSalon,int posicion)
+/**
+* \brief Imprime un Salon cargado con datos flag busy
+* \param recibe un estructura por puntero, el largo  y el id a imprimir
+* \return Retorna 0 todo bien  y -1  si no
+*/
+int imprimirUnSalonCargado(eSalon *pSalones, int len, int idmostrar)
 {
-	strncpy(pSalones[posicion].nombreSalon, nombreSalon,sizeof(pSalones[posicion].nombreSalon));
-	strncpy(pSalones[posicion].direccionSalon, direccionSalon,sizeof(pSalones[posicion].direccionSalon));
-	pSalones[posicion].tipoSalon=tipoSalon;
-	pSalones[posicion].idSalon=idSalon;
-	pSalones[posicion].isEmptySalon=OCUPADO;
+	int estado=-1;
+	int posicion;
+	posicion=buscarPosicionDeSalonporSuId(pSalones, len, idmostrar);
+	printf("______________________________________________________________________________________________\n");
+	printf("\nNombre del Salon\t\tDirección\t\t\tTipo de Salon\tId Salon\n");
+	printf("______________________________________________________________________________________________\n");
+	if (pSalones!=NULL && idmostrar>0 && posicion>=0)
+	{
+		printf(" %-30s %-30s \t%d\t\t%d\n",
+		pSalones[posicion].nombreSalon,pSalones[posicion].direccionSalon,pSalones[posicion].tipoSalon,
+		pSalones[posicion].idSalon);
+		estado=0;
+		printf("______________________________________________________________________________________________\n");
+	}else
+		puts("NO HAY Arcade CARGADOS");
+	return estado;
 }
-//==============================================================
 /**
   * \brief me da un id consecutivo y no repetido memorizando el ultimolvalor
   * \param void
@@ -332,4 +338,3 @@ static int dameUnIdNuevoS(void)
 	contador++;
 	return contador;
 }
-//=============================================================================

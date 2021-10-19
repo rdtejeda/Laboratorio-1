@@ -36,7 +36,6 @@
 #define MAXIMO500 500
 #define MAXIMO3 3
 
-//=====================================================================================================
 /**
 * \brief pide un char al ususario
 * \param puntero cahr, reintentos y textos de pedido y erro
@@ -66,10 +65,10 @@ int pedirCharAUsuario(char *pChar, int reintentos, char *txt, char *txtError)
 
 				}
 		}
-	}
+	}else
+		 puts("No se ha podido procesar");
 	return retorno;
 }
-//==============================================================
 /**
 * \brief pide un texto al ususario
 * \param *pResultado, len tamaño del array, *mensaje, *mensajeError, intentos
@@ -100,11 +99,11 @@ int pedirText(char *pResultado, int len, char *mensaje, char *mensajeError, int 
 					printf("%s", mensajeError);
 				}
 		}
-	}
+	}else
+		 puts("No se ha podido procesar");
 	return retorno;
 }
- //==================================================================================================
- /**
+/**
   * \brief Solicita un numero al usuario, leuego de verificarlo devuelve el resultado
   * \param *pResultado, *mensaje, *mensajeError, minimo, maximo, intentos
   * \return Retorna 0 si se obtuvo el numero y -1 si no
@@ -151,11 +150,11 @@ int pedirText(char *pResultado, int len, char *mensaje, char *mensajeError, int 
  		{
  			printf("\nTe quedaste sin intentos\n");
  		}
- 	}
+ 	}else
+		 puts("No se ha podido procesar");
  	return retorno;
  }
- //=====================================================================================================
- /**
+/**
   * \brief Verifica si la cadena ingresada es numerica
   * \param *cadena Puntero al espacio de memoria donde se dejara el resultado de la funcion
   * \return Retorna 0 si se obtiene un numero  y -1 si no
@@ -176,10 +175,10 @@ int pedirText(char *pResultado, int len, char *mensaje, char *mensajeError, int 
  					}
  				i++;
  			}
- 	}
+ 	}else
+		 puts("No se ha podido procesar");
  	return retorno;
  }
- //=====================================================================================================
  /**
   * \brief Lee de stdin hasta que encuentra un '\n' o hasta que haya copiado en cadena un máximo de 'longitud - 1' caracteres.
   * \param *pResultado paso por referncia el array, len tamaño del array
@@ -198,11 +197,11 @@ int pedirText(char *pResultado, int len, char *mensaje, char *mensajeError, int 
  			pResultado[indexFinal] = '\0';
  			}
  		retorno = 0;
- 	}
+ 	}else
+		 puts("No se ha podido procesar");
  	return retorno;
  }
- //==================================================================================================
- /**
+  /**
   * \brief Solicita un numero al usuario, leuego de verificarlo devuelve el resultado
   * \param *pResultado, *mensaje, *mensajeError, minimo, maximo, intentos
   * \return Retorna 0 si se obtuvo el numero y -1 si no
@@ -249,10 +248,10 @@ int pedirText(char *pResultado, int len, char *mensaje, char *mensajeError, int 
  		{
  			printf("\nTe quedaste sin intentos\n");
  		}
- 	}
+ 	}else
+		 puts("No se ha podido procesar");
  	return retorno;
  }
- //=========================================================================================================
  /**
  * \brief Verifica si la cadena ingresada es numerica
  * \param *cadena paso por referencia Cadena de caracteres a ser analizada
@@ -298,10 +297,10 @@ int pedirText(char *pResultado, int len, char *mensaje, char *mensajeError, int 
  		{
  			retorno=-1;
  		}
- 	}
+ 	}else
+		 puts("No se ha podido procesar");
  	return retorno;
  }
-//===================================================================================================
 /**
 * \brief Verifica si la cadena ingresada es alfanumerica
 * \param *cadena Paso por referencia Cadena de caracteres a ser analizada
@@ -332,10 +331,10 @@ int esAlfaumerica(char *cadena)
 					}
 				i++;
 			}
-	}
+	}else
+		 puts("No se ha podido procesar");
 	return retorno;
 }
-//===================================================================================================
 /**
 * \brief Verifica si la cadena ingresada es alfabetica
 * \param *cadena Paso por referencia Cadena de caracteres a ser analizada
@@ -366,6 +365,7 @@ int esAlfabetica(char *cadena)
 					}
 				i++;
 			}
-	}
+	}else
+		 puts("No se ha podido procesar");
 	return retorno;
 }

@@ -33,7 +33,8 @@ int buscarLugarLibreArrayA(eArcade *pArcades, int len);
 int altaArcade(eArcade *pArcades,eSalon *pSalones,int lenA,int lenS);
 int pedirDatosArcade(eArcade *pArcades,eSalon *pSalones,int lenA,int lenS);
 int modificarUnArcade(eArcade *pArcade, int len);
-
-void harcodearunArcade(eArcade *pArcades,char nacionalidadArcade[24],char nombreJuego[64],int tipoSonidoArcade,int cantidadJugadorArcade,int capMaxFichaArcade,int idArcade,int idSalon,int posicion);
+int imprimirUnArcadeCargado(eArcade *pArcades,int len,int idmostrar);
+int bajaArcadesDeUnSalon(eSalon *pSalones,int lenS,eArcade *pArcades,int lenA, int idSBaja);
+int bajaDeSalonYsusArcadesDeLista(eSalon *pSalones,int lenS,eArcade *pArcades,int lenA);
 
 #endif /* ARCADE_H_ */

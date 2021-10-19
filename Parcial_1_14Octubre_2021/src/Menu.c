@@ -21,21 +21,6 @@
 #include "Juego.h"
 #include "Informes.h"
 
-#define CAN_SALON 100
-#define CAN_ARCADE 1000
-#define OCUPADO 0
-#define LIBRE -1
-#define INTENTOS 5
-#define SHOPPING 1
-#define LOCAL 2
-#define MONO 1
-#define STEREO 2
-#define MINIMO 1
-#define MAXIMO10 10
-#define MAXIMO500 500
-#define MAXIMO3 3
-
-//==========================================================
 /**
 * \brief Imprime el menu de INICIAL de opciones
 * \param
@@ -55,7 +40,6 @@ void imprimirMenuInicial()
 	puts("9- INFORMES");
 	puts("10- SALIR");
 }
-//===========================================================
 /**
 * \brief Imprime el menu de informes
 * \param
@@ -72,7 +56,6 @@ void imprimirMenuInformes()
 	puts("G) Ingresar el nombre de un juego e imprimir cuantos arcades lo contienen.");
 	puts("H) SALIR DE INFORMES");
 }
-//===========================================================
 /**
 * \brief Imprime el menu de modificacion
 * \param
@@ -84,6 +67,3 @@ void imprimirMenuModificar()
 	puts("2- Juego que contiene");
 	puts("3- SALIR");
 }
-//============================================================
-
-

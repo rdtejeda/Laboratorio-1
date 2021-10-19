@@ -33,10 +33,12 @@
 #define STEREO 2
 #define MINIMO 1
 #define MAXIMO10 10
-//================================================================================================================
-/*
- *A) Listar los salones con más de 4 arcades. Indicando ID de salón, nombre, dirección y tipo de salón.
- */
+
+/**
+* \brief Listar los salones con más de 4 arcades. Indicando ID de salón, nombre, dirección y tipo de salón
+* \param  *parcade y *pSalon recibo array por referencia,y sus len tamaño del array
+* \return Retorna cantidad de arcdes -1 si el no exixte
+*/
 int informeA(eArcade *pArcades,int lenA,eSalon *pSalones,int lenS)
 {
 	int estado=-1;
@@ -63,19 +65,16 @@ int informeA(eArcade *pArcades,int lenA,eSalon *pSalones,int lenS)
 			}
 			}
 		printf("________________________________________________________________________________\n");
-		}
+		}else
+			 puts("No se ha podido procesar");
 	return estado;
 }
-//================================================================================================================
-/*
- * B) Listar los arcades para más de 2 jugadores, indicando ID de arcade, cantidad de jugadores,
- * nombre del juego y nombre del salón al que pertenece.
- */
-/*
- * \brief imprime la lista de arcades para mas de 2 jugadores
- * \param  *pArcade y  +pSalon por referencia, lenA y lenS tamaño del array
- * \return Retorna 0 si encontro arcdes para mas de 2 jugadorees y -1 si no lo encuentra
- */
+/**
+* \brief Lista los arcades para más de 2 jugadores, indicando ID de arcade, cantidad de jugadores,
+* nombre del juego y nombre del salón al que pertenece.
+* \param  *parcade y *pSalon recibo array por referencia,y sus len tamaño del array
+* \return Retorna cantidad de arcdes -1 si el no exixte
+*/
 int informeB(eArcade *pArcades,int lenA,eSalon *pSalones,int lenS)
 {
 	int retorno=-1;
@@ -95,13 +94,16 @@ int informeB(eArcade *pArcades,int lenA,eSalon *pSalones,int lenS)
 				retorno=0;
 			}
 		}
-	}
+	}else
+		 puts("No se ha podido procesar");
 return retorno;
 }
-//================================================================================================================
-/*
- * C) Listar toda la información de un salón en específico ingresando su ID. Imprimir nombre, tipo y dirección y cantidad de arcades que posee.
- */
+/**
+* \brief Lista toda la información de un salón en específico ingresando su ID.
+*  Imprime nombre, tipo y dirección y cantidad de arcades que posee.
+* \param  *parcade y *pSalon recibo array por referencia,y sus len tamaño del array
+* \return Retorna cantidad de arcdes -1 si el no exixte
+*/
 int informeC(eSalon *pSalones,int lenS,eArcade *pArcades,int lenA)
 {
 	int estado=-1;
@@ -126,14 +128,18 @@ int informeC(eSalon *pSalones,int lenS,eArcade *pArcades,int lenA)
 					estado=0;
 				}else
 		puts("No es un salon Elegible");
-	}
+	}else
+		 puts("No se ha podido procesar");
 	return estado;
 }
-//================================================================================================================
-/*
- * D) Listar todos los arcades de un salón determinado ingresando su ID. Informar nombre y tipo de salón,
- *  listar todos los arcades con sus datos junto con el nombre del juego que lo compone.
- */
+/**
+* \brief Listar todos los arcades de un salón determinado ingresando su ID. Informar nombre y tipo de salón,
+*  listar todos los arcades con sus datos junto con el nombre del juego que lo compone.
+*  indicando todos los datos del salón y la cantidad de arcades que posee.
+*  e imprimir el monto máximo en pesos que puede recaudar el salón.
+* \param  *parcade y *pSalon recibo array por referencia,y sus len tamaño del array
+* \return Retorna cantidad de arcdes -1 si el no exixte
+*/
 int informeD(eArcade *pArcades,int lenA,eSalon *pSalones,int lenS)
 {
 	int estado=-1;
@@ -162,17 +168,21 @@ int informeD(eArcade *pArcades,int lenA,eSalon *pSalones,int lenS)
 				printf(" %d %-30s %-30s %d\t%d\t  %d\t\t%d\n",
 				pArcades[j].idArcade,pArcades[j].nacionalidadArcade,pArcades[j].nombreJuego,pArcades[j].tipoSonidoArcade,pArcades[j].cantidadJugadorArcade,
 				pArcades[j].capMaxFichaArcade,pArcades[j].idSalon);
-				estado=0;
 			}
 		}
 		printf("__________________________________________________________________________________________________________\n");
-	}
-		return estado;
+		estado=0;
+	}else
+		 puts("No se ha podido procesar");
+	return estado;
 }
-//==============================================================================================================
-/*
- * E) Imprimir el salón con más cantidad de arcades, indicando todos los datos del salón y la cantidad de arcades que posee.
- */
+/**
+* \brief Imprimir el salón con más cantidad de arcades,
+*  indicando todos los datos del salón y la cantidad de arcades que posee.
+*  e imprimir el monto máximo en pesos que puede recaudar el salón.
+* \param  *parcade y *pSalon recibo array por referencia,y sus len tamaño del array
+* \return Retorna cantidad de arcdes -1 si el no exixte
+*/
 int informeE(eArcade *pArcades,int lenA,eSalon *pSalones,int lenS)
 {
 	int estado=-1;
@@ -201,12 +211,12 @@ int informeE(eArcade *pArcades,int lenA,eSalon *pSalones,int lenS)
 		estado=0;
 	return estado;
 }
-//=====================================================================================================================
-/*
- * F) Ingresar el ID de un salón, y el valor en pesos de una ficha,
- *  e imprimir el monto máximo en pesos que puede recaudar el salón
- *  (sumar cantidad de fichas máximo de cada arcade del salón y multiplicarla por el valor en pesos ingresado)
- */
+/**
+* \brief Ingresar el ID de un salón, y el valor en pesos de una ficha,
+*  e imprimir el monto máximo en pesos que puede recaudar el salón.
+* \param  *parcade y *pSalon recibo array por referencia,y sus len tamaño del array
+* \return Retorna cantidad de arcdes -1 si el no exixte
+*/
 int informeF(eArcade *pArcades,int lenA,eSalon *pSalones,int lenS)
 {
 	int estado=-1;
@@ -236,13 +246,15 @@ int informeF(eArcade *pArcades,int lenA,eSalon *pSalones,int lenS)
 		}else
 			puts("Ingrese Id Valido");
 
-	}
-		return estado;
+	}else
+		 puts("No se ha podido procesar");
+	return estado;
 }
-//====================================================================================================================
-/*
- * G) Ingresar el nombre de un juego e imprimir cuantos arcades lo contienen.
- */
+/**
+* \brief se Ingresar el nombre de un juego e imprimir cuantos arcades lo contienen.
+* \param  *parcade recibo array por referencia,len tamaño del array, id
+* \return Retorna cantidad de arcdes -1 si el no exixte
+*/
 int informeG(eArcade *pArcades,int lenA)
 {
 	int estado=-1;
@@ -275,12 +287,12 @@ int informeG(eArcade *pArcades,int lenA)
 		{
 			puts("El juego buscado no esta en la lista de Arcades disponibles");
 		}
-	}
+	}else
+		 puts("No se ha podido procesar");
 return estado;
 }
-//================================================================================================================
 /**
-* \brief Busca  cantidad de arcades en un  Salon búsqueda el IdSalon.
+* \brief Busca cantidad de arcades de un Salon búsqueda por IdSalon.
 * \param  *parcade recibo array por referencia,len tamaño del array, id
 * \return Retorna cantidad de arcdes -1 si el no exixte
 */
@@ -299,13 +311,13 @@ int cantidadArcadesDeUnSalon(eArcade *pArcades, int lenA, int iDSalon)
 					  	  	estado=cantidadArcades;
 						}
 			  }
-		 }
-return estado;
+		 }else
+			 puts("No se ha podido procesar");
+	return estado;
 }
-//========================================================================
 /**
- * \brief busca un cuit en la lista de eJuegoss
- * \param  *peJuegos recibo array por referencia, lenA tamaño del array y el cuit buscado
+ * \brief busca un Juego en la lista de eJuegoss
+ * \param  *peJuegos recibo array por referencia, lenA tamaño del array y el juego buscado
  * \return Retorna 0 si encontro el juego y -1 si no lo encuentra
  */
 int estaUnJuegoEnListaDeArcade(eArcade *pArcades, int lenA, char nombreJuego[])
@@ -322,11 +334,7 @@ int estaUnJuegoEnListaDeArcade(eArcade *pArcades, int lenA, char nombreJuego[])
 							break;
 						}
 			  }
-		 }
+		 }else
+			 puts("No se ha podido procesar");
 return estado;
 }
-//================================================================================================================
-
-
-
-

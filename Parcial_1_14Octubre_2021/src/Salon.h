@@ -24,13 +24,11 @@ int largoArrayS(eSalon *pSalones,int len);
 int imprimirSalonCargado(eSalon *pSalones, int len);
 int ordenaSalonPorDireccion(eSalon *pSalones, int len);
 int buscarPosicionDeSalonporSuId(eSalon *pSalones,int len,int id);
+int imprimirUnSalonCargado(eSalon *pSalones, int len, int idmostrar);
+int buscarLugarLibreArrayS(eSalon *pSalones, int len);
+int altaSalon(eSalon *pSalones,int len);
+int pedirDatosSalon(eSalon *pSalones, int len);
 int bajaLogicaDeUnSalon(eSalon *pSalones,int len,int idabajar);
 int eliminarSalonDeLista(eSalon *pSalones,int len);
-int buscarLugarLibreArrayS(eSalon *pSalones, int len);
-int altaDisplay(eSalon *pSalones,int len);
-int pedirDatosSalon(eSalon *pSalones, int len);
-int altaSalon(eSalon *pSalones,int len);
-
-void harcodearunSalon(eSalon *pSalones,char nombreSalon[24],char direccionSalon[48],int tipoSalon,int idSalon,int posicion);
 
 #endif /* SALON_H_ */
