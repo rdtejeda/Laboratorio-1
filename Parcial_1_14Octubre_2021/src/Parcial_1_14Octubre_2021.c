@@ -44,6 +44,7 @@ int main(void)
 	int cargadoA;
 	iniciarEarrayS(salones, CAN_SALON);
 	iniciarEarrayA(arcades, CAN_ARCADE);
+
 	do
 		{
 			imprimirMenuInicial();
@@ -129,7 +130,7 @@ int main(void)
 								informeD(arcades,CAN_ARCADE,salones,CAN_SALON);
 								break;
 							case 69:
-								informeE(arcades, CAN_ARCADE,salones,CAN_SALON);
+								informeE(arcades,CAN_ARCADE,salones,CAN_SALON);
 								break;
 							case 70:
 								informeF(arcades, CAN_ARCADE,salones,CAN_SALON);

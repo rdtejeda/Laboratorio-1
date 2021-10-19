@@ -186,30 +186,113 @@ int informeD(eArcade *pArcades,int lenA,eSalon *pSalones,int lenS)
 int informeE(eArcade *pArcades,int lenA,eSalon *pSalones,int lenS)
 {
 	int estado=-1;
-	int mayorCantArcades=0;
-	int idSalon;
 	int posSalon;
-	if(pArcades!=NULL && lenA>0 && pSalones!=0 && lenS>0)
+	eCantArcadeSalon listaSalones[CAN_SALON];
+	hacerListaSalon(listaSalones,lenS,pArcades,lenA);
+	int banderaSwapp=-1;
+	eCantArcadeSalon auxiliar;
+	int limite=lenS;
+		if(pArcades!=NULL && lenS>0 && lenA>0&& pSalones!=NULL)
 		{
-		for (int i=0;i<lenS;i++)
-		        {
-				if(pSalones[i].isEmptySalon==0 && (mayorCantArcades<cantidadArcadesDeUnSalon(pArcades,lenA,pSalones[i].idSalon)))
+			do
+			{
+				banderaSwapp=0;
+				limite=limite-1;
+				for (int i=0; i<limite; i++)
+				{
+						if(listaSalones[i].isEmptySalon==0&&listaSalones[i+1].isEmptySalon==0&&(listaSalones[i].cantidaArcade<listaSalones[i+1].cantidaArcade))
 					{
-					mayorCantArcades=cantidadArcadesDeUnSalon(pArcades,lenA,pSalones[i].idSalon);
-					idSalon=pSalones[i].idSalon;
+						banderaSwapp=1;
+						auxiliar=listaSalones[i];
+						listaSalones[i]=listaSalones[i+1];
+						listaSalones[i+1]=auxiliar;
 					}
 				}
-		}
-		posSalon=buscarPosicionDeSalonporSuId(pSalones, lenS, idSalon);
+			}while(banderaSwapp==1);
+		posSalon=buscarPosicionDeSalonporSuId(pSalones,lenS,listaSalones[0].idSalon);
 		printf("_____________________________________________________________________________________________________\n");
 		printf("\nNombre del Salon\t\tDirección\t\t\tTipo de Salon\tId Salon Cantidad de Arcade\n");
 		printf("_____________________________________________________________________________________________________\n");
 		printf(" %-30s %-30s \t%d\t\t%d\t   %d\n",
 		pSalones[posSalon].nombreSalon,pSalones[posSalon].direccionSalon,pSalones[posSalon].tipoSalon,
-		pSalones[posSalon].idSalon,mayorCantArcades);
+		pSalones[posSalon].idSalon,listaSalones[0].cantidaArcade);
 		printf("_____________________________________________________________________________________________________\n");
 		estado=0;
+
+		}else
+			 puts("No se ha podido procesar");
 	return estado;
+}
+/**
+ * \brief hace la lista de eCantArcdeSalo con juegos  activos sin repetir
+ * \param  *pJuegos *pArcade recibo array por referencia, len tamaño del array
+ * \return Retorna 0 si encontro el cuit y -1 si no lo encuentra
+ */
+int hacerListaSalon(eCantArcadeSalon *pCantSalones,int lenC,eArcade *pArcades,int lenA)
+{
+	int retorno=0;
+	inicializarListaSalon(pCantSalones, lenC);
+	int j=0;
+	int iListaeJuegos=0;
+	if(pCantSalones!=NULL && lenC>0 && pArcades!=NULL && lenA>0)
+		{
+			for (j=0;j<lenC;j++)
+			{
+				if(pArcades[j].isEmptyArcade==0 && estaUnIdSalonEnLista(pCantSalones, lenC,pArcades[j].idSalon)==-1)
+				{
+					pCantSalones[iListaeJuegos].isEmptySalon=0;
+					pCantSalones[iListaeJuegos].idSalon=pArcades[j].idSalon;
+					pCantSalones[iListaeJuegos].cantidaArcade=cantidadArcadesDeUnSalon(pArcades,lenA,pArcades[j].idSalon);
+					iListaeJuegos++;
+				}
+			}
+		retorno=0;
+		}else
+			 puts("No se ha podido procesar");
+	return retorno;
+}
+/**
+ * \brief busca un id en la lista de salon ides
+ * \param  *peJuegos recibo array por referencia, lenA tamaño del array y el cuit buscado
+ * \return Retorna 0 si encontro el if y -1 si no lo encuentra
+ */
+int estaUnIdSalonEnLista(eCantArcadeSalon *pCantSalones,int lenC, int idSalon)
+{
+	int estado=-1;
+	int j;
+	if (pCantSalones!=NULL && lenC>0)
+		{
+		  for (j=0;j<lenC;j++)
+			  {
+				  if(pCantSalones[j].isEmptySalon==0 && pCantSalones[j].idSalon==idSalon)
+						{
+							estado=0;
+							break;
+						}
+			  }
+		 }else
+			 puts("No se ha podido procesar");
+	return estado;
+}
+/**
+ * \brief inicializa todas las posiciones del array contrato como Libres pone la bander isEmpty en -1
+ * \param  *peJuegos recibo array por referencia, lenA tamaño del array
+ * \return Retorna 0 si todo bien y -1 si no logro inicializar el array
+ */
+int inicializarListaSalon(eCantArcadeSalon *pCantSalones,int lenC)
+{
+	int estado=-1;
+	int j;
+	   if (pCantSalones!=NULL && lenC>0)
+	   {
+		  for (j=0;j<lenC;j++)
+		   {
+			  pCantSalones[j].isEmptySalon=LIBRE;
+			  estado=0;
+		   }
+	   }else
+			 puts("No se ha podido procesar");
+return estado;
 }
 /**
 * \brief Ingresar el ID de un salón, y el valor en pesos de una ficha,

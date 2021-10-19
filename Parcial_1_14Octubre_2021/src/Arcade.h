@@ -37,4 +37,5 @@ int imprimirUnArcadeCargado(eArcade *pArcades,int len,int idmostrar);
 int bajaArcadesDeUnSalon(eSalon *pSalones,int lenS,eArcade *pArcades,int lenA, int idSBaja);
 int bajaDeSalonYsusArcadesDeLista(eSalon *pSalones,int lenS,eArcade *pArcades,int lenA);
 
+
 #endif /* ARCADE_H_ */

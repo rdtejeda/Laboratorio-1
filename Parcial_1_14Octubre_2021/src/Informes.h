@@ -11,6 +11,12 @@
 #ifndef INFORMES_H_
 #define INFORMES_H_
 
+typedef struct{
+	int idSalon;
+	int cantidaArcade;
+	int isEmptySalon;
+}eCantArcadeSalon;
+
 int informeA(eArcade *pArcades,int lenA,eSalon *pSalones,int lenS);
 int informeB(eArcade *pArcades,int lenA,eSalon *pSalones,int lenS);
 int informeC(eSalon *pSalones,int lenS,eArcade *pArcades,int lenA);
@@ -22,6 +28,8 @@ int informeG(eArcade *pArcades,int lenA);
 int estaUnJuegoEnListaDeArcade(eArcade *pArcades, int lenA, char nombreJuego[]);
 int cantidadArcadesDeUnSalon(eArcade *pArcades, int lenA, int iDSalon);
 
-
+int hacerListaSalon(eCantArcadeSalon *pCantSalones,int lenC,eArcade *pArcades,int lenA);
+int estaUnIdSalonEnLista(eCantArcadeSalon *pCantSalones,int lenC, int idSalon);
+int inicializarListaSalon(eCantArcadeSalon *pCantSalones,int lenC);
 
 #endif /* INFORMES_H_ */
