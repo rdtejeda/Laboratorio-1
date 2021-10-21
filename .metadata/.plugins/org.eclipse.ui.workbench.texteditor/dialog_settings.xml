@@ -6,8 +6,10 @@
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
-		<item key="selection" value="idBaja"/>
+		<item key="selection" value="listaSalones"/>
 		<list key="findhistory">
+			<item value="listaSalones"/>
+			<item value="No se ha podido procesar"/>
 			<item value="idBaja"/>
 			<item value="display"/>
 			<item value="i"/>
@@ -21,10 +23,9 @@
 			<item value="Contrataciones"/>
 			<item value="pDisplay"/>
 			<item value="pSalones"/>
-			<item value="pArcades"/>
-			<item value="eArcade"/>
 		</list>
 		<list key="replacehistory">
+			<item value="pCantSalones"/>
 			<item value="idSBaja"/>
 			<item value="arcade"/>
 			<item value="posicion"/>
@@ -39,12 +40,11 @@
 			<item value="pArcade"/>
 			<item value="auxPosArcade"/>
 			<item value="STEREO"/>
-			<item value="pAcades"/>
 		</list>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
-		<item key="DIALOG_X_ORIGIN" value="924"/>
-		<item key="DIALOG_Y_ORIGIN" value="64"/>
+		<item key="DIALOG_X_ORIGIN" value="992"/>
+		<item key="DIALOG_Y_ORIGIN" value="338"/>
 		<item key="DIALOG_WIDTH" value="333"/>
 		<item key="DIALOG_HEIGHT" value="427"/>
 		<item key="DIALOG_FONT_NAME" value="1|Ubuntu|10.0|0|GTK|1|"/>

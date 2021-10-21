@@ -35,6 +35,74 @@
 #define MAXIMO10 10
 
 /**
+ * brief I) Imprimir el promedio de arcades por salón. (Cantidad de arcades totales / Cantidad de salones totales).
+* \param  *parcade y *pSalon recibo array por referencia,y sus len tamaño del array
+* \return Retorna cantidad de arcdes -1 si el no exixte
+*/
+int informeI1(eArcade *pArcades,int lenA,eSalon *pSalones,int lenS)
+{
+	int estado=-1;
+	float promedio;
+
+	if(pArcades!=NULL && lenS>0 && lenA>0&& pSalones!=NULL)
+	{
+		promedio=(float)largoArrayA(pArcades, lenA)/(float)largoArrayS(pSalones, lenS);
+		printf("\nEl promedio es %.2f\n\n",promedio);
+	}else
+		 puts("No se ha podido procesar");
+
+	estado=0;
+	return estado;
+}
+/**
+* \brief H) Un salón se encuentra equipado por completo si posee al menos 8 arcades de mas de 2 jugadores. Listar los
+salones que cumplan con este mínimo de requisito.
+* \param  *parcade y *pSalon recibo array por referencia,y sus len tamaño del array
+* \return Retorna cantidad de arcdes -1 si el no exixte
+*/
+int informeH1(eArcade *pArcades,int lenA,eSalon *pSalones,int lenS)
+{
+	int estado=-1;
+	int posSalon;
+	int cantidad=0;
+	eCantArcadeSalon listaSalones[CAN_SALON];
+	hacerListaSalon(listaSalones,lenS,pArcades,lenA);
+	/*
+	for (int l = 0; l < lenS; ++l)
+	{
+
+			printf("ID %d Cant %d IsEmt %d\n",listaSalones[l].idSalon,listaSalones[l].cantidaArcade,listaSalones[l].isEmptySalon);
+
+
+	}
+	*/
+	if(pArcades!=NULL && lenS>0 && lenA>0 && pSalones!=NULL)
+		{
+
+		for (int i = 0; i < lenS; i++)
+			{
+				if(listaSalones[i].isEmptySalon==0 && listaSalones[i].cantidaArcade>=8)
+				{
+					posSalon=buscarPosicionDeSalonporSuId(pSalones,lenS,listaSalones[i].idSalon);
+					printf("_____________________________________________________________________________________________________\n");
+					printf("\nNombre del Salon\t\tDirección\t\t\tTipo de Salon\tId Salon Cantidad de Arcade\n");
+					printf("_____________________________________________________________________________________________________\n");
+					printf(" %-30s %-30s \t%d\t\t%d\t   %d\n",
+							pSalones[posSalon].nombreSalon,pSalones[posSalon].direccionSalon,pSalones[posSalon].tipoSalon,
+							pSalones[posSalon].idSalon,listaSalones[i].cantidaArcade);
+					cantidad++;
+				}
+			}
+		if(cantidad==0)
+			puts("No hay NINGUN salon que cumplan la consigna");
+		printf("_____________________________________________________________________________________________________\n");
+		estado=0;
+
+		}else
+			 puts("No se ha podido procesar");
+	return estado;
+}
+/**
 * \brief Listar los salones con más de 4 arcades. Indicando ID de salón, nombre, dirección y tipo de salón
 * \param  *parcade y *pSalon recibo array por referencia,y sus len tamaño del array
 * \return Retorna cantidad de arcdes -1 si el no exixte
@@ -43,6 +111,7 @@ int informeA(eArcade *pArcades,int lenA,eSalon *pSalones,int lenS)
 {
 	int estado=-1;
 	int auxCantArcades;
+	int cantidad=0;
 	int posicion2;
 	if(pArcades!=NULL && lenA>0 && pSalones!=0 && lenS>0)
 		{
@@ -60,10 +129,16 @@ int informeA(eArcade *pArcades,int lenA,eSalon *pSalones,int lenS)
 				printf(" %-30s %-30s \t%d\t\t%d\n",
 				pSalones[posicion2].nombreSalon,pSalones[posicion2].direccionSalon,
 				pSalones[posicion2].tipoSalon, pSalones[posicion2].idSalon);
+				cantidad++;
 				estado=0;
 				}
 			}
 			}
+		if(cantidad==0)
+		{
+			puts("No hay salones que cumplan la consigna");
+			estado=-1;
+		}
 		printf("________________________________________________________________________________\n");
 		}else
 			 puts("No se ha podido procesar");
@@ -79,6 +154,7 @@ int informeB(eArcade *pArcades,int lenA,eSalon *pSalones,int lenS)
 {
 	int retorno=-1;
 	int auxposIdSalon;
+	int cantidad=0;
 	if(pSalones!=NULL && lenS>0 && pArcades!=NULL && lenA>0)
 	{
 		printf("____________________________________________________________________________________________________________________\n");
@@ -91,9 +167,16 @@ int informeB(eArcade *pArcades,int lenA,eSalon *pSalones,int lenS)
 				auxposIdSalon=buscarPosicionDeSalonporSuId(pSalones, lenS, pArcades[i].idSalon);
 				printf("%d\t\%d %-30s %-30s\n",
 				pArcades[i].idArcade,pArcades[i].cantidadJugadorArcade,pArcades[i].nombreJuego,pSalones[auxposIdSalon].nombreSalon);
+				cantidad++;
 				retorno=0;
 			}
 		}
+		if(cantidad==0)
+				{
+					puts("No hay salones que cumplan la consigna");
+					retorno=-1;
+				}
+		printf("________________________________________________________________________________\n");
 	}else
 		 puts("No se ha podido procesar");
 return retorno;
@@ -163,7 +246,7 @@ int informeD(eArcade *pArcades,int lenA,eSalon *pSalones,int lenS)
 			puts("Ingrese Id Valido");
 		for (int j=0;j<lenA; ++j)
 		{
-			if(pArcades[j].idSalon==idSalon)
+			if(pArcades[j].idSalon==idSalon&&pArcades[j].isEmptyArcade==0)
 			{
 				printf(" %d %-30s %-30s %d\t%d\t  %d\t\t%d\n",
 				pArcades[j].idArcade,pArcades[j].nacionalidadArcade,pArcades[j].nombreJuego,pArcades[j].tipoSonidoArcade,pArcades[j].cantidadJugadorArcade,
@@ -249,6 +332,12 @@ int hacerListaSalon(eCantArcadeSalon *pCantSalones,int lenC,eArcade *pArcades,in
 		retorno=0;
 		}else
 			 puts("No se ha podido procesar");
+			/*
+			for (int l = 0; l < lenC; ++l)
+		   	{
+		   	printf("ID %d Cant %d IsEmt %d\n",pCantSalones[l].idSalon,pCantSalones[l].cantidaArcade,pCantSalones[l].isEmptySalon);
+		   	}
+			*/
 	return retorno;
 }
 /**
@@ -288,6 +377,8 @@ int inicializarListaSalon(eCantArcadeSalon *pCantSalones,int lenC)
 		  for (j=0;j<lenC;j++)
 		   {
 			  pCantSalones[j].isEmptySalon=LIBRE;
+			  pCantSalones[j].idSalon=OCUPADO;
+			  pCantSalones[j].cantidaArcade=OCUPADO;
 			  estado=0;
 		   }
 	   }else

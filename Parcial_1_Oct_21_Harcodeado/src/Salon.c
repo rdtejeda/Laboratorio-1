@@ -339,12 +339,12 @@ static int dameUnIdNuevoS(void)
 	return contador;
 }
 //=======================================================================================
-void harcodearunSalon(eSalon *pSalones,char nombreSalon[24],char direccionSalon[48],int tipoSalon,int idSalon,int posicion)
+void harcodearunSalon(eSalon *pSalones,char nombreSalon[24],char direccionSalon[48],int tipoSalon,int posicion)
 {
 	strncpy(pSalones[posicion].nombreSalon, nombreSalon,sizeof(pSalones[posicion].nombreSalon));
 	strncpy(pSalones[posicion].direccionSalon, direccionSalon,sizeof(pSalones[posicion].direccionSalon));
 	pSalones[posicion].tipoSalon=tipoSalon;
-	pSalones[posicion].idSalon=idSalon;
+	pSalones[posicion].idSalon=dameUnIdNuevoS();
 	pSalones[posicion].isEmptySalon=OCUPADO;
 }
 //====================================================================================

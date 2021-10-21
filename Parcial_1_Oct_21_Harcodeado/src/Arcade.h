@@ -37,6 +37,6 @@ int imprimirUnArcadeCargado(eArcade *pArcades,int len,int idmostrar);
 int bajaArcadesDeUnSalon(eSalon *pSalones,int lenS,eArcade *pArcades,int lenA, int idSBaja);
 int bajaDeSalonYsusArcadesDeLista(eSalon *pSalones,int lenS,eArcade *pArcades,int lenA);
 
-void harcodearunArcade(eArcade *pArcades,char nacionalidadArcade[24],char nombreJuego[64],int tipoSonidoArcade,int cantidadJugadorArcade,int capMaxFichaArcade,int idArcade,int idSalon,int posicion);
+void harcodearunArcade(eArcade *pArcades,char nacionalidadArcade[24],char nombreJuego[64],int tipoSonidoArcade,int cantidadJugadorArcade,int capMaxFichaArcade,int idSalon,int posicion);
 
 #endif /* ARCADE_H_ */

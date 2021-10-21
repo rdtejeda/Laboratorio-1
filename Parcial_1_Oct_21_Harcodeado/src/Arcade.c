@@ -466,14 +466,14 @@ int bajaArcadesDeUnSalon(eSalon *pSalones,int lenS,eArcade *pArcades,int lenA, i
  	return retorno;
  }
  //===================================================================================
- void harcodearunArcade(eArcade *pArcades,char nacionalidadArcade[24],char nombreJuego[64],int tipoSonidoArcade,int cantidadJugadorArcade,int capMaxFichaArcade,int idArcade,int idSalon,int posicion)
+ void harcodearunArcade(eArcade *pArcades,char nacionalidadArcade[24],char nombreJuego[64],int tipoSonidoArcade,int cantidadJugadorArcade,int capMaxFichaArcade,int idSalon,int posicion)
  {
  	strncpy(pArcades[posicion].nacionalidadArcade, nacionalidadArcade,sizeof(pArcades[posicion].nacionalidadArcade));
  	strncpy(pArcades[posicion].nombreJuego, nombreJuego,sizeof(pArcades[posicion].nombreJuego));
  	pArcades[posicion].tipoSonidoArcade=tipoSonidoArcade;
  	pArcades[posicion].cantidadJugadorArcade=cantidadJugadorArcade;
  	pArcades[posicion].capMaxFichaArcade=capMaxFichaArcade;
- 	pArcades[posicion].idArcade=idArcade;
+ 	pArcades[posicion].idArcade=dameUnIdNuevoA();
  	pArcades[posicion].idSalon=idSalon;
  	pArcades[posicion].isEmptyArcade=OCUPADO;
  }

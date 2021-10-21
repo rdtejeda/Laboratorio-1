@@ -31,6 +31,6 @@ int pedirDatosSalon(eSalon *pSalones, int len);
 int bajaLogicaDeUnSalon(eSalon *pSalones,int len,int idabajar);
 int eliminarSalonDeLista(eSalon *pSalones,int len);
 
-void harcodearunSalon(eSalon *pSalones,char nombreSalon[24],char direccionSalon[48],int tipoSalon,int idSalon,int posicion);
+void harcodearunSalon(eSalon *pSalones,char nombreSalon[24],char direccionSalon[48],int tipoSalon,int posicion);
 
 #endif /* SALON_H_ */

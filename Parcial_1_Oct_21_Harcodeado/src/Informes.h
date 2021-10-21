@@ -25,6 +25,9 @@ int informeE(eArcade *pArcades,int lenA,eSalon *pSalones,int lenS);
 int informeF(eArcade *pArcades,int lenA,eSalon *pSalones,int lenS);
 int informeG(eArcade *pArcades,int lenA);
 
+int informeH1(eArcade *pArcades,int lenA,eSalon *pSalones,int lenS);
+int informeI1(eArcade *pArcades,int lenA,eSalon *pSalones,int lenS);
+
 int estaUnJuegoEnListaDeArcade(eArcade *pArcades, int lenA, char nombreJuego[]);
 int cantidadArcadesDeUnSalon(eArcade *pArcades, int lenA, int iDSalon);
 

@@ -1,4 +1,67 @@
-17:53:55 **** Incremental Build of configuration Debug for project Parcial_1_Oct_21_Harcodeado ****
+14:54:25 **** Incremental Build of configuration Debug for project Parcial_1_Oct_21_Harcodeado ****
+make all 
+make: No se hace nada para 'all'.
+14:54:32 **** Incremental Build of configuration Debug for project Parcial_1_Oct_21_Harcodeado ****
+make all 
+Building file: ../src/Informes.c
+Invoking: GCC C Compiler
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Informes.d" -MT"src/Informes.o" -o "src/Informes.o" "../src/Informes.c"
+Finished building: ../src/Informes.c
+ 
+Building target: Parcial_1_Oct_21_Harcodeado
+Invoking: GCC C Linker
+gcc  -o "Parcial_1_Oct_21_Harcodeado"  ./src/Arcade.o ./src/Informes.o ./src/Juego.o ./src/Menu.o ./src/Parcial_1_Oct_21_Harcodeado.o ./src/Pedir.o ./src/Salon.o   
+Finished building target: Parcial_1_Oct_21_Harcodeado
+ 
+14:55:36 **** Incremental Build of configuration Debug for project Parcial_1_Oct_21_Harcodeado ****
+make all 
+Building file: ../src/Informes.c
+Invoking: GCC C Compiler
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Informes.d" -MT"src/Informes.o" -o "src/Informes.o" "../src/Informes.c"
+Finished building: ../src/Informes.c
+ 
+Building target: Parcial_1_Oct_21_Harcodeado
+Invoking: GCC C Linker
+gcc  -o "Parcial_1_Oct_21_Harcodeado"  ./src/Arcade.o ./src/Informes.o ./src/Juego.o ./src/Menu.o ./src/Parcial_1_Oct_21_Harcodeado.o ./src/Pedir.o ./src/Salon.o   
+Finished building target: Parcial_1_Oct_21_Harcodeado
+ 
+14:56:30 **** Incremental Build of configuration Debug for project Parcial_1_Oct_21_Harcodeado ****
+make all 
+Building file: ../src/Informes.c
+Invoking: GCC C Compiler
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Informes.d" -MT"src/Informes.o" -o "src/Informes.o" "../src/Informes.c"
+Finished building: ../src/Informes.c
+ 
+Building target: Parcial_1_Oct_21_Harcodeado
+Invoking: GCC C Linker
+gcc  -o "Parcial_1_Oct_21_Harcodeado"  ./src/Arcade.o ./src/Informes.o ./src/Juego.o ./src/Menu.o ./src/Parcial_1_Oct_21_Harcodeado.o ./src/Pedir.o ./src/Salon.o   
+Finished building target: Parcial_1_Oct_21_Harcodeado
+ 
+14:56:58 **** Incremental Build of configuration Debug for project Parcial_1_Oct_21_Harcodeado ****
+make all 
+Building file: ../src/Informes.c
+Invoking: GCC C Compiler
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Informes.d" -MT"src/Informes.o" -o "src/Informes.o" "../src/Informes.c"
+Finished building: ../src/Informes.c
+ 
+Building target: Parcial_1_Oct_21_Harcodeado
+Invoking: GCC C Linker
+gcc  -o "Parcial_1_Oct_21_Harcodeado"  ./src/Arcade.o ./src/Informes.o ./src/Juego.o ./src/Menu.o ./src/Parcial_1_Oct_21_Harcodeado.o ./src/Pedir.o ./src/Salon.o   
+Finished building target: Parcial_1_Oct_21_Harcodeado
+ 
+14:57:37 **** Incremental Build of configuration Debug for project Parcial_1_Oct_21_Harcodeado ****
+make all 
+Building file: ../src/Informes.c
+Invoking: GCC C Compiler
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Informes.d" -MT"src/Informes.o" -o "src/Informes.o" "../src/Informes.c"
+Finished building: ../src/Informes.c
+ 
+Building target: Parcial_1_Oct_21_Harcodeado
+Invoking: GCC C Linker
+gcc  -o "Parcial_1_Oct_21_Harcodeado"  ./src/Arcade.o ./src/Informes.o ./src/Juego.o ./src/Menu.o ./src/Parcial_1_Oct_21_Harcodeado.o ./src/Pedir.o ./src/Salon.o   
+Finished building target: Parcial_1_Oct_21_Harcodeado
+ 
+15:01:31 **** Incremental Build of configuration Debug for project Parcial_1_Oct_21_Harcodeado ****
 make all 
 Building file: ../src/Parcial_1_Oct_21_Harcodeado.c
 Invoking: GCC C Compiler
@@ -10,6 +73,201 @@ Invoking: GCC C Linker
 gcc  -o "Parcial_1_Oct_21_Harcodeado"  ./src/Arcade.o ./src/Informes.o ./src/Juego.o ./src/Menu.o ./src/Parcial_1_Oct_21_Harcodeado.o ./src/Pedir.o ./src/Salon.o   
 Finished building target: Parcial_1_Oct_21_Harcodeado
  
-17:53:59 **** Incremental Build of configuration Debug for project Parcial_1_Oct_21_Harcodeado ****
+15:02:32 **** Incremental Build of configuration Debug for project Parcial_1_Oct_21_Harcodeado ****
+make all 
+Building file: ../src/Informes.c
+Invoking: GCC C Compiler
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Informes.d" -MT"src/Informes.o" -o "src/Informes.o" "../src/Informes.c"
+Finished building: ../src/Informes.c
+ 
+Building target: Parcial_1_Oct_21_Harcodeado
+Invoking: GCC C Linker
+gcc  -o "Parcial_1_Oct_21_Harcodeado"  ./src/Arcade.o ./src/Informes.o ./src/Juego.o ./src/Menu.o ./src/Parcial_1_Oct_21_Harcodeado.o ./src/Pedir.o ./src/Salon.o   
+Finished building target: Parcial_1_Oct_21_Harcodeado
+ 
+15:03:48 **** Incremental Build of configuration Debug for project Parcial_1_Oct_21_Harcodeado ****
+make all 
+Building file: ../src/Parcial_1_Oct_21_Harcodeado.c
+Invoking: GCC C Compiler
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Parcial_1_Oct_21_Harcodeado.d" -MT"src/Parcial_1_Oct_21_Harcodeado.o" -o "src/Parcial_1_Oct_21_Harcodeado.o" "../src/Parcial_1_Oct_21_Harcodeado.c"
+Finished building: ../src/Parcial_1_Oct_21_Harcodeado.c
+ 
+Building target: Parcial_1_Oct_21_Harcodeado
+Invoking: GCC C Linker
+gcc  -o "Parcial_1_Oct_21_Harcodeado"  ./src/Arcade.o ./src/Informes.o ./src/Juego.o ./src/Menu.o ./src/Parcial_1_Oct_21_Harcodeado.o ./src/Pedir.o ./src/Salon.o   
+Finished building target: Parcial_1_Oct_21_Harcodeado
+ 
+15:07:46 **** Incremental Build of configuration Debug for project Parcial_1_Oct_21_Harcodeado ****
 make all 
 make: No se hace nada para 'all'.
+15:13:05 **** Incremental Build of configuration Debug for project Parcial_1_Oct_21_Harcodeado ****
+make all 
+Building file: ../src/Informes.c
+Invoking: GCC C Compiler
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Informes.d" -MT"src/Informes.o" -o "src/Informes.o" "../src/Informes.c"
+Finished building: ../src/Informes.c
+ 
+Building target: Parcial_1_Oct_21_Harcodeado
+Invoking: GCC C Linker
+gcc  -o "Parcial_1_Oct_21_Harcodeado"  ./src/Arcade.o ./src/Informes.o ./src/Juego.o ./src/Menu.o ./src/Parcial_1_Oct_21_Harcodeado.o ./src/Pedir.o ./src/Salon.o   
+Finished building target: Parcial_1_Oct_21_Harcodeado
+ 
+15:15:10 **** Incremental Build of configuration Debug for project Parcial_1_Oct_21_Harcodeado ****
+make all 
+Building file: ../src/Informes.c
+Invoking: GCC C Compiler
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Informes.d" -MT"src/Informes.o" -o "src/Informes.o" "../src/Informes.c"
+Finished building: ../src/Informes.c
+ 
+Building target: Parcial_1_Oct_21_Harcodeado
+Invoking: GCC C Linker
+gcc  -o "Parcial_1_Oct_21_Harcodeado"  ./src/Arcade.o ./src/Informes.o ./src/Juego.o ./src/Menu.o ./src/Parcial_1_Oct_21_Harcodeado.o ./src/Pedir.o ./src/Salon.o   
+Finished building target: Parcial_1_Oct_21_Harcodeado
+ 
+15:20:06 **** Incremental Build of configuration Debug for project Parcial_1_Oct_21_Harcodeado ****
+make all 
+Building file: ../src/Informes.c
+Invoking: GCC C Compiler
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Informes.d" -MT"src/Informes.o" -o "src/Informes.o" "../src/Informes.c"
+Finished building: ../src/Informes.c
+ 
+Building target: Parcial_1_Oct_21_Harcodeado
+Invoking: GCC C Linker
+gcc  -o "Parcial_1_Oct_21_Harcodeado"  ./src/Arcade.o ./src/Informes.o ./src/Juego.o ./src/Menu.o ./src/Parcial_1_Oct_21_Harcodeado.o ./src/Pedir.o ./src/Salon.o   
+Finished building target: Parcial_1_Oct_21_Harcodeado
+ 
+15:21:54 **** Incremental Build of configuration Debug for project Parcial_1_Oct_21_Harcodeado ****
+make all 
+make: No se hace nada para 'all'.
+15:27:19 **** Incremental Build of configuration Debug for project Parcial_1_Oct_21_Harcodeado ****
+make all 
+Building file: ../src/Parcial_1_Oct_21_Harcodeado.c
+Invoking: GCC C Compiler
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Parcial_1_Oct_21_Harcodeado.d" -MT"src/Parcial_1_Oct_21_Harcodeado.o" -o "src/Parcial_1_Oct_21_Harcodeado.o" "../src/Parcial_1_Oct_21_Harcodeado.c"
+Finished building: ../src/Parcial_1_Oct_21_Harcodeado.c
+ 
+Building target: Parcial_1_Oct_21_Harcodeado
+Invoking: GCC C Linker
+gcc  -o "Parcial_1_Oct_21_Harcodeado"  ./src/Arcade.o ./src/Informes.o ./src/Juego.o ./src/Menu.o ./src/Parcial_1_Oct_21_Harcodeado.o ./src/Pedir.o ./src/Salon.o   
+Finished building target: Parcial_1_Oct_21_Harcodeado
+ 
+15:51:55 **** Incremental Build of configuration Debug for project Parcial_1_Oct_21_Harcodeado ****
+make all 
+Building file: ../src/Informes.c
+Invoking: GCC C Compiler
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Informes.d" -MT"src/Informes.o" -o "src/Informes.o" "../src/Informes.c"
+Finished building: ../src/Informes.c
+ 
+Building target: Parcial_1_Oct_21_Harcodeado
+Invoking: GCC C Linker
+gcc  -o "Parcial_1_Oct_21_Harcodeado"  ./src/Arcade.o ./src/Informes.o ./src/Juego.o ./src/Menu.o ./src/Parcial_1_Oct_21_Harcodeado.o ./src/Pedir.o ./src/Salon.o   
+Finished building target: Parcial_1_Oct_21_Harcodeado
+ 
+15:55:54 **** Incremental Build of configuration Debug for project Parcial_1_Oct_21_Harcodeado ****
+make all 
+Building file: ../src/Informes.c
+Invoking: GCC C Compiler
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Informes.d" -MT"src/Informes.o" -o "src/Informes.o" "../src/Informes.c"
+Finished building: ../src/Informes.c
+ 
+Building target: Parcial_1_Oct_21_Harcodeado
+Invoking: GCC C Linker
+gcc  -o "Parcial_1_Oct_21_Harcodeado"  ./src/Arcade.o ./src/Informes.o ./src/Juego.o ./src/Menu.o ./src/Parcial_1_Oct_21_Harcodeado.o ./src/Pedir.o ./src/Salon.o   
+Finished building target: Parcial_1_Oct_21_Harcodeado
+ 
+15:56:54 **** Incremental Build of configuration Debug for project Parcial_1_Oct_21_Harcodeado ****
+make all 
+Building file: ../src/Informes.c
+Invoking: GCC C Compiler
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Informes.d" -MT"src/Informes.o" -o "src/Informes.o" "../src/Informes.c"
+Finished building: ../src/Informes.c
+ 
+Building target: Parcial_1_Oct_21_Harcodeado
+Invoking: GCC C Linker
+gcc  -o "Parcial_1_Oct_21_Harcodeado"  ./src/Arcade.o ./src/Informes.o ./src/Juego.o ./src/Menu.o ./src/Parcial_1_Oct_21_Harcodeado.o ./src/Pedir.o ./src/Salon.o   
+Finished building target: Parcial_1_Oct_21_Harcodeado
+ 
+16:03:52 **** Incremental Build of configuration Debug for project Parcial_1_Oct_21_Harcodeado ****
+make all 
+Building file: ../src/Parcial_1_Oct_21_Harcodeado.c
+Invoking: GCC C Compiler
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Parcial_1_Oct_21_Harcodeado.d" -MT"src/Parcial_1_Oct_21_Harcodeado.o" -o "src/Parcial_1_Oct_21_Harcodeado.o" "../src/Parcial_1_Oct_21_Harcodeado.c"
+Finished building: ../src/Parcial_1_Oct_21_Harcodeado.c
+ 
+Building target: Parcial_1_Oct_21_Harcodeado
+Invoking: GCC C Linker
+gcc  -o "Parcial_1_Oct_21_Harcodeado"  ./src/Arcade.o ./src/Informes.o ./src/Juego.o ./src/Menu.o ./src/Parcial_1_Oct_21_Harcodeado.o ./src/Pedir.o ./src/Salon.o   
+Finished building target: Parcial_1_Oct_21_Harcodeado
+ 
+16:08:42 **** Incremental Build of configuration Debug for project Parcial_1_Oct_21_Harcodeado ****
+make all 
+Building file: ../src/Informes.c
+Invoking: GCC C Compiler
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Informes.d" -MT"src/Informes.o" -o "src/Informes.o" "../src/Informes.c"
+Finished building: ../src/Informes.c
+ 
+Building target: Parcial_1_Oct_21_Harcodeado
+Invoking: GCC C Linker
+gcc  -o "Parcial_1_Oct_21_Harcodeado"  ./src/Arcade.o ./src/Informes.o ./src/Juego.o ./src/Menu.o ./src/Parcial_1_Oct_21_Harcodeado.o ./src/Pedir.o ./src/Salon.o   
+Finished building target: Parcial_1_Oct_21_Harcodeado
+ 
+16:09:24 **** Incremental Build of configuration Debug for project Parcial_1_Oct_21_Harcodeado ****
+make all 
+Building file: ../src/Informes.c
+Invoking: GCC C Compiler
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Informes.d" -MT"src/Informes.o" -o "src/Informes.o" "../src/Informes.c"
+Finished building: ../src/Informes.c
+ 
+Building target: Parcial_1_Oct_21_Harcodeado
+Invoking: GCC C Linker
+gcc  -o "Parcial_1_Oct_21_Harcodeado"  ./src/Arcade.o ./src/Informes.o ./src/Juego.o ./src/Menu.o ./src/Parcial_1_Oct_21_Harcodeado.o ./src/Pedir.o ./src/Salon.o   
+Finished building target: Parcial_1_Oct_21_Harcodeado
+ 
+16:23:06 **** Incremental Build of configuration Debug for project Parcial_1_Oct_21_Harcodeado ****
+make all 
+Building file: ../src/Informes.c
+Invoking: GCC C Compiler
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Informes.d" -MT"src/Informes.o" -o "src/Informes.o" "../src/Informes.c"
+Finished building: ../src/Informes.c
+ 
+Building target: Parcial_1_Oct_21_Harcodeado
+Invoking: GCC C Linker
+gcc  -o "Parcial_1_Oct_21_Harcodeado"  ./src/Arcade.o ./src/Informes.o ./src/Juego.o ./src/Menu.o ./src/Parcial_1_Oct_21_Harcodeado.o ./src/Pedir.o ./src/Salon.o   
+Finished building target: Parcial_1_Oct_21_Harcodeado
+ 
+16:23:47 **** Incremental Build of configuration Debug for project Parcial_1_Oct_21_Harcodeado ****
+make all 
+Building file: ../src/Informes.c
+Invoking: GCC C Compiler
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Informes.d" -MT"src/Informes.o" -o "src/Informes.o" "../src/Informes.c"
+Finished building: ../src/Informes.c
+ 
+Building target: Parcial_1_Oct_21_Harcodeado
+Invoking: GCC C Linker
+gcc  -o "Parcial_1_Oct_21_Harcodeado"  ./src/Arcade.o ./src/Informes.o ./src/Juego.o ./src/Menu.o ./src/Parcial_1_Oct_21_Harcodeado.o ./src/Pedir.o ./src/Salon.o   
+Finished building target: Parcial_1_Oct_21_Harcodeado
+ 
+16:24:19 **** Incremental Build of configuration Debug for project Parcial_1_Oct_21_Harcodeado ****
+make all 
+Building file: ../src/Informes.c
+Invoking: GCC C Compiler
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Informes.d" -MT"src/Informes.o" -o "src/Informes.o" "../src/Informes.c"
+Finished building: ../src/Informes.c
+ 
+Building target: Parcial_1_Oct_21_Harcodeado
+Invoking: GCC C Linker
+gcc  -o "Parcial_1_Oct_21_Harcodeado"  ./src/Arcade.o ./src/Informes.o ./src/Juego.o ./src/Menu.o ./src/Parcial_1_Oct_21_Harcodeado.o ./src/Pedir.o ./src/Salon.o   
+Finished building target: Parcial_1_Oct_21_Harcodeado
+ 
+16:31:49 **** Incremental Build of configuration Debug for project Parcial_1_Oct_21_Harcodeado ****
+make all 
+Building file: ../src/Informes.c
+Invoking: GCC C Compiler
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Informes.d" -MT"src/Informes.o" -o "src/Informes.o" "../src/Informes.c"
+Finished building: ../src/Informes.c
+ 
+Building target: Parcial_1_Oct_21_Harcodeado
+Invoking: GCC C Linker
+gcc  -o "Parcial_1_Oct_21_Harcodeado"  ./src/Arcade.o ./src/Informes.o ./src/Juego.o ./src/Menu.o ./src/Parcial_1_Oct_21_Harcodeado.o ./src/Pedir.o ./src/Salon.o   
+Finished building target: Parcial_1_Oct_21_Harcodeado
+ 

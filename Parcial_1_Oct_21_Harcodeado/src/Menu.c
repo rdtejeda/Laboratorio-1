@@ -54,7 +54,9 @@ void imprimirMenuInformes()
 	puts("E) Imprimir el salón con más cantidad de arcades, indicando todos los datos del salón y la cantidad de arcades que posee.");
 	puts("F) Ingresar el ID de un salón, y el valor en pesos de una ficha, e imprimir el monto máximo en pesos que puede recaudar el salón (sumar cantidad de fichas máximo de cada arcade del salón y multiplicarla por el valor en pesos ingresado)");
 	puts("G) Ingresar el nombre de un juego e imprimir cuantos arcades lo contienen.");
-	puts("H) SALIR DE INFORMES");
+	puts("H) Un salón se encuentra equipado por completo si posee al menos 8 arcades de mas de 2 jugadores. Listar los salones que cumplan con este mínimo de requisito.");
+	puts("I) Imprimir el promedio de arcades por salón. (Cantidad de arcades totales / Cantidad de salones totales");
+	puts("J) SALIR DE INFORMES");
 }
 /**
 * \brief Imprime el menu de modificacion
