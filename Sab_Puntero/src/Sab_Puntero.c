@@ -23,8 +23,7 @@ Retornando la cantidad de reemplazos o -1 en caso de error.
 #include <stdlib.h>
 #include <string.h>
 #include <ctype.h>
-
-int ReemplazarCaracteres (char* cadena, int tamanioCadena, char caracterAReemplazar, char caracterQueVaAReemplazar);
+// https://www.onlinegdb.com/eY9VEBPKo sabado 30!0
 
 int main()
 {
@@ -60,3 +59,44 @@ int ReemplazarCaracteres (char* cadena, int tamanioCadena, char caracterAReempla
     }
     return cantidadReemplazos;
 }
+
+
+/*
+int ReemplazarCaracteres (char* cadena, int tamanioCadena, char caracterAReemplazar, char caracterQueVaAReemplazar);
+
+int main()
+{
+    char cadenaDeChars[51] = "sabado";
+
+   // char* p;
+  //  p = cadenaDeChars;
+  //  printf("%d %d", sizeof(p), sizeof(cadenaDeChars));
+
+    int reemplazos;
+    reemplazos = ReemplazarCaracteres (cadenaDeChars, sizeof(cadenaDeChars), 'a', 'i');
+    printf("Cant. reemplazos: %d\nPalabra reemplazada: %s", reemplazos, cadenaDeChars);
+
+    return 0;
+}
+*/
+/*
+int ReemplazarCaracteres (char* cadena, int tamanioCadena, char caracterAReemplazar, char caracterQueVaAReemplazar) {
+    int cantidadReemplazos;
+    int longitudDeCadena;
+
+    cantidadReemplazos = -1;
+
+    if (cadena != NULL) {
+        cantidadReemplazos = 0;
+        longitudDeCadena = strnlen(cadena, tamanioCadena);
+        for (int i = 0; i < longitudDeCadena; i++) {
+            if (*(cadena+i) == caracterAReemplazar)
+            {
+                *(cadena+i) = caracterQueVaAReemplazar;
+                cantidadReemplazos++;
+            }
+        }
+    }
+    return cantidadReemplazos;
+}
+*/

@@ -1,57 +1,13 @@
-10:14:26 **** Incremental Build of configuration Debug for project Parcial_1_Oct_21_MemDin ****
+13:12:55 **** Incremental Build of configuration Debug for project tp3_linux ****
 make all 
-Building file: ../src/Arcade.c
+Building file: ../Controller.c
 Invoking: GCC C Compiler
-gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Arcade.d" -MT"src/Arcade.o" -o "src/Arcade.o" "../src/Arcade.c"
-../src/Arcade.c: In function ‘altaArcade’:
-../src/Arcade.c:136:32: warning: passing argument 1 of ‘buscarLugarLibreArrayA’ from incompatible pointer type [-Wincompatible-pointer-types]
-  136 |   libre=buscarLugarLibreArrayA(pArcades, CAN_ARCADE);
-      |                                ^~~~~~~~
-      |                                |
-      |                                eArcade * {aka struct <anonymous> *}
-In file included from ../src/Arcade.c:19:
-../src/Arcade.h:44:37: note: expected ‘eArcade **’ {aka ‘struct <anonymous> **’} but argument is of type ‘eArcade *’ {aka ‘struct <anonymous> *’}
-   44 | int buscarLugarLibreArrayA(eArcade* pArcades[], int len);
-      |                            ~~~~~~~~~^~~~~~~~~~
-../src/Arcade.c: In function ‘pedirDatosArcade’:
-../src/Arcade.c:178:134: warning: passing argument 1 of ‘buscarPosicionDeSalonporSuId’ from incompatible pointer type [-Wincompatible-pointer-types]
-  178 |            if(pedirInt(&idSalon,"Ingrese Salon","Ingrese Salon valida",MINIMO,CAN_SALON,INTENTOS)==0 && buscarPosicionDeSalonporSuId(pSalones,lenS,idSalon)>=0)
-      |                                                                                                                                      ^~~~~~~~
-      |                                                                                                                                      |
-      |                                                                                                                                      eSalon * {aka struct <anonymous> *}
-In file included from ../src/Arcade.c:18:
-../src/Salon.h:40:42: note: expected ‘eSalon **’ {aka ‘struct <anonymous> **’} but argument is of type ‘eSalon *’ {aka ‘struct <anonymous> *’}
-   40 | int buscarPosicionDeSalonporSuId(eSalon* pSalones[],int len,int id);
-      |                                  ~~~~~~~~^~~~~~~~~~
-Finished building: ../src/Arcade.c
- 
-Building file: ../src/Parcial_1_Oct_21_Harcodeado.c
-Invoking: GCC C Compiler
-gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Parcial_1_Oct_21_Harcodeado.d" -MT"src/Parcial_1_Oct_21_Harcodeado.o" -o "src/Parcial_1_Oct_21_Harcodeado.o" "../src/Parcial_1_Oct_21_Harcodeado.c"
-../src/Parcial_1_Oct_21_Harcodeado.c: In function ‘main’:
-../src/Parcial_1_Oct_21_Harcodeado.c:130:8: warning: implicit declaration of function ‘imprimirArcadeCargado’; did you mean ‘imprimirUnArcadeCargado’? [-Wimplicit-function-declaration]
-  130 |        imprimirArcadeCargado(pListaArcades,CAN_ARCADE);
-      |        ^~~~~~~~~~~~~~~~~~~~~
-      |        imprimirUnArcadeCargado
-Finished building: ../src/Parcial_1_Oct_21_Harcodeado.c
- 
-Building target: Parcial_1_Oct_21_MemDin
-Invoking: GCC C Linker
-gcc  -o "Parcial_1_Oct_21_MemDin"  ./src/Arcade.o ./src/Informes.o ./src/Juego.o ./src/Menu.o ./src/Parcial_1_Oct_21_Harcodeado.o ./src/Pedir.o ./src/Salon.o   
-Finished building target: Parcial_1_Oct_21_MemDin
- 
-10:14:58 **** Incremental Build of configuration Debug for project Parcial_1_Oct_21_MemDin ****
-make all 
-make: No se hace nada para 'all'.
-10:15:38 **** Incremental Build of configuration Debug for project Parcial_1_Oct_21_MemDin ****
-make all 
-Building file: ../src/Salon.c
-Invoking: GCC C Compiler
-gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Salon.d" -MT"src/Salon.o" -o "src/Salon.o" "../src/Salon.c"
-Finished building: ../src/Salon.c
- 
-Building target: Parcial_1_Oct_21_MemDin
-Invoking: GCC C Linker
-gcc  -o "Parcial_1_Oct_21_MemDin"  ./src/Arcade.o ./src/Informes.o ./src/Juego.o ./src/Menu.o ./src/Parcial_1_Oct_21_Harcodeado.o ./src/Pedir.o ./src/Salon.o   
-Finished building target: Parcial_1_Oct_21_MemDin
- 
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"Controller.d" -MT"Controller.o" -o "Controller.o" "../Controller.c"/media/usuario/5A7CEC697CEC40FD/Users/Usuario/Downloads/UTNFrA/Repositorios Clonados Compratido/Laboratorio 1/tp3_linux/LinkedList.a
+gcc: error: ../Controller.c/media/usuario/5A7CEC697CEC40FD/Users/Usuario/Downloads/UTNFrA/Repositorios: No es un directorio
+gcc: error: Clonados: No existe el archivo o el directorio
+gcc: error: Compratido/Laboratorio: No existe el archivo o el directorio
+gcc: error: 1/tp3_linux/LinkedList.a: No existe el archivo o el directorio
+gcc: fatal error: no input files
+compilation terminated.
+make: *** [subdir.mk:29: Controller.o] Error 1
+"make all" terminated with exit code 2. Build might be incomplete.
