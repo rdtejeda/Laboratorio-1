@@ -1,7 +1,6 @@
-07:34:07 **** Clean-only build of configuration Debug for project Parcial_1_Lab_I_2017 ****
-make clean 
-rm -rf  ./src/Contrataciones.o ./src/Info.o ./src/Menu.o ./src/Pantalla.o ./src/Parcial_1_Lab_I_2017.o ./src/Pedir.o  ./src/Contrataciones.d ./src/Info.d ./src/Menu.d ./src/Pantalla.d ./src/Parcial_1_Lab_I_2017.d ./src/Pedir.d  Parcial_1_Lab_I_2017
- 
+14:47:59 **** Incremental Build of configuration Debug for project Parcial_1_Lab_I_2017 ****
+make all 
+make: No se hace nada para 'all'.
 
-07:34:08 Build Finished. 0 errors, 0 warnings. (took 1s.13ms)
+14:48:00 Build Finished. 0 errors, 0 warnings. (took 875ms)
 

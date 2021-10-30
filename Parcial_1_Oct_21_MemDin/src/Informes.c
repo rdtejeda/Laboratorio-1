@@ -100,6 +100,7 @@ int informeH1(eArcade *pArcades,int lenA,eSalon *pSalones,int lenS)
 * \param  *parcade y *pSalon recibo array por referencia,y sus len tamaño del array
 * \return Retorna cantidad de arcdes -1 si el no exixte
 */
+/*
 int informeA(eArcade *pArcades,int lenA,eSalon *pSalones,int lenS)
 {
 	int estado=-1;
@@ -137,12 +138,14 @@ int informeA(eArcade *pArcades,int lenA,eSalon *pSalones,int lenS)
 			 puts("No se ha podido procesar");
 	return estado;
 }
+*/
 /**
 * \brief Lista los arcades para más de 2 jugadores, indicando ID de arcade, cantidad de jugadores,
 * nombre del juego y nombre del salón al que pertenece.
 * \param  *parcade y *pSalon recibo array por referencia,y sus len tamaño del array
 * \return Retorna cantidad de arcdes -1 si el no exixte
 */
+/*
 int informeB(eArcade *pArcades,int lenA,eSalon *pSalones,int lenS)
 {
 	int retorno=-1;
@@ -174,12 +177,14 @@ int informeB(eArcade *pArcades,int lenA,eSalon *pSalones,int lenS)
 		 puts("No se ha podido procesar");
 return retorno;
 }
+*/
 /**
 * \brief Lista toda la información de un salón en específico ingresando su ID.
 *  Imprime nombre, tipo y dirección y cantidad de arcades que posee.
 * \param  *parcade y *pSalon recibo array por referencia,y sus len tamaño del array
 * \return Retorna cantidad de arcdes -1 si el no exixte
 */
+/*
 int informeC(eSalon *pSalones,int lenS,eArcade *pArcades,int lenA)
 {
 	int estado=-1;
@@ -208,6 +213,7 @@ int informeC(eSalon *pSalones,int lenS,eArcade *pArcades,int lenA)
 		 puts("No se ha podido procesar");
 	return estado;
 }
+*/
 /**
 * \brief Listar todos los arcades de un salón determinado ingresando su ID. Informar nombre y tipo de salón,
 *  listar todos los arcades con sus datos junto con el nombre del juego que lo compone.
@@ -216,6 +222,7 @@ int informeC(eSalon *pSalones,int lenS,eArcade *pArcades,int lenA)
 * \param  *parcade y *pSalon recibo array por referencia,y sus len tamaño del array
 * \return Retorna cantidad de arcdes -1 si el no exixte
 */
+/*
 int informeD(eArcade *pArcades,int lenA,eSalon *pSalones,int lenS)
 {
 	int estado=-1;
@@ -252,6 +259,7 @@ int informeD(eArcade *pArcades,int lenA,eSalon *pSalones,int lenS)
 		 puts("No se ha podido procesar");
 	return estado;
 }
+*/
 /**
 * \brief Imprimir el salón con más cantidad de arcades,
 *  indicando todos los datos del salón y la cantidad de arcades que posee.
@@ -378,6 +386,7 @@ int imprimirListaSalon(eArcade *pArcades,int len)
  * \param  *pJuegos *pArcade recibo array por referencia, len tamaño del array
  * \return Retorna 0 si encontro el cuit y -1 si no lo encuentra
  */
+
 int hacerListaSalon(eCantArcadeSalon *pCantSalones,int lenC,eArcade *pArcades,int lenA)
 {
 	int retorno=0;
@@ -388,7 +397,7 @@ int hacerListaSalon(eCantArcadeSalon *pCantSalones,int lenC,eArcade *pArcades,in
 		{
 			for (j=0;j<lenC;j++)
 			{
-				if(pArcades[j].isEmptyArcade==0 && estaUnIdSalonEnLista(pCantSalones, lenC,pArcades[j].idSalon)==-1)
+				if(estaUnIdSalonEnLista(pCantSalones, lenC,pArcades[j].idSalon)==-1)//pArcades[j].isEmptyArcade==0 &&
 				{
 					pCantSalones[iListaeJuegos].isEmptySalon=0;
 					pCantSalones[iListaeJuegos].idSalon=pArcades[j].idSalon;
@@ -407,6 +416,8 @@ int hacerListaSalon(eCantArcadeSalon *pCantSalones,int lenC,eArcade *pArcades,in
 			*/
 	return retorno;
 }
+
+
 /**
  * \brief busca un id en la lista de salon ides
  * \param  *peJuegos recibo array por referencia, lenA tamaño del array y el cuit buscado
@@ -511,7 +522,7 @@ int informeG(eArcade *pArcades,int lenA)
 		{
 			for (int j=0;j<lenA; ++j)
 			{
-				if(pArcades[j].isEmptyArcade==0 && strcmp(pArcades[j].nombreJuego,auxNombreJuego)==0)
+				if( strcmp(pArcades[j].nombreJuego,auxNombreJuego)==0)//pArcades[j].isEmptyArcade==0 &&
 				{
 					cantidad++;
 					estado=0;
@@ -547,7 +558,7 @@ int cantidadArcadesDeUnSalon(eArcade *pArcades, int lenA, int iDSalon)
 		{
 		  for (j=0;j<lenA;j++)
 			  {
-				  if(pArcades[j].isEmptyArcade==0 && pArcades[j].idSalon==iDSalon)
+				  if( pArcades[j].idSalon==iDSalon)//pArcades[j].isEmptyArcade==0 &&
 						{
 							cantidadArcades++;
 					  	  	estado=cantidadArcades;
@@ -570,7 +581,7 @@ int estaUnJuegoEnListaDeArcade(eArcade *pArcades, int lenA, char nombreJuego[])
 		{
 		  for (j=0;j<lenA;j++)
 			  {
-				  if(pArcades[j].isEmptyArcade==0 && strcmp(pArcades[j].nombreJuego,nombreJuego)==0)
+				  if( strcmp(pArcades[j].nombreJuego,nombreJuego)==0)//pArcades[j].isEmptyArcade==0 &&
 						{
 							estado=0;
 							break;

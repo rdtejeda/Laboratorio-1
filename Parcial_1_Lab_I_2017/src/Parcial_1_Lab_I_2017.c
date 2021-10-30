@@ -29,6 +29,26 @@
 #define MAXIMO 11
 #define INTENTOS 3
 
+/*//RESERVO DE FORMA DINAMICA MEMORIA PARA UN DISPLAY
+Display* display_new(void)
+{
+	Display* pDeDisplay = (Display*)malloc(sizeof(Display));
+	if(pDeDisplay!=NULL)
+	{
+		pDeDisplay->flagEmpty=0;
+	}
+	return pDeDisplay;
+}
+*/
+/*//CREO ARRAY PARA GUARDAR LAS DIRECCIONES DE MEMORI RESERVDAS IS EMTY NO NULL
+Display* arrayDisplay[1000];//ARRAY DE DIRECCIONES DE MEMORIA
+for (int i = 0; i < 1000; ++i)
+{
+	arrayDisplay[i]=NULL;
+}
+*/
+
+
 int main(void)
 {
 	Display displays[TAMANO_ARRAY];

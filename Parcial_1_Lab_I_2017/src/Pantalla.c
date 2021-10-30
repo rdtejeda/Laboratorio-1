@@ -24,6 +24,8 @@
 #define MAXIMO 11
 #define INTENTOS 3
 
+
+
 //=============================================================================
 /*typedef struct{
 	int type; //0 LCD 1 LED

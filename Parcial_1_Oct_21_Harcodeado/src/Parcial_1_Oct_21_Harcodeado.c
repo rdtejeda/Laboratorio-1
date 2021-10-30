@@ -69,8 +69,6 @@ int main(void)
 	harcodearunSalon(salones,"Kirchner","Sin Nombre SN",LOCAL,5);
 	harcodearunSalon(salones,"Alavarez","Laprida 430",SHOPPING,6);
 
-informeH1(arcades,CAN_ARCADE,salones,CAN_SALON);
-
 	do
 		{
 			imprimirMenuInicial();
