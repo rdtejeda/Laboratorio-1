@@ -1,13 +1,16 @@
-13:12:55 **** Incremental Build of configuration Debug for project tp3_linux ****
+14:47:32 **** Build of configuration Debug for project tp3_linux ****
 make all 
 Building file: ../Controller.c
-Invoking: GCC C Compiler
-gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"Controller.d" -MT"Controller.o" -o "Controller.o" "../Controller.c"/media/usuario/5A7CEC697CEC40FD/Users/Usuario/Downloads/UTNFrA/Repositorios Clonados Compratido/Laboratorio 1/tp3_linux/LinkedList.a
 gcc: error: ../Controller.c/media/usuario/5A7CEC697CEC40FD/Users/Usuario/Downloads/UTNFrA/Repositorios: No es un directorio
+Invoking: GCC C Compiler
 gcc: error: Clonados: No existe el archivo o el directorio
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"Controller.d" -MT"Controller.o" -o "Controller.o" "../Controller.c"/media/usuario/5A7CEC697CEC40FD/Users/Usuario/Downloads/UTNFrA/Repositorios Clonados Compratido/Laboratorio 1/tp3_linux/LinkedList.a
 gcc: error: Compratido/Laboratorio: No existe el archivo o el directorio
 gcc: error: 1/tp3_linux/LinkedList.a: No existe el archivo o el directorio
 gcc: fatal error: no input files
 compilation terminated.
 make: *** [subdir.mk:29: Controller.o] Error 1
 "make all" terminated with exit code 2. Build might be incomplete.
+
+14:47:33 Build Failed. 1 errors, 0 warnings. (took 989ms)
+
