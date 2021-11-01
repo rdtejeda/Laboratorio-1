@@ -17,25 +17,24 @@ typedef struct{
 	int isEmptySalon;
 }eCantArcadeSalon;
 
-int informeA(eArcade *pArcades,int lenA,eSalon *pSalones,int lenS);
-int informeB(eArcade *pArcades,int lenA,eSalon *pSalones,int lenS);
-int informeC(eSalon *pSalones,int lenS,eArcade *pArcades,int lenA);
-int informeD(eArcade *pArcades,int lenA,eSalon *pSalones,int lenS);
-int informeE(eArcade *pArcades,int lenA,eSalon *pSalones,int lenS);
-int informeF(eArcade *pArcades,int lenA,eSalon *pSalones,int lenS);
-int informeG(eArcade *pArcades,int lenA);
-
-int informeH1(eArcade *pArcades,int lenA,eSalon *pSalones,int lenS);
-int informeI1(eArcade *pArcades,int lenA,eSalon *pSalones,int lenS);
-
-int estaUnJuegoEnListaDeArcade(eArcade *pArcades, int lenA, char nombreJuego[]);
-int cantidadArcadesDeUnSalon(eArcade *pArcades, int lenA, int iDSalon);
-
-int hacerListaSalon(eCantArcadeSalon *pCantSalones,int lenC,eArcade *pArcades,int lenA);
 int estaUnIdSalonEnLista(eCantArcadeSalon *pCantSalones,int lenC, int idSalon);
 int inicializarListaSalon(eCantArcadeSalon *pCantSalones,int lenC);
-
-int imprimirListaSalon(eArcade *pArcades,int len);
 int imprimirListaSalonFuncion(eCantArcadeSalon *listaSalones,int len);
+
+int informeA(eArcade* pArcades[],int lenA,eSalon* pSalones[],int lenS);
+int informeB(eArcade* pArcades[],int lenA,eSalon* pSalones[],int lenS);
+int informeC(eSalon* pSalones[],int lenS,eArcade* pArcades[],int lenA);
+int informeD(eArcade* pArcades[],int lenA,eSalon* pSalones[],int lenS);
+int informeE(eArcade* pArcades[],int lenA,eSalon* pSalones[],int lenS);
+int informeF(eArcade* pArcades[],int lenA,eSalon* pSalones[],int lenS);
+int informeG(eArcade* pArcades[],int lenA);
+int informeH1(eArcade* pArcades[],int lenA,eSalon* pSalones[],int lenS);
+
+int informeI1(eArcade* pArcades[],int lenA,eSalon* pSalones[],int lenS);
+int cantidadArcadesDeUnSalon(eArcade* pArcades[], int lenA, int iDSalon);
+int hacerListaSalon(eCantArcadeSalon *pCantSalones,int lenC,eArcade* pArcades[],int lenA);
+int estaUnJuegoEnListaDeArcade(eArcade* pArcades[], int lenA, char nombreJuego[]);
+
+int imprimirListaSalon(eArcade* pArcades[],int len);
 
 #endif /* INFORMES_H_ */

@@ -41,7 +41,7 @@
  * \param  *pArcade recibo array por referencia, len tamaño del array
  * \return Retorna 0 si encontro el cuit y -1 si no lo encuentra
  */
-int imprimirListaJuegos(eArcade *pArcades,int len)
+int imprimirListaJuegos(eArcade* pArcades[],int len)
 {
 	int estado=-1;
 	eJuego listaJuegos[CAN_ARCADE];
@@ -76,7 +76,7 @@ int imprimirListaJuegos(eArcade *pArcades,int len)
  * \param  *pJuegos *pArcade recibo array por referencia, len tamaño del array
  * \return Retorna 0 si encontro el cuit y -1 si no lo encuentra
  */
-int hacerListaDeJuegos(eJuego *pJuegos,int len,eArcade *pArcades)
+int hacerListaDeJuegos(eJuego *pJuegos,int len,eArcade* pArcades[])
 {
 	int retorno=-1;
 	int j=0;
@@ -87,10 +87,10 @@ int hacerListaDeJuegos(eJuego *pJuegos,int len,eArcade *pArcades)
 	{
 		for (j=0;j<len;j++)
 		{
-			if( estaUnJuegoEnLista(pJuegos,len,pArcades[j].nombreJuego)==-1)//pArcades[j].isEmptyArcade==0 &&
+			if(pArcades[j]!=NULL && estaUnJuegoEnLista(pJuegos,len,pArcades[j]->nombreJuego)==-1)
 			{
 				pJuegos[iListaeJuegos].isEmptyJuego=0;
-				strcpy(pJuegos[iListaeJuegos].nombreJuego,pArcades[j].nombreJuego);
+				strcpy(pJuegos[iListaeJuegos].nombreJuego,pArcades[j]->nombreJuego);
 				iListaeJuegos++;
 			}
 		}

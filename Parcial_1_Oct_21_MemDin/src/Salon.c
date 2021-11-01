@@ -173,13 +173,19 @@ int buscarLugarLibreArrayS(eSalon* pSalones[],int len)
 	 int retorno=-1;
 	 int posicion;
 	 posicion=buscarPosicionDeSalonporSuId(pSalones,len,idabajar);
-	 if(pSalones!=NULL && posicion>=0 && len>0)
+	 if(pSalones[posicion]!=NULL && posicion>=0 && len>0)
 	 {
 		 free(pSalones[posicion]);
 		 pSalones[posicion]=NULL;
+		 for (int i=posicion; i< len; ++i)
+			{
+				pSalones[posicion]=pSalones[posicion+1];
+				pSalones[posicion+1]=NULL;
+			}
 		 retorno=0;
-	 }else
-		 puts("No se ha podido procesar");
+	 }
+	 if(posicion==-1)
+		 puts("Debe Ingrese un Id valido");
 	 return retorno;
  }
  //==========================================================================
@@ -192,11 +198,11 @@ int buscarLugarLibreArrayS(eSalon* pSalones[],int len)
 int buscarPosicionDeSalonporSuId(eSalon* pSalones[],int len,int id)
 {
 	int retorno=-1;
-		if(len>0)
+		if(pSalones!=NULL && len>0)
 		{
 			for (int i=0;i<len;++i)
 			{
-				if(pSalones[i]->idSalon==id && pSalones[i]!=NULL)
+				if(pSalones[i]!=NULL && pSalones[i]->idSalon==id)
 				{
 					retorno=i;
 					break;
@@ -215,7 +221,7 @@ int buscarPosicionDeSalonporSuId(eSalon* pSalones[],int len,int id)
 int ordenaSalonPorDireccion(eSalon* pSalones[], int len)
 {
 	int banderaSwapp=-1;
-	eSalon* auxiliar;
+	eSalon* auxiliar=NULL;
 	int limite=len;
 	int estadostrcmp;
 
@@ -227,26 +233,22 @@ int ordenaSalonPorDireccion(eSalon* pSalones[], int len)
 			limite=limite-1;
 			for (int i=0; i<limite; i++)
 			{
-				estadostrcmp=strcmp(pSalones[i]->nombreSalon, pSalones[i+1]->nombreSalon);
-				if(estadostrcmp>0)
+				if(pSalones[i]!=NULL && pSalones[i+1]!=NULL)
 				{
-
-					puts("LLEGO ACA 2");
-
-					banderaSwapp=1;
-					auxiliar=pSalones[i];
-					pSalones[i]=pSalones[i+1];
-					pSalones[i+1]=auxiliar;
+					estadostrcmp=strcmp(pSalones[i]->nombreSalon,pSalones[i+1]->nombreSalon);
+					if(estadostrcmp>0)
+						{
+							banderaSwapp=1;
+							auxiliar=pSalones[i];
+							pSalones[i]=pSalones[i+1];
+							pSalones[i+1]=auxiliar;
+						}
 				}
-					puts("LLEGO ACA 22");
 			}
-
-
 		}while(banderaSwapp==1);
 
 	}else
 		 puts("No se ha podido procesar");
-
 	return banderaSwapp;
 }
 //==========================================================================
@@ -259,9 +261,7 @@ int imprimirSalonCargado(eSalon* pSalones[], int len)
 {
 	int estado=-1;
 	int contadordeCargados=0;
-							//puts("LLEGO ACA ");
 	ordenaSalonPorDireccion(pSalones, len);
-							//puts("LLEGO ACA 3");
 	printf("______________________________________________________________________________________________\n");
 	printf("\nNombre del Salon\t\tDirección\t\t\tTipo de Salon\tId Salon\n");
 	printf("______________________________________________________________________________________________\n");

@@ -214,6 +214,7 @@ int ordenaSalonPorDireccion(eSalon *pSalones, int len)
 				{
 					banderaSwapp=1;
 					auxiliar=pSalones[i];
+					printf("Salon %s\n",auxiliar.nombreSalon);
 					pSalones[i]=pSalones[i+1];
 					pSalones[i+1]=auxiliar;
 				}

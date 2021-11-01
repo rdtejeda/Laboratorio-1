@@ -36,21 +36,17 @@
 
 int main(void)
 {
-	eSalon* pListaSalones[CAN_SALON]; //ARRAY DE DIRECCIONES DE MEMORIA
-	iniciarEarrayS(pListaSalones, CAN_SALON);
-	// * pListaSalones[CAN_SALON] INICIALIZADO
-
-	eArcade* pListaArcades[CAN_ARCADE];
-	iniciarEarrayA(pListaArcades, CAN_ARCADE);
-	// * pListaArcades[CAN_ARCADE] INICIALIZADO
-
+	eSalon* pListaSalones[CAN_SALON]; //ARRAY DE DIRECCIONES DE MEMORIA DE entidades eSalone
+	iniciarEarrayS(pListaSalones, CAN_SALON);// * pListaSalones[CAN_SALON] INICIALIZADO
+	eArcade* pListaArcades[CAN_ARCADE];//ARRAY DE DIRECCIONES DE MEMORIA DE entidades eArcade
+	iniciarEarrayA(pListaArcades, CAN_ARCADE);// * pListaArcades[CAN_ARCADE] INICIALIZADO
 
 	int menuPrincipal;
 	char menuInformes;
 	int cargadoS;
 	int cargadoA;
 
-	harcodearunArcade(pListaArcades, "Chino","El juego del calamar",MONO,10,100,7,CAN_ARCADE);
+	harcodearunArcade(pListaArcades, "Chinos","El juego del calamar",MONO,10,100,7,CAN_ARCADE);
 	harcodearunArcade(pListaArcades, "Chino","El juego del calamar",MONO,10,100,7,CAN_ARCADE);
 	harcodearunArcade(pListaArcades, "Peruano","El abominable",MONO,1,200,7,CAN_ARCADE);
 	harcodearunArcade(pListaArcades, "Cubano","La invensible",MONO,2,300,4,CAN_ARCADE);
@@ -66,15 +62,18 @@ int main(void)
 	harcodearunArcade(pListaArcades, "Hungaro","Pac Man",STEREO,4,500,6,CAN_ARCADE);
 	harcodearunArcade(pListaArcades, "Hungaro","Mario Bross",STEREO,4,500,6,CAN_ARCADE);
 	harcodearunArcade(pListaArcades, "Criollo","Age of imperior",STEREO,5,1000,7,CAN_ARCADE);
+	harcodearunArcade(pListaArcades, "Hungaro","Mario Bross",STEREO,4,500,6,CAN_ARCADE);
+	harcodearunArcade(pListaArcades, "Hungaro","Mario Bross",STEREO,4,500,6,CAN_ARCADE);
+	harcodearunArcade(pListaArcades, "Hungaro","Mario Bross",STEREO,4,500,6,CAN_ARCADE);
+	harcodearunArcade(pListaArcades, "Hungaro","Mario Bross",STEREO,4,500,6,CAN_ARCADE);
 
-	harcodearunSalon(pListaSalones,"Tejeda","Triunvirato 1239",SHOPPING,CAN_SALON);
-	harcodearunSalon(pListaSalones,"Tejeda","Triunvirato 1239",SHOPPING,CAN_SALON);
 	harcodearunSalon(pListaSalones,"Arrúa","Urquiza 234",SHOPPING,CAN_SALON);
 	harcodearunSalon(pListaSalones,"Perez","La plata 2345",LOCAL,CAN_SALON);
 	harcodearunSalon(pListaSalones,"Lopez","Guemes 1234",LOCAL,CAN_SALON);
+	harcodearunSalon(pListaSalones,"Tejeda","Triunvirato 1239",SHOPPING,CAN_SALON);
+	harcodearunSalon(pListaSalones,"Tejeda","Triunvirato 1239",SHOPPING,CAN_SALON);
 	harcodearunSalon(pListaSalones,"Kirchner","Sin Nombre SN",LOCAL,CAN_SALON);
 	harcodearunSalon(pListaSalones,"Alavarez","Laprida 430",SHOPPING,CAN_SALON);
-
 
 	do
 		{
@@ -91,7 +90,7 @@ int main(void)
 				case 2:
 					if(cargadoS>0)
 					{
-						//bajaDeSalonYsusArcadesDeLista(pListaSalones,CAN_SALON,arcades,CAN_ARCADE);
+					bajaDeSalonYsusArcadesDeLista(pListaSalones,CAN_SALON,pListaArcades,CAN_ARCADE);
 					}else
 						puts("NO HAY DATOS CARGADOS");
 					break;
@@ -105,22 +104,22 @@ int main(void)
 				case 4:
 					if(cargadoS>0)
 					{
-			//		altaArcade(arcades, salones, CAN_ARCADE, CAN_SALON);
-			//		imprimirArcadeCargado(arcades, CAN_ARCADE);
+					altaArcade(pListaArcades,pListaSalones,CAN_ARCADE,CAN_SALON);
+					imprimirArcadeCargado(pListaArcades,CAN_ARCADE);
 					}else
 						puts("No hay salones cargados por lo cual no es posible dar de alta un arcade");
 					break;
 				case 5:
 					if(cargadoA>0)
 						{
-					//	modificarUnArcade(arcades, CAN_ARCADE);
+						modificarUnArcade(pListaArcades,CAN_ARCADE);
 						}else
 							puts("NO HAY DATOS CARGADOS");
 					break;
 				case 6:
 					if(cargadoA>0)
 						{
-						//	eliminarArcadeDeLista(arcades,CAN_ARCADE);
+						eliminarArcadeDeLista(pListaArcades,CAN_ARCADE);
 						}else
 							puts("NO HAY DATOS CARGADOS");
 					break;
@@ -134,7 +133,7 @@ int main(void)
 				case 8:
 					if(cargadoA>0)
 					{
-				//		imprimirListaJuegos(arcades, CAN_ARCADE);
+						imprimirListaJuegos(pListaArcades, CAN_ARCADE);
 					}else
 						puts("NO HAY DATOS CARGADOS");
 					break;
@@ -151,31 +150,31 @@ int main(void)
 						switch (menuInformes)
 							{
 							case 65:
-			//					informeA(arcades,CAN_ARCADE,salones,CAN_SALON);
+								informeA(pListaArcades,CAN_ARCADE,pListaSalones,CAN_SALON);
 								break;
 							case 66:
-			//					informeB(arcades,CAN_ARCADE,salones,CAN_SALON);
+								informeB(pListaArcades,CAN_ARCADE,pListaSalones,CAN_SALON);
 								break;
 							case 67:
-			//					informeC(salones, CAN_SALON,arcades,CAN_ARCADE);
+								informeC(pListaSalones, CAN_SALON,pListaArcades,CAN_ARCADE);
 								break;
 							case 68:
-			//					informeD(arcades,CAN_ARCADE,salones,CAN_SALON);
+								informeD(pListaArcades,CAN_ARCADE,pListaSalones,CAN_SALON);
 								break;
 							case 69:
-			//					informeE(arcades,CAN_ARCADE,salones,CAN_SALON);
+								informeE(pListaArcades,CAN_ARCADE,pListaSalones,CAN_SALON);
 								break;
 							case 70:
-			//					informeF(arcades, CAN_ARCADE,salones,CAN_SALON);
+								informeF(pListaArcades, CAN_ARCADE,pListaSalones,CAN_SALON);
 								break;
 							case 71:
-							//	informeG(arcades, CAN_ARCADE);
+								informeG(pListaArcades, CAN_ARCADE);
 								break;
 							case 72:
-	//							informeH1(arcades,CAN_ARCADE,salones,CAN_SALON);
+								informeH1(pListaArcades,CAN_ARCADE,pListaSalones,CAN_SALON);
 								break;
 							case 73:
-			//					informeI1(arcades, CAN_ARCADE,salones,CAN_SALON);
+								informeI1(pListaArcades, CAN_ARCADE,pListaSalones,CAN_SALON);
 								break;
 							default:
 								break;
