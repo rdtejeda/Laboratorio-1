@@ -37,8 +37,6 @@
 
 static int dameUnIdNuevoS(void);
 
-
-//=======================================================================
 /**
 * \brief reserva de forma dinamica memoria para un dato tipo eSalon
 * \param es void
@@ -47,9 +45,13 @@ static int dameUnIdNuevoS(void);
 eSalon* nuevoSalonM_D(void)
 {
 	eSalon* pDeSalon=(eSalon*)malloc(sizeof(eSalon));
+	if(pDeSalon==NULL)
+	{
+		puts("No se ha podido reservar espacio en memoria");
+	}
 	return pDeSalon;
 }
-//=======================================================================
+
 /**
  * \brief inicializa el array de punteros de salones coo valor NULL
  * \param  *plist recibo array por referencia, len tamaño del array
@@ -62,14 +64,14 @@ int iniciarEarrayS(eSalon* pSalones[],int len)
 	   {
 		  for (int j = 0;  j<len; j++)
 		   {
-			  pSalones[j]=NULL; //NUEVO IS EMPTY
+			  pSalones[j]=NULL;
 			  estado=0;
 		   }
 	   }else
 			 puts("No se ha podido procesar");
  return estado;
 }
-//=======================================================================
+
 /*
 * \brief da de alta un salon en el array de punteros de Display
 * \param recibe un array de punteros a  estructura, el largo
@@ -84,29 +86,26 @@ int altaSalon(eSalon* pSalones[],int len)
 		libre=buscarLugarLibreArrayS(pSalones,len);
 		if(libre>=0)
 			{
-
 			eSalon* pSalon = nuevoSalonM_D();
-			pSalones[libre]=pSalon;
-
-			if(pedirDatosSalon(pSalones[libre])==0)
+			if(pSalon!=NULL)
 				{
-				//printf("ID ES %s\n",pSalones[libre]->nombreSalon);
-				imprimirUnSalonCargado(pSalones, len, pSalones[libre]->idSalon);
-				retorno=0;
-				puts("Se ha completado la carga");
+				pSalones[libre]=pSalon;
+				if(pedirDatosSalon(pSalones[libre])==0)
+					{
+					imprimirUnSalonCargado(pSalones, len, pSalones[libre]->idSalon);
+					retorno=0;
+					puts("Se ha completado la carga");
+					}else
+						puts("No se ha completado la carga");
 				}else
-				{
-					puts("No se ha completado la carga");
-				}
+					puts("No hay espacio en memoria");
 			}else
-				{
-					puts("No hay espacio libre en el array");
-				}
+				puts("No hay espacio libre en el array");
 	}else
 		 puts("No se ha podido procesar");
 return retorno;
 }
-//=======================================================================
+
 /**
 * \brief caraga de datos para Dar de alta un salon
 * \param recibe un estructura por puntero
@@ -124,13 +123,11 @@ int pedirDatosSalon(eSalon* pSalones)
 			    	 {
 			    		 if(pedirText(bufferdireccioS, sizeof(bufferdireccioS), "Ingrese la Direccion del Salon", "Direccion invalido",INTENTOS)==0)
 			    		 {
-			    			 pSalones->tipoSalon=bufferTipoS;
-			    			 strncpy(pSalones->nombreSalon,bufferNomS,sizeof(bufferNomS));
-			    			 strncpy(pSalones->direccionSalon,bufferdireccioS,sizeof(bufferdireccioS));
+			    			 salon_setTipo(pSalones, &bufferTipoS);
+			    			 salon_setName(pSalones, bufferNomS);
+			    			 salon_setDireeccion(pSalones, bufferdireccioS);
 			    			 pSalones->idSalon=dameUnIdNuevoS();
-			    			 puts("LLegue");
 			    			 estado=0;
-
 			    		 }
 			     }
 	   }else
@@ -138,7 +135,7 @@ int pedirDatosSalon(eSalon* pSalones)
 
 	   return estado;
 }
-//========================================================================
+
 /**
 * \brief busca el primer index del array de punteros NULL o sea vacio
 * \param recibe una lista de punteros y el largo
@@ -161,7 +158,6 @@ int buscarLugarLibreArrayS(eSalon* pSalones[],int len)
 		 puts("No se ha podido procesar");
 	return retorno;
 }
-//==========================================================================
 
  /**
  * \brief Da de baja en forma logica un ID = NULL
@@ -177,18 +173,14 @@ int buscarLugarLibreArrayS(eSalon* pSalones[],int len)
 	 {
 		 free(pSalones[posicion]);
 		 pSalones[posicion]=NULL;
-		 for (int i=posicion; i< len; ++i)
-			{
-				pSalones[posicion]=pSalones[posicion+1];
-				pSalones[posicion+1]=NULL;
-			}
+		 organizar_arrayS(pSalones, len, posicion);
 		 retorno=0;
 	 }
 	 if(posicion==-1)
 		 puts("Debe Ingrese un Id valido");
 	 return retorno;
  }
- //==========================================================================
+
 /**
 * \brief Busca  la posicion en el array de salon de un Salon recibiendo como parámetro de búsqueda el Id.
 * \param  * array por referencia,len tamaño del array, id
@@ -212,7 +204,7 @@ int buscarPosicionDeSalonporSuId(eSalon* pSalones[],int len,int id)
 			 puts("No se ha podido procesar");
 	return retorno;
 }
-//==========================================================================
+
 /**
 * \brief Ordena el array de Salon por orden alfabetico ascendente de nombre
 * \param recibe un array de estructura, el largo
@@ -251,7 +243,7 @@ int ordenaSalonPorDireccion(eSalon* pSalones[], int len)
 		 puts("No se ha podido procesar");
 	return banderaSwapp;
 }
-//==========================================================================
+
 /**
 * \brief busca e Imprime el array Salon cargado con datos flag busy
 * \param recibe un ARRAY DE PUNTEROS A ESTRUCTURA o y el largo
@@ -262,9 +254,7 @@ int imprimirSalonCargado(eSalon* pSalones[], int len)
 	int estado=-1;
 	int contadordeCargados=0;
 	ordenaSalonPorDireccion(pSalones, len);
-	printf("______________________________________________________________________________________________\n");
-	printf("\nNombre del Salon\t\tDirección\t\t\tTipo de Salon\tId Salon\n");
-	printf("______________________________________________________________________________________________\n");
+	imprimirEncSalonCargado();
 	if (pSalones!=NULL && len>0)
 	{
 		for (int i= 0;  i< len; i++)
@@ -278,16 +268,16 @@ int imprimirSalonCargado(eSalon* pSalones[], int len)
 				estado=contadordeCargados;
 			}
 		}
-		printf("______________________________________________________________________________________________\n");
+		imprimirLinea();
 		if(contadordeCargados==0)
 			{
-				puts("NO HAY Aracdes CARGADOS");
+			puts("NO HAY Aracdes CARGADOS");
 			}
 	}else
 		 puts("No se ha podido procesar");
 	return estado;
 }
-//==========================================================================
+
 /**
 * \brief CALCULA LA CANTIDAD DE ELEMENTO NO null EN EL ARRAY DE PUNTEROS
 * \param recibe un ARRAY DE puntero, el largo
@@ -314,7 +304,7 @@ int largoArrayS(eSalon* pSalones[],int len)
 		 puts("No se ha podido procesar");
 	return retorno;
 }
-//==========================================================================
+
 /**
 * \brief Imprime un Salon cargado con datos flag busy
 * \param recibe un ARRAY DE PUNTEROS A estructura por puntero, el largo  y el id a imprimir
@@ -326,21 +316,19 @@ int imprimirUnSalonCargado(eSalon* pSalones[], int len, int idmostrar)
 	int estado=-1;
 	int posicion;
 	posicion=buscarPosicionDeSalonporSuId(pSalones, len, idmostrar);
-	printf("______________________________________________________________________________________________\n");
-	printf("\nNombre del Salon\t\tDirección\t\t\tTipo de Salon\tId Salon\n");
-	printf("______________________________________________________________________________________________\n");
+	imprimirEncSalonCargado();
 	if (posicion>=0)
 	{
-		//printf("ID ES %d\n",posicion);
 		printf(" %-30s %-30s \t%d\t\t%d\n",
 		pSalones[posicion]->nombreSalon,pSalones[posicion]->direccionSalon,pSalones[posicion]->tipoSalon,
 		pSalones[posicion]->idSalon);
 		estado=0;
-		printf("______________________________________________________________________________________________\n");
+		imprimirLinea();
 	}else
 		puts("NO HAY Arcade CARGADOS");
 	return estado;
 }
+
 /**
   * \brief me da un id consecutivo y no repetido memorizando el ultimolvalor
   * \param void
@@ -352,9 +340,74 @@ static int dameUnIdNuevoS(void)
 	contador++;
 	return contador;
 }
-//==========================================================================
-//==========================================================================
-//=======================================================================================
+
+/**
+* \brief setea tipo de salon
+* \param recibe como PUNTEROS A estructura y valor de tipo
+* \return Retorna 0 todo bien  y -1  si no
+*/
+int salon_setTipo(eSalon* pSalon,int* tipoS)
+{
+	int retorno=-1;
+	if(pSalon!=NULL && tipoS!=NULL)
+		{
+		pSalon->tipoSalon=*tipoS;
+		retorno=0;
+		}
+	return retorno;
+}
+
+/**
+* \brief setea el nombre de salon
+* \param recibe como PUNTEROS A estructura y nombre
+* \return Retorna 0 todo bien  y -1  si no
+*/
+int salon_setName(eSalon* pSalon,char* nombreS)
+{
+	int retorno=-1;
+	if(pSalon!=NULL && nombreS!=NULL)
+		{
+		strncpy(pSalon->nombreSalon,nombreS,sizeof(pSalon->nombreSalon));
+		retorno=0;
+		}
+	return retorno;
+}
+
+/**
+* \brief setea la direeccio de salon
+* \param recibe como PUNTEROS A estructura y direccion
+* \return Retorna 0 todo bien  y -1  si no
+*/
+int salon_setDireeccion(eSalon* pSalon,char* direccionS)
+{
+	int retorno=-1;
+	if(pSalon!=NULL && direccionS!=NULL)
+		{
+		strncpy(pSalon->direccionSalon,direccionS,sizeof(pSalon->direccionSalon));
+		retorno=0;
+		}
+	return retorno;
+}
+
+/**
+* \brief organiza el array de salones luego de eliminar un elemento
+* \param recibe como PUNTEROS array de punteros de estructura largo y posicion borrada
+* \return Retorna 0 todo bien  y -1  si no
+*/
+int organizar_arrayS(eSalon* pSalones[],int len,int posicion)
+{
+	int retorno=-1;
+	if(pSalones!=NULL && len>0 && posicion>=0)
+	for (int i=posicion; i< len; ++i)
+		{
+		pSalones[posicion]=pSalones[posicion+1];
+		pSalones[posicion+1]=NULL;
+		retorno=0;
+		}
+	return retorno;
+}
+
+//========================================================================================
 void harcodearunSalon(eSalon* pSalones[],char nombreSalon[24],char direccionSalon[48],int tipoSalon,int len)
 {
 	int libre=buscarLugarLibreArrayS(pSalones,len);
@@ -370,35 +423,3 @@ void harcodearunSalon(eSalon* pSalones[],char nombreSalon[24],char direccionSalo
 		}
 }
 //====================================================================================
-//====================================================================================
-//====================================================================================
-/**
-* \brief Se imprime la lista de salas listando ID, nombre y dirección.
-* Se ingresa un ID y la misma generará la baja del salón,
-* \param recibe un estructura por puntero, el largo
-* \return Retorna si logor eliminar y -1 si no
-*/
-/*
-int eliminarSalonDeLista(eSalon *pSalones,int len)
-{
-	int retorno=-1;
-	int idBaja;
-	int auxPos;
-	if(pSalones!=NULL && len>0)
-	{
-		imprimirSalonCargado(pSalones, len);
-		pedirInt(&idBaja, "Ingrese ID de SALON a dar de baja", "Ingrese ID valido",MINIMO,CAN_SALON,INTENTOS);
-		auxPos=buscarPosicionDeSalonporSuId(pSalones, len, idBaja);
-		if(auxPos>=0)
-		{
-			bajaLogicaDeUnSalon(pSalones, len, idBaja);
-			retorno=0;
-		}else
-			puts("Debe ingresar un Id de Salon valido");
-		imprimirSalonCargado(pSalones, len);
-	}else
-		 puts("No se ha podido procesar");
-	return retorno;
-}
-*/
-

@@ -46,7 +46,7 @@ int pedirCharAUsuario(char *pChar, int reintentos, char *txt, char *txtError)
 
 	int retorno=-1;
 	int i;
-	char bufferCadenaAux[32];
+	char bufferCadenaAux[2];
 	if(pChar != NULL && reintentos >=0 && txt != NULL && txtError != NULL)
 	{
 		for (i=0; i<=reintentos; i++)
@@ -344,7 +344,7 @@ int esAlfabetica(char *cadena)
 {
 	int i=0;
 	int retorno = 0;
-	if(cadena != NULL && strlen(cadena) > 0)
+	if(cadena != NULL)
 	{
 		while(cadena[i] != '\0')
 			{

@@ -38,4 +38,11 @@ int bajaLogicaDeUnArcade(eArcade* pArcades[],int len,int idabajar);
 
 void harcodearunArcade(eArcade* pArcades[],char nacionalidadArcade[24],char nombreJuego[64],int tipoSonidoArcade,int cantidadJugadorArcade,int capMaxFichaArcade,int idSalon,int len);
 
+int organizar_arrayA(eArcade* pArcades[],int len,int posicion);
+int arcade_setTipoSon(eArcade* pArcade,int* tipoSonA);
+int arcade_setCantFichas(eArcade* pArcade,int* cantFichA);
+int arcade_setCantJugadores(eArcade* pArcade,int* cantJugadoresA);
+int arcade_setNombreJuego(eArcade* pArcade,char* nombreJuegoA);
+int arcade_setNacionalidadArcade(eArcade* pArcade,char* nacionalidadA);
+
 #endif /* ARCADE_H_ */

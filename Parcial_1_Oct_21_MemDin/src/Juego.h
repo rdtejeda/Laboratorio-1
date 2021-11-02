@@ -18,8 +18,6 @@ typedef struct{
 
 int inicializarListaJuegos(eJuego *pJuegos,int lenJ);
 int estaUnJuegoEnLista(eJuego *pJuegos, int lenJ, char nombreJuego[]);
-//int hacerListaDeJuegos(eJuego *pJuegos,int len,eArcade *pArcades);
-//int imprimirListaJuegos(eArcade *pArcades,int len);
 
 int imprimirListaJuegos(eArcade* pArcades[],int len);
 int hacerListaDeJuegos(eJuego *pJuegos,int len,eArcade* pArcades[]);

@@ -37,7 +37,7 @@
 
 static int dameUnIdNuevoA(void);
 
-//=======================================================================
+
 /**
 * \brief reserva de forma dinamica memoria para un dato tipo eArcade
 * \param es void
@@ -46,10 +46,13 @@ static int dameUnIdNuevoA(void);
 eArcade* nuevoArcadeM_D(void)
 {
 	eArcade* pArcade=(eArcade*)malloc(sizeof(eArcade));
-
+	if(pArcade==NULL)
+		{
+			puts("No se ha podido reservar espacio en memoria");
+		}
 	return pArcade;
 }
-//=======================================================================
+
 /**ordenaArcadePorNombreJuego
  * \brief inicializa todas las posiciones del array arcades como Libres pone la bander isEmpty en -1
  * \param  *plist recibo array por referencia, len tamaño del array
@@ -69,9 +72,6 @@ int iniciarEarrayA(eArcade* pArcades[],int len)
 			 puts("No se ha podido procesar");
 	   return estado;
 }
-//=======================================================================
-
-
 
 /**
 * \brief Modifica un arcade con las opciones pedidas
@@ -122,6 +122,7 @@ int iniciarEarrayA(eArcade* pArcades[],int len)
 			 puts("No se ha podido procesar");
 	 return retorno;
  }
+
 /**
 * \brief da de alta un salon en el array de arcade
 * \param recibe un array de estructura, el largo
@@ -137,19 +138,24 @@ int altaArcade(eArcade* pArcades[],eSalon* pSalones[],int lenA,int lenS)
 		if(libre>=0)
 			{
 			eArcade* pArcade=nuevoArcadeM_D();
-			pArcades[libre]=pArcade;
-			if(pedirDatosArcade(pArcades[libre],pSalones,lenA,lenS)==0)
-					{
-					retorno=0;
-					puts("Se ha completado la carga 1");
-					}else
-						puts("No se ha completado la carga 2");
+			if(pArcade!=NULL)
+				{
+				pArcades[libre]=pArcade;
+				if(pedirDatosArcade(pArcades[libre],pSalones,lenA,lenS)==0)
+						{
+						retorno=0;
+						puts("Se ha completado la carga");
+						}else
+							puts("No se ha completado la carga");
+				}else
+					puts("No hay espacio en memoria");
 			}else
-				puts("No hay espacio libre en el array 3 ");
+				puts("No hay espacio libre en el array");
 	}else
-		 puts("No se ha podido procesar 4");
+		 puts("No se ha podido procesar");
 return retorno;
 }
+
 /**
 * \brief caraga de datos para Dar de alta un arcde
 * \param recibe un estructura por puntero y el largo
@@ -178,27 +184,32 @@ int pedirDatosArcade(eArcade *pArcades,eSalon* pSalones[],int lenA,int lenS)
 						  	  {
 							 imprimirSalonCargado(pSalones,lenS);
 			    			 if(pedirInt(&idSalon,"Ingrese Salon","Ingrese Salon valida",MINIMO,CAN_SALON,INTENTOS)==0 && buscarPosicionDeSalonporSuId(pSalones,lenS,idSalon)>=0)
-			    			 {
-			    			 pArcades->tipoSonidoArcade=bufferTipoSonA;
-			    			 pArcades->capMaxFichaArcade=bufferCantMAxFA;
-			    			 pArcades->cantidadJugadorArcade=bufferCantJugA;
-			    			 strncpy(pArcades->nombreJuego,bufferNomJuA,sizeof(pArcades->nombreJuego));
-			    			 strncpy(pArcades->nacionalidadArcade,bufferNacA,sizeof(pArcades->nacionalidadArcade));
-			    			 pArcades->idSalon=idSalon;
-			    			 pArcades->idArcade=dameUnIdNuevoA();
-			    			 estado=0;
-			    			 }else
-			    			puts("Salon Invalido");
-			    		 }
-					  	 }
-			    	 }
-			  	  }
-			  }
+								 {
+								 arcade_setTipoSon(pArcades, &bufferTipoSonA);
+								 arcade_setCantFichas(pArcades, &bufferCantMAxFA);
+								 arcade_setCantJugadores(pArcades, &bufferCantJugA);
+								 arcade_setNombreJuego(pArcades, bufferNomJuA);
+								 arcade_setNacionalidadArcade(pArcades, bufferNacA);
+								 pArcades->idSalon=idSalon;
+								 pArcades->idArcade=dameUnIdNuevoA();
+								 estado=0;
+								 }else
+									 puts("Id de Salon No valido");
+						  	  }else
+						  		  puts("Cantidad de Fichas no validas");
+					  	 }else
+							 puts("Cantidad de Jugadores no validos");
+			    	 }else
+						 puts("Nacionalidad incorrecto");
+			  	  }else
+					 puts("Nombred e Juego Incorrecto");
+			  }else
+				 puts("Tipo de Salon No valido");
 	   }else
 			 puts("No se ha podido procesar");
    return estado;
 }
-//===============================================================================================
+
 /**
 * \brief busca el primer index del array con flag emty
 * \param recibe un estructura por puntero y el largo
@@ -221,7 +232,7 @@ int buscarLugarLibreArrayA(eArcade* pArcades[], int len)
 		 puts("No se ha podido procesar");
 	return retorno;
 }
-//================================================================================================
+
 /**
 * \brief elimina un arcade, imprime lista y da la baja pidiendo confirmacion
 * \param recibe un estructura por puntero, el largo
@@ -257,6 +268,7 @@ int eliminarArcadeDeLista(eArcade* pArcades[],int lenArcade)
 		 puts("No se ha podido procesar");
 	return retorno;
 }
+
  /**
  * \brief Da de baja en forma logica un ID de arcade = Emty
  * \param recibe un estructura por puntero, el largo y el id a dar de baja
@@ -271,11 +283,7 @@ int eliminarArcadeDeLista(eArcade* pArcades[],int lenArcade)
 	 {
 		free(pArcades[posicion]);
 		pArcades[posicion]=NULL;
-		for (int i=posicion; i< len; ++i)
-			{
-				pArcades[posicion]=pArcades[posicion+1];
-				pArcades[posicion+1]=NULL;
-			}
+		organizar_arrayA(pArcades, len, posicion);
 		retorno=0;
 	 }else
 		 puts("No se ha podido procesar");
@@ -283,6 +291,7 @@ int eliminarArcadeDeLista(eArcade* pArcades[],int lenArcade)
 
 	 return retorno;
  }
+
 /**
 * \brief Busca  un Arcade recibiendo como parámetro de búsqueda el Id de arcade.
 * \param  *parcade recibo array por referencia,len tamaño del array, id
@@ -305,12 +314,12 @@ int buscarPosicionDeArcadeporSuId(eArcade* pArcades[],int len,int id)
 			 puts("No se ha podido procesar");
 		return retorno;
 }
+
 /**
 * \brief Ordena el array de Salon por orden alfabetico ascendente de nombren de juego
 * \param recibe un array de estructura, el largo
 * \return Retorna -1 todo mal 0 todo bien
 */
-
 int ordenaArcadePorNombreJuego(eArcade* pArcades[], int len)
 {
 	int banderaSwapp=-1;
@@ -348,15 +357,12 @@ int ordenaArcadePorNombreJuego(eArcade* pArcades[], int len)
 * \param recibe un estructura por puntero y el largo
 * \return Retorna cantidad de cargados y -1  si no hay
 */
-
 int imprimirArcadeCargado(eArcade* pArcades[], int len)
 {
 	int estado=-1;
 	int contadordeCargados=0;
 	ordenaArcadePorNombreJuego(pArcades, CAN_ARCADE);
-	printf("____________________________________________________________________________________________________________\n");
-	printf("Id Nacionalidad de Arcade\t  Nombre Juego\t\t\tSonido Jugadores Max.Fichas Id Salon\n");
-	printf("____________________________________________________________________________________________________________\n");
+	imprimirEncArcadeCargado();
 	if (pArcades!=NULL && len>0)
 	{
 		for (int i= 0;  i< len; i++)
@@ -369,7 +375,7 @@ int imprimirArcadeCargado(eArcade* pArcades[], int len)
 				contadordeCargados++;
 			}
 		}
-		printf("___________________________________________________________________________________________________________\n");
+		imprimirLinea();
 		estado=contadordeCargados;
 		if(contadordeCargados==0)
 			{
@@ -390,15 +396,13 @@ int imprimirUnArcadeCargado(eArcade* pArcades[],int len,int idmostrar)
 	int estado=-1;
 	int posicion;
 	posicion=buscarPosicionDeArcadeporSuId(pArcades, len, idmostrar);
-	printf("____________________________________________________________________________________________________________\n");
-	printf("Id Nacionalidad de Arcade\t  Nombre Juego\t\t\tSonido Jugadores Max.Fichas Id Salon\n");
-	printf("____________________________________________________________________________________________________________\n");
+	imprimirEncArcadeCargado();
 	if (pArcades!=NULL && len>0 && idmostrar>0 )//&& pArcades[posicion].isEmptyArcade==OCUPADO
 	{
 		printf(" %d %-30s %-30s %d\t%d\t  %d\t\t%d\n",
 		pArcades[posicion]->idArcade,pArcades[posicion]->nacionalidadArcade,pArcades[posicion]->nombreJuego,pArcades[posicion]->tipoSonidoArcade,
 		pArcades[posicion]->cantidadJugadorArcade,pArcades[posicion]->capMaxFichaArcade,pArcades[posicion]->idSalon);
-		printf("___________________________________________________________________________________________________________\n");
+		imprimirLinea();
 		estado=0;
 	}else
 		puts("NO HAY DATOS CARGADOS");
@@ -444,9 +448,6 @@ static int dameUnIdNuevoA(void)
 	contador++;
 	return contador;
 }
-
-
-
 //=======================================================================================
 /**
  * \brief Se imprime la lista de salas listando ID, nombre y dirección.
@@ -485,49 +486,124 @@ static int dameUnIdNuevoA(void)
  		 puts("No se ha podido procesar ");
  	return retorno;
  }
- //===================================================================================
 
- void harcodearunArcade(eArcade* pArcades[],char nacionalidadArcade[24],char nombreJuego[64],int tipoSonidoArcade,int cantidadJugadorArcade,int capMaxFichaArcade,int idSalon,int len)
- {
-	 int posicion=buscarLugarLibreArrayA(pArcades, len);
-	 if(posicion>=0)
-	  	{
-		 eArcade* pArcade = nuevoArcadeM_D();
-		 pArcades[posicion]=pArcade;
-
-		strncpy(pArcades[posicion]->nacionalidadArcade, nacionalidadArcade,sizeof(pArcades[posicion]->nacionalidadArcade));
-		strncpy(pArcades[posicion]->nombreJuego, nombreJuego,sizeof(pArcades[posicion]->nombreJuego));
-		pArcades[posicion]->tipoSonidoArcade=tipoSonidoArcade;
-		pArcades[posicion]->cantidadJugadorArcade=cantidadJugadorArcade;
-		pArcades[posicion]->capMaxFichaArcade=capMaxFichaArcade;
-		pArcades[posicion]->idArcade=dameUnIdNuevoA();
-		pArcades[posicion]->idSalon=idSalon;
-		}
- }
- //=======================================================================================
- //=======================================================================================
- //=======================================================================================
  /**
-   * \brief da de baja los arcades de un salon por el id salon
-   * \param pSalones, lenS, *pArcades lenA id Salon Baja
-   * \return Retorna 0 si todo bien  y -1 si no numero de id
-   */
- /*
- int bajaArcadesDeUnSalon(eSalon *pSalones,int lenS,eArcade *pArcades,int lenA, int idSBaja)
+ * \brief setea tipo de sonido de arcde
+ * \param recibe como PUNTEROS A estructura y valor de tipo
+ * \return Retorna 0 todo bien  y -1  si no
+ */
+int arcade_setTipoSon(eArcade* pArcade,int* tipoSonA)
+ {
+ 	int retorno=-1;
+ 	if(pArcade!=NULL && tipoSonA!=NULL)
+ 		{
+ 		pArcade->tipoSonidoArcade=*tipoSonA;
+ 		retorno=0;
+ 		}
+ 	return retorno;
+ }
+
+ /**
+  * \brief setea cantFicha de arcde
+  * \param recibe como PUNTEROS A estructura y valor de tipo
+  * \return Retorna 0 todo bien  y -1  si no
+  */
+int arcade_setCantFichas(eArcade* pArcade,int* cantFichA)
   {
   	int retorno=-1;
-  	if(pSalones!=NULL && lenA>0)
-  	{
-  		for (int i=0;i<lenA;++i)
-  			{
-  				if(pArcades[i].idSalon==idSBaja)
-  				{
-  					bajaLogicaDeUnArcade(pArcades,lenA,pArcades[i].idArcade);
-  				}
-  			}
-  			retorno=0;
-  	}else
-  		 puts("No se ha podido procesar");
+  	if(pArcade!=NULL && cantFichA!=NULL)
+  		{
+  		pArcade->capMaxFichaArcade=*cantFichA;
+  		retorno=0;
+  		}
   	return retorno;
   }
-  */
+
+  /**
+    * \brief setea cantdeJugadores de arcde
+    * \param recibe como PUNTEROS A estructura y valor de tipo
+    * \return Retorna 0 todo bien  y -1  si no
+    */
+int arcade_setCantJugadores(eArcade* pArcade,int* cantJugadoresA)
+    {
+    	int retorno=-1;
+    	if(pArcade!=NULL && cantJugadoresA!=NULL)
+    		{
+    		pArcade->cantidadJugadorArcade=*cantJugadoresA;
+    		retorno=0;
+    		}
+    	return retorno;
+    }
+
+ /**
+ * \brief setea el nombre de juego en arcade
+ * \param recibe como PUNTEROS A estructura y nombre de juego
+ * \return Retorna 0 todo bien  y -1  si no
+*/
+ int arcade_setNombreJuego(eArcade* pArcade,char* nombreJuegoA)
+ {
+ 	int retorno=-1;
+ 	if(pArcade!=NULL && nombreJuegoA!=NULL)
+ 		{
+ 		strncpy(pArcade->nombreJuego,nombreJuegoA,sizeof(pArcade->nombreJuego));
+ 		retorno=0;
+ 		}
+ 	return retorno;
+ }
+
+ /**
+  * \brief setea la nacionalidad del  arcade
+  * \param recibe como PUNTEROS A estructura y nombre de juego
+  * \return Retorna 0 todo bien  y -1  si no
+ */
+  int arcade_setNacionalidadArcade(eArcade* pArcade,char* nacionalidadA)
+  {
+  	int retorno=-1;
+  	if(pArcade!=NULL && nacionalidadA!=NULL)
+  		{
+  		strncpy(pArcade->nacionalidadArcade,nacionalidadA,sizeof(pArcade->nacionalidadArcade));
+  		retorno=0;
+  		}
+  	return retorno;
+  }
+
+ /**
+ * \brief organiza el array de arcades luego de eliminar un elemento
+ * \param recibe como PUNTEROS array de punteros de estructura largo y posicion borrada
+ * \return Retorna 0 todo bien  y -1  si no
+ */
+ int organizar_arrayA(eArcade* pArcades[],int len,int posicion)
+ {
+ 	int retorno=-1;
+ 	if(pArcades!=NULL && len>0 && posicion>=0)
+ 	for (int i=posicion; i< len; ++i)
+ 		{
+ 		pArcades[posicion]=pArcades[posicion+1];
+ 		pArcades[posicion+1]=NULL;
+ 		retorno=0;
+ 		}
+ 	return retorno;
+ }
+
+ //===================================================================================
+  void harcodearunArcade(eArcade* pArcades[],char nacionalidadArcade[24],char nombreJuego[64],int tipoSonidoArcade,int cantidadJugadorArcade,int capMaxFichaArcade,int idSalon,int len)
+  {
+ 	 int posicion=buscarLugarLibreArrayA(pArcades, len);
+ 	 if(posicion>=0)
+ 	  	{
+ 		 eArcade* pArcade = nuevoArcadeM_D();
+ 		 pArcades[posicion]=pArcade;
+
+ 		strncpy(pArcades[posicion]->nacionalidadArcade, nacionalidadArcade,sizeof(pArcades[posicion]->nacionalidadArcade));
+ 		strncpy(pArcades[posicion]->nombreJuego, nombreJuego,sizeof(pArcades[posicion]->nombreJuego));
+ 		pArcades[posicion]->tipoSonidoArcade=tipoSonidoArcade;
+ 		pArcades[posicion]->cantidadJugadorArcade=cantidadJugadorArcade;
+ 		pArcades[posicion]->capMaxFichaArcade=capMaxFichaArcade;
+ 		pArcades[posicion]->idArcade=dameUnIdNuevoA();
+ 		pArcades[posicion]->idSalon=idSalon;
+ 		}
+  }
+  //==========================================================================================
+
+
+

@@ -98,28 +98,22 @@ int informeH1(eArcade* pArcades[],int lenA,eSalon* pSalones[],int lenS)
 				}
 			}
 		}
-
 		if(posArray>0)
 		{
-		printf("_____________________________________________________________________________________________________\n");
-		printf("\nNombre del Salon\t\tDirección\t\t\tTipo de Salon\tId Salon \n");
-		printf("_____________________________________________________________________________________________________\n");
+		imprimirEncSalonCargado();
 		for (int l = 0; l <CAN_SALON; ++l)
 			{
 				if(arrayIdS[l]!=0)
 				{
 					posSalon=buscarPosicionDeSalonporSuId(pSalones,lenS,arrayIdS[l]);
-
 					printf(" %-30s %-30s \t%d\t\t%d\n",
 					pSalones[posSalon]->nombreSalon,pSalones[posSalon]->direccionSalon,
 					pSalones[posSalon]->tipoSalon,pSalones[posSalon]->idSalon);
 				}
 			}
-		printf("_____________________________________________________________________________________________________\n");
+			imprimirLinea();
 		}else
 			 puts("No hay salones que cumplan la condicion");
-
-
 		estado=0;
 	}
 return estado;
@@ -138,9 +132,7 @@ int informeA(eArcade* pArcades[],int lenA,eSalon* pSalones[],int lenS)
 	int posicion2;
 	if(pArcades!=NULL && lenA>0 && pSalones!=NULL && lenS>0)
 		{
-		printf("________________________________________________________________________________\n");
-		printf("Nombre del Salon\t\tDireccio del Salon\tTipo de salon\tId Salon\n");
-		printf("_________________________________________________________________________________\n");
+		imprimirEncSalonCargado();
 		for (int i=0;i<lenS;i++)
 			{
 			if(pSalones[i]!=NULL)
@@ -162,7 +154,7 @@ int informeA(eArcade* pArcades[],int lenA,eSalon* pSalones[],int lenS)
 			puts("No hay salones que cumplan la consigna");
 			estado=-1;
 		}
-		printf("________________________________________________________________________________\n");
+		imprimirLinea();
 		}else
 			 puts("No se ha podido procesar");
 	return estado;

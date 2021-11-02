@@ -18,19 +18,6 @@ typedef struct{
 	int idSalon;
 }eSalon;
 
-//int largoArrayS(eSalon *pSalones,int len);
-//int imprimirSalonCargado(eSalon *pSalones, int len);
-//int ordenaSalonPorDireccion(eSalon *pSalones, int len);
-//int buscarPosicionDeSalonporSuId(eSalon *pSalones,int len,int id);
-//int imprimirUnSalonCargado(eSalon *pSalones, int len, int idmostrar);
-//int buscarLugarLibreArrayS(eSalon *pSalones, int len);
-//int altaSalon(eSalon *pSalones,int len);
-//int pedirDatosSalon(eSalon *pSalones, int len);
-//int bajaLogicaDeUnSalon(eSalon *pSalones,int len,int idabajar);
-//void harcodearunSalon(eSalon *pSalones,char nombreSalon[24],char direccionSalon[48],int tipoSalon,int posicion);
-
-//int eliminarSalonDeLista(eSalon *pSalones,int len); OJOTA
-
 //MEM DIN ROMPE TODO PEPE!!!
 
 eSalon* nuevoSalonM_D(void);
@@ -46,5 +33,10 @@ int largoArrayS(eSalon* pSalones[],int len);
 int imprimirSalonCargado(eSalon* pSalones[], int len);
 
 void harcodearunSalon(eSalon* pSalones[],char nombreSalon[24],char direccionSalon[48],int tipoSalon,int len);
+
+int salon_setTipo(eSalon* pSalon,int* tipoS);
+int salon_setName(eSalon* pSalon,char* nombreS);
+int salon_setDireeccion(eSalon* pSalon,char* direccionS);
+int organizar_arrayS(eSalon* pSalones[],int len,int posicion);
 
 #endif /* SALON_H_ */

@@ -36,10 +36,10 @@
 
 int main(void)
 {
-	eSalon* pListaSalones[CAN_SALON]; //ARRAY DE DIRECCIONES DE MEMORIA DE entidades eSalone
-	iniciarEarrayS(pListaSalones, CAN_SALON);// * pListaSalones[CAN_SALON] INICIALIZADO
-	eArcade* pListaArcades[CAN_ARCADE];//ARRAY DE DIRECCIONES DE MEMORIA DE entidades eArcade
-	iniciarEarrayA(pListaArcades, CAN_ARCADE);// * pListaArcades[CAN_ARCADE] INICIALIZADO
+	eSalon* pListaSalones[CAN_SALON];
+	iniciarEarrayS(pListaSalones, CAN_SALON);
+	eArcade* pListaArcades[CAN_ARCADE];
+	iniciarEarrayA(pListaArcades, CAN_ARCADE);
 
 	int menuPrincipal;
 	char menuInformes;
@@ -81,7 +81,6 @@ int main(void)
 			pedirInt(&menuPrincipal, "Ingrese opción deseada", "Entre 1 y 10", MINIMO, MAXIMO10, INTENTOS);
 			cargadoS=largoArrayS(pListaSalones, CAN_SALON);
 			cargadoA=largoArrayA(pListaArcades, CAN_ARCADE);
-
 			switch (menuPrincipal)
 			{
 				case 1:
@@ -144,7 +143,6 @@ int main(void)
 						{
 						imprimirMenuInformes();
 						pedirCharAUsuario(&menuInformes, INTENTOS, "Ingrese opcion deseada entres A y J", "Ingesa opcion correcta");
-						__fpurge(stdin);
 						if(menuInformes>=65 && menuInformes<=74)
 						{
 						switch (menuInformes)
@@ -181,7 +179,7 @@ int main(void)
 							}
 						}else
 							{
-								puts("ERROR - INGRESE UNA MAYUSCULA");
+								puts("ERROR - INGRESE UNA MAYUSCULA ENTRE A Y J");
 							}
 
 						}while(menuInformes!=74);

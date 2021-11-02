@@ -22,6 +22,37 @@
 #include "Informes.h"
 
 /**
+* \brief Imprime el encabezado de la lista de arcade
+* \param
+* \return
+*/
+void imprimirEncArcadeCargado()
+{
+	printf("____________________________________________________________________________________________________________\n");
+	printf("Id Nacionalidad de Arcade\t  Nombre Juego\t\t\tSonido Jugadores Max.Fichas Id Salon\n");
+	printf("____________________________________________________________________________________________________________\n");
+}
+/**
+* \brief Imprime el encabezado de la lista de salones
+* \param
+* \return
+*/
+void imprimirEncSalonCargado()
+{
+	printf("______________________________________________________________________________________________\n");
+	printf("\nNombre del Salon\t\tDirección\t\t\tTipo de Salon\tId Salon\n");
+	printf("______________________________________________________________________________________________\n");
+}
+/**
+* \brief Imprime una linea
+* \param
+* \return
+*/
+void imprimirLinea()
+{
+	printf("______________________________________________________________________________________________\n");
+}
+/**
 * \brief Imprime el menu de INICIAL de opciones
 * \param
 * \return

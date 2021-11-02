@@ -14,5 +14,8 @@
 void imprimirMenuInicial();
 void imprimirMenuInformes();
 void imprimirMenuModificar();
+void imprimirLinea();
+void imprimirEncSalonCargado();
+void imprimirEncArcadeCargado();
 
 #endif /* MENU_H_ */
