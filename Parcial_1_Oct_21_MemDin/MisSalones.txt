@@ -1,0 +1,7 @@
+ Alavarez                       Laprida 430                    	1		7
+ Arrúa                         Urquiza 234                    	1		1
+ Kirchner                       Sin Nombre SN                  	2		6
+ Lopez                          Guemes 1234                    	2		3
+ Perez                          La plata 2345                  	2		2
+ Tejeda                         Triunvirato 1239               	1		4
+ Tejeda                         Triunvirato 1239               	1		5

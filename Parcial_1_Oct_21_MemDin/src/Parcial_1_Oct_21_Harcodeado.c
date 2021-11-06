@@ -66,7 +66,8 @@ int main(void)
 	harcodearunArcade(pListaArcades, "Hungaro","Mario Bross",STEREO,4,500,6,CAN_ARCADE);
 	harcodearunArcade(pListaArcades, "Hungaro","Mario Bross",STEREO,4,500,6,CAN_ARCADE);
 	harcodearunArcade(pListaArcades, "Hungaro","Mario Bross",STEREO,4,500,6,CAN_ARCADE);
-
+	leerSalonesGrabados(pListaSalones, CAN_SALON);
+	/*
 	harcodearunSalon(pListaSalones,"Arrúa","Urquiza 234",SHOPPING,CAN_SALON);
 	harcodearunSalon(pListaSalones,"Perez","La plata 2345",LOCAL,CAN_SALON);
 	harcodearunSalon(pListaSalones,"Lopez","Guemes 1234",LOCAL,CAN_SALON);
@@ -74,7 +75,7 @@ int main(void)
 	harcodearunSalon(pListaSalones,"Tejeda","Triunvirato 1239",SHOPPING,CAN_SALON);
 	harcodearunSalon(pListaSalones,"Kirchner","Sin Nombre SN",LOCAL,CAN_SALON);
 	harcodearunSalon(pListaSalones,"Alavarez","Laprida 430",SHOPPING,CAN_SALON);
-
+*/
 	do
 		{
 			imprimirMenuInicial();
@@ -190,6 +191,7 @@ int main(void)
 					break;
 			}
 		}while(menuPrincipal!=10);
+	grabarSalonCargado(pListaSalones,CAN_SALON);
 	puts("!!!Usted ha salido del menu de SALONES Y ARCADES!!!");
 	return EXIT_SUCCESS;
 }

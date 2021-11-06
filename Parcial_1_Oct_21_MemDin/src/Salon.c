@@ -216,6 +216,7 @@ int ordenaSalonPorDireccion(eSalon* pSalones[], int len)
 	eSalon* auxiliar=NULL;
 	int limite=len;
 	int estadostrcmp;
+	nuevoArcadeM_D();
 
 	if(pSalones!=NULL && len>0)
 	{
@@ -277,6 +278,83 @@ int imprimirSalonCargado(eSalon* pSalones[], int len)
 		 puts("No se ha podido procesar");
 	return estado;
 }
+
+int grabarSalonCargado(eSalon* pSalones[], int len)
+{
+	int estado=-1;
+	ordenaSalonPorDireccion(pSalones, len);
+	FILE* fp;
+	fp=fopen("MisSalonesII.txt","w");//ABRIR
+	if (pSalones!=NULL && len>0)
+	{
+		for (int i= 0;  i< len; i++)
+			{
+			if(pSalones[i]!=NULL)
+				{
+
+				if(fp!=NULL)
+					{
+					fprintf(fp,"%s,%s,%d,%d\n",
+					pSalones[i]->nombreSalon,pSalones[i]->direccionSalon,pSalones[i]->tipoSalon,
+					pSalones[i]->idSalon);
+					}else
+						printf("Error abriendo archivo\n");//escri en txt
+				}
+			}
+
+	}else
+					 puts("No se ha podido procesar");
+	fclose(fp);//CERRAR Y GRABAR
+return estado;
+}
+
+int leerSalonesGrabados(eSalon* pSalones[], int len)
+{
+	int estado=-1;
+	FILE* fp;
+	char auxName[60];
+	char auxDir[60];
+	int a;
+	int b;
+	int libre;
+	if ((fp=fopen("MisSalonesII.txt","r"))!=NULL)
+		{
+			for (int i= 0;  i< len; i++)
+				{
+					//puts("Pase");
+					if((fscanf(fp,"%[^,],%[^,],%d,%d\n",auxName,auxDir,&a,&b))==4)
+					{
+						printf("%s %s %d,%d\n",auxName,auxDir,a,b);
+						if(pSalones!=NULL && len>0)
+							{
+								libre=buscarLugarLibreArrayS(pSalones,len);
+								if(libre>=0)
+									{
+									eSalon* pSalon = nuevoSalonM_D();
+									if(pSalon!=NULL)
+										{
+										pSalon->idSalon=b;
+										pSalon->tipoSalon=a;
+										strcpy(pSalon->nombreSalon,auxName);
+										strcpy(pSalon->direccionSalon,auxDir);
+										pSalon->idSalon=dameUnIdNuevoS();
+										pSalones[libre]=pSalon;
+										}else
+											puts("No hay espacio en memoria");
+									}else
+										puts("No hay espacio libre en el array");
+							}else
+								 puts("No se ha podido procesar");
+					}
+				}
+		}else
+				printf("Error abriendo archivo\n");
+	fclose(fp);//CERRAR Y GRABAR
+
+	return estado;
+}
+
+
 
 /**
 * \brief CALCULA LA CANTIDAD DE ELEMENTO NO null EN EL ARRAY DE PUNTEROS
@@ -351,6 +429,7 @@ int salon_setTipo(eSalon* pSalon,int* tipoS)
 	int retorno=-1;
 	if(pSalon!=NULL && tipoS!=NULL)
 		{
+		//pedirInt(&bufferTipoS, "Ingrese tipo Salon Shopping 1 y Salon 2", "Ingrese tipo valido",SHOPPING,LOCAL,INTENTOS)==0
 		pSalon->tipoSalon=*tipoS;
 		retorno=0;
 		}

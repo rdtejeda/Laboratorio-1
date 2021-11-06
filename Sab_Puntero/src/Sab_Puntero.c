@@ -24,6 +24,7 @@ Retornando la cantidad de reemplazos o -1 en caso de error.
 #include <string.h>
 #include <ctype.h>
 // https://www.onlinegdb.com/eY9VEBPKo sabado 30!0
+//https://www.onlinegdb.com/eY9VEBPKo
 
 int funcionBuscarYReemplazar(int* pEntero,int* tamano, int valor);
 int main(void) {

@@ -39,4 +39,6 @@ int salon_setName(eSalon* pSalon,char* nombreS);
 int salon_setDireeccion(eSalon* pSalon,char* direccionS);
 int organizar_arrayS(eSalon* pSalones[],int len,int posicion);
 
+int grabarSalonCargado(eSalon* pSalones[], int len);
+
 #endif /* SALON_H_ */
