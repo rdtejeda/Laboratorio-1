@@ -28,7 +28,7 @@ int main(void)
 {
 	LinkedList* listaAlumnos = ll_newLinkedList();
 	Alumno* a;
-
+	LinkedList* listaFiltrada;
 	for(int i = 0; i<5; i++)
 	{
 		a = (Alumno*)calloc(sizeof(Alumno), 1);
@@ -53,24 +53,24 @@ int main(void)
 	ll_map(listaAlumnos, CalcularPromedio);
 
 	//FILTRO PROMEDIOS MAYORES A 6 INCLUSIVE
-	ll_filter(listaAlumnos, FiltrarPromedioMayor6);
-
+	//ll_filter(listaAlumnos, FiltrarPromedioMayor6);
+	listaFiltrada=ll_filterNewList(listaAlumnos, FiltrarPromedioMayor6);
 
 	//IMPRIMO LISTA
-	for(int i = 0; i<ll_len(listaAlumnos); i++)
+	for(int i = 0; i<ll_len(listaFiltrada); i++)
 	{
-	a = ll_get(listaAlumnos, i);
+	a = ll_get(listaFiltrada, i);
 	printf("A%d)\tNota1: %d\tNota2: %d\tPromedio: %.2f\n", i+1, a->nota1, a->nota2, a->promedio);
 	}
 	puts("___________________________________________________________");
 
 	//ORDENO LISTA POR PROMEDIO
-	ll_sort(listaAlumnos, OrdenamientoPorNota1, 1);//0 MAYO A MENOR 1 DE menor a mayor
+	ll_sort(listaFiltrada, OrdenamientoPorNota1, 1);//0 MAYO A MENOR 1 DE menor a mayor
 
 	//IMPRIMO LISTA
-	for(int i = 0; i<ll_len(listaAlumnos); i++)
+	for(int i = 0; i<ll_len(listaFiltrada); i++)
 	{
-	a = ll_get(listaAlumnos, i);
+	a = ll_get(listaFiltrada, i);
 	printf("A%d)\tNota1: %d\tNota2: %d\tPromedio: %.2f\n", i+1, a->nota1, a->nota2, a->promedio);
 	}
 	puts("___________________________________________________________");
@@ -119,31 +119,12 @@ return rtn;
 int FiltrarPromedioMayor6(void* a)
 {
 	int rtn = 1;
-	if(((Alumno*)a)->promedio < 6)
+	if(((Alumno*)a)->promedio < 5)
 	{
 		rtn = 0;
 	}
 	return rtn;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 /*
     utest example : Unit test examples.
@@ -192,8 +173,8 @@ int main(void)
 	startTesting(19); // ll_sort
  return 0;
 }
-*/
 
+*/
 
 
 

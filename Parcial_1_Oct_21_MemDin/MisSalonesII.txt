@@ -1,8 +1,8 @@
 Alavarez,Laprida 430,1,1
 Arrúa,Urquiza 234,1,2
 Kirchner,Sin Nombre SN,2,3
-Lanus,Igoyen 33,2,8
-Lopez,Guemes 1234,2,4
-Pepe,Balcarde 45,1,7
-Tejeda,Triunvirato 1239,1,5
-Tejeda,Triunvirato 1239,1,6
+Lanus,Igoyen 33,2,4
+Lopez,Guemes 1234,2,5
+Pepe,Balcarde 45,1,6
+Tejeda,Triunvirato 1239,1,7
+Tejeda,Triunvirato 1239,1,8

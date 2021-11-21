@@ -309,10 +309,12 @@ int controller_shotdown(LinkedList* pLinkedListEmpleados,int estadoBin,int estad
 								controller_saveAsBinary("data.bin",pLinkedListEmpleados);
 							}else
 								puts("SE PERDIDO LA LISTA ACTUAL");
-						}
 
+						}
+				//fcloseall();
 			}
 	ll_deleteLinkedList(pLinkedListEmpleados);
+
 	retorno=0;
 	}
 return retorno;

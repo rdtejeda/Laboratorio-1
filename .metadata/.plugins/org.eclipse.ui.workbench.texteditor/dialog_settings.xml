@@ -6,8 +6,12 @@
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
-		<item key="selection" value="pElement"/>
+		<item key="selection" value="pAuxiliarArcade"/>
 		<list key="findhistory">
+			<item value="pAuxiliarEmployee"/>
+			<item value="numerofichas"/>
+			<item value="cantidadJugadores"/>
+			<item value="numero"/>
 			<item value="pAuxiliar"/>
 			<item value="rtn"/>
 			<item value="arcades"/>
@@ -19,12 +23,12 @@
 			<item value="posicion"/>
 			<item value="listaSalones"/>
 			<item value="No se ha podido procesar"/>
-			<item value="idBaja"/>
-			<item value="display"/>
-			<item value="i"/>
-			<item value="Cliente"/>
 		</list>
 		<list key="replacehistory">
+			<item value="pAuxiliarArcade"/>
+			<item value="tiposonido"/>
+			<item value="numerofichas"/>
+			<item value="cantidad"/>
 			<item value="pElement"/>
 			<item value="returnAux"/>
 			<item value="pListaArcades"/>
@@ -36,15 +40,11 @@
 			<item value="j"/>
 			<item value="posSalon"/>
 			<item value="eJuegos"/>
-			<item value="lenA"/>
-			<item value="pSalones"/>
-			<item value="eSalon"/>
-			<item value="pArcades"/>
 		</list>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
-		<item key="DIALOG_X_ORIGIN" value="839"/>
-		<item key="DIALOG_Y_ORIGIN" value="343"/>
+		<item key="DIALOG_X_ORIGIN" value="820"/>
+		<item key="DIALOG_Y_ORIGIN" value="255"/>
 		<item key="DIALOG_WIDTH" value="333"/>
 		<item key="DIALOG_HEIGHT" value="427"/>
 		<item key="DIALOG_FONT_NAME" value="1|Ubuntu|10.0|0|GTK|1|"/>

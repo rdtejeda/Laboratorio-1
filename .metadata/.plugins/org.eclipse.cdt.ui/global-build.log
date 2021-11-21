@@ -1,201 +1,50 @@
-14:17:06 **** Build of configuration Debug for project TP3Parcial ****
+16:59:26 **** Incremental Build of configuration Debug for project Parcial_2_Nov_21_Ll_Arcade ****
 make all 
-Building file: ../Controller.c
+Building file: ../src/Juego.c
 Invoking: GCC C Compiler
-gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"Controller.d" -MT"Controller.o" -o "Controller.o" "../Controller.c"
-Finished building: ../Controller.c
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Juego.d" -MT"src/Juego.o" -o "src/Juego.o" "../src/Juego.c"
+Finished building: ../src/Juego.c
  
-Building file: ../Employee.c
+Building file: ../src/LinkedList.c
 Invoking: GCC C Compiler
-gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"Employee.d" -MT"Employee.o" -o "Employee.o" "../Employee.c"
-Finished building: ../Employee.c
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/LinkedList.d" -MT"src/LinkedList.o" -o "src/LinkedList.o" "../src/LinkedList.c"
+Finished building: ../src/LinkedList.c
  
-Building file: ../LinkedList.c
+Building file: ../src/Menu.c
 Invoking: GCC C Compiler
-gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"LinkedList.d" -MT"LinkedList.o" -o "LinkedList.o" "../LinkedList.c"
-Finished building: ../LinkedList.c
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Menu.d" -MT"src/Menu.o" -o "src/Menu.o" "../src/Menu.c"
+Finished building: ../src/Menu.c
  
-Building file: ../Menu.c
+Building file: ../src/Parcial_2_Nov_21_Ll_Arcade.c
 Invoking: GCC C Compiler
-gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"Menu.d" -MT"Menu.o" -o "Menu.o" "../Menu.c"
-Finished building: ../Menu.c
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Parcial_2_Nov_21_Ll_Arcade.d" -MT"src/Parcial_2_Nov_21_Ll_Arcade.o" -o "src/Parcial_2_Nov_21_Ll_Arcade.o" "../src/Parcial_2_Nov_21_Ll_Arcade.c"
+Finished building: ../src/Parcial_2_Nov_21_Ll_Arcade.c
  
-Building file: ../ValidarPedir.c
+Building file: ../src/arcade.c
 Invoking: GCC C Compiler
-gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"ValidarPedir.d" -MT"ValidarPedir.o" -o "ValidarPedir.o" "../ValidarPedir.c"
-Finished building: ../ValidarPedir.c
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/arcade.d" -MT"src/arcade.o" -o "src/arcade.o" "../src/arcade.c"
+Finished building: ../src/arcade.c
  
-Building file: ../main.c
+Building file: ../src/controller.c
 Invoking: GCC C Compiler
-gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"main.d" -MT"main.o" -o "main.o" "../main.c"
-Finished building: ../main.c
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/controller.d" -MT"src/controller.o" -o "src/controller.o" "../src/controller.c"
+Finished building: ../src/controller.c
  
-Building file: ../parser.c
+Building file: ../src/parser.c
 Invoking: GCC C Compiler
-gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"parser.d" -MT"parser.o" -o "parser.o" "../parser.c"
-Finished building: ../parser.c
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/parser.d" -MT"src/parser.o" -o "src/parser.o" "../src/parser.c"
+Finished building: ../src/parser.c
  
-Building target: TP3Parcial
+Building file: ../src/pedirValidar.c
+Invoking: GCC C Compiler
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/pedirValidar.d" -MT"src/pedirValidar.o" -o "src/pedirValidar.o" "../src/pedirValidar.c"
+Finished building: ../src/pedirValidar.c
+ 
+Building target: Parcial_2_Nov_21_Ll_Arcade
 Invoking: GCC C Linker
-gcc  -o "TP3Parcial"  ./Controller.o ./Employee.o ./LinkedList.o ./Menu.o ./ValidarPedir.o ./main.o ./parser.o   
-Finished building target: TP3Parcial
+gcc  -o "Parcial_2_Nov_21_Ll_Arcade"  ./src/Juego.o ./src/LinkedList.o ./src/Menu.o ./src/Parcial_2_Nov_21_Ll_Arcade.o ./src/arcade.o ./src/controller.o ./src/parser.o ./src/pedirValidar.o   
+Finished building target: Parcial_2_Nov_21_Ll_Arcade
  
-14:17:32 **** Incremental Build of configuration Debug for project TP3Parcial ****
+16:59:40 **** Incremental Build of configuration Debug for project Parcial_2_Nov_21_Ll_Arcade ****
 make all 
 make: No se hace nada para 'all'.
-14:27:23 **** Incremental Build of configuration Debug for project TP3Parcial ****
-make all 
-Building file: ../LinkedList.c
-Invoking: GCC C Compiler
-gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"LinkedList.d" -MT"LinkedList.o" -o "LinkedList.o" "../LinkedList.c"
-Finished building: ../LinkedList.c
- 
-Building target: TP3Parcial
-Invoking: GCC C Linker
-gcc  -o "TP3Parcial"  ./Controller.o ./Employee.o ./LinkedList.o ./Menu.o ./ValidarPedir.o ./main.o ./parser.o   
-Finished building target: TP3Parcial
- 
-14:28:31 **** Incremental Build of configuration Debug for project TP3Parcial ****
-make all 
-Building file: ../LinkedList.c
-Invoking: GCC C Compiler
-gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"LinkedList.d" -MT"LinkedList.o" -o "LinkedList.o" "../LinkedList.c"
-Finished building: ../LinkedList.c
- 
-Building target: TP3Parcial
-Invoking: GCC C Linker
-gcc  -o "TP3Parcial"  ./Controller.o ./Employee.o ./LinkedList.o ./Menu.o ./ValidarPedir.o ./main.o ./parser.o   
-Finished building target: TP3Parcial
- 
-14:29:41 **** Incremental Build of configuration Debug for project TP3Parcial ****
-make all 
-Building file: ../LinkedList.c
-Invoking: GCC C Compiler
-gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"LinkedList.d" -MT"LinkedList.o" -o "LinkedList.o" "../LinkedList.c"
-Finished building: ../LinkedList.c
- 
-Building target: TP3Parcial
-Invoking: GCC C Linker
-gcc  -o "TP3Parcial"  ./Controller.o ./Employee.o ./LinkedList.o ./Menu.o ./ValidarPedir.o ./main.o ./parser.o   
-Finished building target: TP3Parcial
- 
-14:30:50 **** Incremental Build of configuration Debug for project TP3Parcial ****
-make all 
-Building file: ../LinkedList.c
-Invoking: GCC C Compiler
-gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"LinkedList.d" -MT"LinkedList.o" -o "LinkedList.o" "../LinkedList.c"
-Finished building: ../LinkedList.c
- 
-Building target: TP3Parcial
-Invoking: GCC C Linker
-gcc  -o "TP3Parcial"  ./Controller.o ./Employee.o ./LinkedList.o ./Menu.o ./ValidarPedir.o ./main.o ./parser.o   
-Finished building target: TP3Parcial
- 
-14:32:27 **** Incremental Build of configuration Debug for project TP3Parcial ****
-make all 
-Building file: ../LinkedList.c
-Invoking: GCC C Compiler
-gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"LinkedList.d" -MT"LinkedList.o" -o "LinkedList.o" "../LinkedList.c"
-Finished building: ../LinkedList.c
- 
-Building target: TP3Parcial
-Invoking: GCC C Linker
-gcc  -o "TP3Parcial"  ./Controller.o ./Employee.o ./LinkedList.o ./Menu.o ./ValidarPedir.o ./main.o ./parser.o   
-Finished building target: TP3Parcial
- 
-14:33:02 **** Incremental Build of configuration Debug for project TP3Parcial ****
-make all 
-make: No se hace nada para 'all'.
-14:33:30 **** Incremental Build of configuration Debug for project TP3Parcial ****
-make all 
-make: No se hace nada para 'all'.
-14:40:06 **** Incremental Build of configuration Debug for project TP3Parcial ****
-make all 
-Building file: ../LinkedList.c
-Invoking: GCC C Compiler
-gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"LinkedList.d" -MT"LinkedList.o" -o "LinkedList.o" "../LinkedList.c"
-Finished building: ../LinkedList.c
- 
-Building target: TP3Parcial
-Invoking: GCC C Linker
-gcc  -o "TP3Parcial"  ./Controller.o ./Employee.o ./LinkedList.o ./Menu.o ./ValidarPedir.o ./main.o ./parser.o   
-Finished building target: TP3Parcial
- 
-14:43:05 **** Incremental Build of configuration Debug for project TP3Parcial ****
-make all 
-Building file: ../LinkedList.c
-Invoking: GCC C Compiler
-gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"LinkedList.d" -MT"LinkedList.o" -o "LinkedList.o" "../LinkedList.c"
-Finished building: ../LinkedList.c
- 
-Building target: TP3Parcial
-Invoking: GCC C Linker
-gcc  -o "TP3Parcial"  ./Controller.o ./Employee.o ./LinkedList.o ./Menu.o ./ValidarPedir.o ./main.o ./parser.o   
-Finished building target: TP3Parcial
- 
-14:43:47 **** Incremental Build of configuration Debug for project TP3Parcial ****
-make all 
-make: No se hace nada para 'all'.
-15:01:42 **** Incremental Build of configuration Debug for project TP3Parcial ****
-make all 
-Building file: ../LinkedList.c
-Invoking: GCC C Compiler
-gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"LinkedList.d" -MT"LinkedList.o" -o "LinkedList.o" "../LinkedList.c"
-Finished building: ../LinkedList.c
- 
-Building target: TP3Parcial
-Invoking: GCC C Linker
-gcc  -o "TP3Parcial"  ./Controller.o ./Employee.o ./LinkedList.o ./Menu.o ./ValidarPedir.o ./main.o ./parser.o   
-Finished building target: TP3Parcial
- 
-15:32:54 **** Incremental Build of configuration Debug for project TP3Parcial ****
-make all 
-Building file: ../LinkedList.c
-Invoking: GCC C Compiler
-gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"LinkedList.d" -MT"LinkedList.o" -o "LinkedList.o" "../LinkedList.c"
-Finished building: ../LinkedList.c
- 
-Building target: TP3Parcial
-Invoking: GCC C Linker
-gcc  -o "TP3Parcial"  ./Controller.o ./Employee.o ./LinkedList.o ./Menu.o ./ValidarPedir.o ./main.o ./parser.o   
-Finished building target: TP3Parcial
- 
-15:43:54 **** Incremental Build of configuration Debug for project TP3Parcial ****
-make all 
-make: No se hace nada para 'all'.
-15:44:45 **** Incremental Build of configuration Debug for project TP3Parcial ****
-make all 
-Building file: ../LinkedList.c
-Invoking: GCC C Compiler
-gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"LinkedList.d" -MT"LinkedList.o" -o "LinkedList.o" "../LinkedList.c"
-Finished building: ../LinkedList.c
- 
-Building target: TP3Parcial
-Invoking: GCC C Linker
-gcc  -o "TP3Parcial"  ./Controller.o ./Employee.o ./LinkedList.o ./Menu.o ./ValidarPedir.o ./main.o ./parser.o   
-Finished building target: TP3Parcial
- 
-15:46:31 **** Incremental Build of configuration Debug for project TP3Parcial ****
-make all 
-Building file: ../LinkedList.c
-Invoking: GCC C Compiler
-gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"LinkedList.d" -MT"LinkedList.o" -o "LinkedList.o" "../LinkedList.c"
-Finished building: ../LinkedList.c
- 
-Building target: TP3Parcial
-Invoking: GCC C Linker
-gcc  -o "TP3Parcial"  ./Controller.o ./Employee.o ./LinkedList.o ./Menu.o ./ValidarPedir.o ./main.o ./parser.o   
-Finished building target: TP3Parcial
- 
-15:48:06 **** Incremental Build of configuration Debug for project TP3Parcial ****
-make all 
-Building file: ../LinkedList.c
-Invoking: GCC C Compiler
-gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"LinkedList.d" -MT"LinkedList.o" -o "LinkedList.o" "../LinkedList.c"
-Finished building: ../LinkedList.c
- 
-Building target: TP3Parcial
-Invoking: GCC C Linker
-gcc  -o "TP3Parcial"  ./Controller.o ./Employee.o ./LinkedList.o ./Menu.o ./ValidarPedir.o ./main.o ./parser.o   
-Finished building target: TP3Parcial
- 

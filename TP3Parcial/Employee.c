@@ -393,15 +393,13 @@ int dameUnIdNuevoEmployee(void)
 {
 	//TEMPORAL se Ejcutó una sola vez al principio
 	/*
-	int* id;
-	int bufferint=MAXIMOID;
+	int id=MAXIMOID;
 	int cantidadt;
-	id=&bufferint;
 	FILE* pFileBinTemp;
 	pFileBinTemp=fopen("UltimoId.bin","w");
 	if(pFileBinTemp!=NULL)
 		{
-			cantidadt=fwrite(id,sizeof(int),1,pFileBinTemp);
+			cantidadt=fwrite(&id,sizeof(int),1,pFileBinTemp);
 			printf("Cantidad de fwrite dice %d\n",cantidadt);
 			fclose(pFileBinTemp);
 		}else
@@ -409,28 +407,24 @@ int dameUnIdNuevoEmployee(void)
 	*/
 	//TEMPORAL
 	int estado=-1;
-	int bufferId;
-	int* contador;
-	contador=&bufferId;
+	int contador;
 	FILE* pFileBin;
 	pFileBin=fopen("UltimoId.bin","r");
 	if(pFileBin!=NULL)
 		{
-			fread(contador,sizeof(int),1,pFileBin);
+			fread(&contador,sizeof(int),1,pFileBin);
 			fclose(pFileBin);
-			bufferId=*contador;
-			printf("El ultimo id generado fue: %d\n",bufferId);
-			bufferId++;
-			printf("El nuevo id generado es: %d\n",bufferId);
-			contador=&bufferId;
-			estado=bufferId;
+			printf("El ultimo id generado fue: %d\n",contador);
+			contador++;
+			printf("El nuevo id generado es: %d\n",contador);
+			estado=contador;
 		}else
 			puts("No se ha podido abrir el archivo");
 
 	pFileBin=fopen("UltimoId.bin","w");
 	if(pFileBin!=NULL)
 		{
-			fwrite(contador,sizeof(int),1,pFileBin);
+			fwrite(&contador,sizeof(int),1,pFileBin);
 			fclose(pFileBin);
 		}else
 			puts("No se ha podido inizilizar el archivo");

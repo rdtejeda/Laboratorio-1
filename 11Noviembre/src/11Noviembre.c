@@ -18,7 +18,8 @@
 int main(void)
 {
 
-
+	int a=sizeof(char)*6;
+	printf("sizeof es %d\n",a);
 
 
 
