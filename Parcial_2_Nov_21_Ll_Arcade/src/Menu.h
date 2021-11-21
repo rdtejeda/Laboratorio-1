@@ -12,13 +12,10 @@
 #define MENU_H_
 
 int imprimirMenuInicial();
-
-void imprimirMenuInformes();
-void imprimirMenuModificar();
-void imprimirLinea();
-void imprimirEncSalonCargado();
+int menuOpcion();
 void imprimirEncArcadeCargado();
 void imprimirJuegoCargado();
-int menuOpcion();
+void imprimirLineaLarga();
+void imprimirLineaCorta();
 
 #endif /* MENU_H_ */

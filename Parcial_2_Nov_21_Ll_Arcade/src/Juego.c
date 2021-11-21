@@ -21,6 +21,7 @@
 
 #define MONO 1
 #define STEREO 2
+#define CERO 0
 #define MINIMO 1
 #define MAXIMO10 10
 #define INTENTOS 3
@@ -51,6 +52,7 @@ int juego_hacerListaDeJuegos(LinkedList* listaArcades)
 	retorno=0;
 	}else
 		 puts("No se ha podido procesar");
+	ll_sort(pLinkedListFiltrada,arcade_CriterioOrdenaJuego,MINIMO);
 	controller_ListarJuegos(pLinkedListFiltrada);
 	controller_saveJuegosText("Juegos.txt",pLinkedListFiltrada);
 	printf("La lista Tiene %d\n",ll_len(pLinkedListFiltrada));
@@ -93,21 +95,37 @@ int filtrarCantidadJugadoresMasUno(void* auxArcade)
 	Arcade* pAuxArcade;
 	pAuxArcade=(Arcade*)auxArcade;
 
-	if(pAuxArcade->cantidadJugadores>1)//if(((Arcade*)auxArcade)->cantidadJugadores>1)
+	if(pAuxArcade->cantidadJugadores>1)
 	{
 		estado=1;
 	}
 	return estado;
 }
+/**
+ * \brief funcion pasada por parametro a map para definir
+ * criterio de mapeado de arcades en el campo maximo de fichas
+ * \param  Void*
+ * \return Retorna 0 si cumple con la condicion
+ *    				y -1 si no
+ */
 void actualizarCantidadFichas(void* auxArcade)
 {
 	Arcade* pAuxArcade;
 	pAuxArcade=(Arcade*)auxArcade;
-	pAuxArcade->capMaxFichas=pAuxArcade->capMaxFichas*2;//((Arcade*)auxArcade)->capMaxFichas=rand()%1000;
-
+	pAuxArcade->capMaxFichas=pAuxArcade->capMaxFichas*2;
 }
-
-
-
-
-
+/**
+ * \brief funcion pasada por parametro a reduce para definir
+ * criterio de reducir un dato ---> campo maximo de fichas
+ * \param  Void*
+ * \return Retorna 0 si cumple con la condicion
+ *    				y -1 si no
+ */
+int cantidadFichas(void* auxArcade)
+{
+	int valor;
+	Arcade* pAuxArcade;
+	pAuxArcade=(Arcade*)auxArcade;
+	valor=pAuxArcade->capMaxFichas;
+return valor;
+}

@@ -1,14 +1,11 @@
-/*
- ============================================================================
+/*============================================================================
  Name        : Parcial_1_14Octubre_2021.c
  Author      : Tejeda Roberto
  Version     : 1.1
  Copyright   : Your copyright notice
  Description : Estamos en el año 1990!
- ============================================================================
- */
+ ============================================================================*/
 /*
- *
 1) LEER ARCADES DESDE ARCHIVO CSV
 Se lee de archivo arcades.csv provisto, la lista de arcades del sistema, y se cargan en una LinkedLIst.
 2) INCORPORAR ARCADE
@@ -46,49 +43,18 @@ los arcades.
 #include <ctype.h>
 #include <limits.h>
 
-#include "LinkedList.h"//
-#include "controller.h"//
-#include "arcade.h"//
-#include "parser.h"//
-#include "pedirValidar.h"//
-#include "Menu.h"//
-#include "Juego.h"//
+#include "LinkedList.h"
+#include "controller.h"
+#include "arcade.h"
+#include "parser.h"
+#include "pedirValidar.h"
+#include "Menu.h"
+#include "Juego.h"
 
 #define MINIMO 1
 #define MAXIMO10 10
 #define INTENTOS 3
 
-/**
-* \brief Imprime el encabezado de la lista de arcade
-* \param
-* \return
-*/
-void imprimirEncArcadeCargado()
-{
-	printf("____________________________________________________________________________________________________________\n");
-	printf("Id     Nacionalidad                Sonido    Jugadores  Max.Fichas Salon                  Juego\n");
-	printf("____________________________________________________________________________________________________________\n");
-}
-/**
-* \brief Imprime el encabezado de la lista de arcade
-* \param
-* \return
-*/
-void imprimirJuegoCargado()
-{
-	printf("__________________________________\n");
-	printf(" Juego\n");
-	printf("__________________________________\n");
-}
-/**
-* \brief Imprime una linea
-* \param
-* \return
-*/
-void imprimirLinea()
-{
-	printf("____________________________________________________________________________________________________________\n");
-}
 /**
 * \brief Imprime el menu de INICIAL de opciones
 * \param
@@ -108,7 +74,7 @@ int imprimirMenuInicial()
 	puts("8- Grabar Lista Arcade");
 	//puts("9- INFORMES");
 	puts("10- SALIR");
-	pedirInt(&opcion,"Ingese la opción deseada","ERROR-Ingrese Opcion entre 1y7-Para Salir 10",MINIMO,MAXIMO10,INTENTOS);
+	pedirInt(&opcion,"Ingese la opción deseada","ERROR-Ingrese Opcion entre 1 y 8 - Para Salir 10",MINIMO,MAXIMO10,INTENTOS);
 return opcion;
 }
 /**
@@ -129,42 +95,42 @@ pedirInt(&opcion,"Seleccione dato a modificar","Error-Imgrese entre 1 y 3",MINIM
 return opcion;
 }
 /**
-* \brief Imprime el menu de informes
+* \brief Imprime el encabezado de la lista de arcade
 * \param
 * \return
 */
-void imprimirMenuInformes()
+void imprimirEncArcadeCargado()
 {
-	puts("A) Listar los salones con más de 4 arcades. Indicando ID de salón, nombre, dirección y tipo de salón.");
-	puts("B) Listar los arcades para más de 2 jugadores, indicando ID de arcade, cantidad de jugadores, nombre del juego y nombre del salón al que pertenece.");
-	puts("C) Listar toda la información de un salón en específico ingresando su ID. Imprimir nombre, tipo y dirección y cantidad de arcades que posee.");
-	puts("D) Listar todos los arcades de un salón determinado ingresando su ID. Informar nombre y tipo de salón, listar todos los arcades con sus datos junto con el nombre del juego que lo compone.");
-	puts("E) Imprimir el salón con más cantidad de arcades, indicando todos los datos del salón y la cantidad de arcades que posee.");
-	puts("F) Ingresar el ID de un salón, y el valor en pesos de una ficha, e imprimir el monto máximo en pesos que puede recaudar el salón (sumar cantidad de fichas máximo de cada arcade del salón y multiplicarla por el valor en pesos ingresado)");
-	puts("G) Ingresar el nombre de un juego e imprimir cuantos arcades lo contienen.");
-	puts("H) Un salón se encuentra equipado por completo si posee al menos 8 arcades de mas de 2 jugadores. Listar los salones que cumplan con este mínimo de requisito.");
-	puts("I) Imprimir el promedio de arcades por salón. (Cantidad de arcades totales / Cantidad de salones totales");
-	puts("J) SALIR DE INFORMES");
+	printf("____________________________________________________________________________________________________________\n");
+	printf("Id     Nacionalidad                Sonido    Jugadores  Max.Fichas Salon                  Juego\n");
+	printf("____________________________________________________________________________________________________________\n");
 }
 /**
-* \brief Imprime el menu de modificacion
+* \brief Imprime el encabezado de la lista de juegos
 * \param
 * \return
 */
-void imprimirMenuModificar()
+void imprimirJuegoCargado()
 {
-	puts("1- Cantidad de jugadores");
-	puts("2- Juego que contiene");
-	puts("3- SALIR");
+	printf("__________________________________\n");
+	printf(" Juego\n");
+	printf("__________________________________\n");
 }
 /**
-* \brief Imprime el encabezado de la lista de salones
+* \brief Imprime una linea larga
 * \param
 * \return
 */
-void imprimirEncSalonCargado()
+void imprimirLineaLarga()
 {
-	printf("______________________________________________________________________________________________\n");
-	printf("\nNombre del Salon\t\tDirección\t\t\tTipo de Salon\tId Salon\n");
-	printf("______________________________________________________________________________________________\n");
+	printf("____________________________________________________________________________________________________________\n");
+}
+/**
+* \brief Imprime una corta
+* \param
+* \return
+*/
+void imprimirLineaCorta()
+{
+	printf("____________________________________\n");
 }

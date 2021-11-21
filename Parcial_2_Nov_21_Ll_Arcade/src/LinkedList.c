@@ -581,28 +581,32 @@ void* pElement;
 		}
 return returnAux;
 }
-//REDUCE: Ejecuta una funcion reductora sobre cada elemento, devolviendo como unico resultado un unico valor
-//int ll_reduce(LinkedList* this, int (*pFunc)(void*))//UNICA NO VISTA OJOOOOOTA
-/*
-int ll_reduceInt(LinkedList* this, Function pFunc)
+/** \brief REDUCE Ejecuta una funcion reductora sobre cada elemento,
+ * devolviendo como unico resultado un unico valor
+ * utilizando la funcion criterio recibida como parametro
+ * \param pList LinkedList* Puntero a la lista
+ * \param pFunc (*pFunc) Puntero a la funcion criterio
+ * \return int Retorna  (-1) Error: si el puntero a la listas
+ * y/o el puntero a funcion y/o el puntero a la nueva linkedllist son NULL
+                        ( 0) Si logro hacer el filter
+ */
+int ll_reduceInt(LinkedList* this,int (*pFunc)(void*))
 {
-	void *pAux;
-	int i;
-	int acum = 0;
-
+	void *pElement;
+	int retorno=-1;
+	int acumulador=0;
 	if (this != NULL && pFunc != NULL)
 	{
-		for (i = 0; i < ll_len(this); i++)
+		for (int i = 0; i < ll_len(this); i++)
 		{
-			pAux = ll_get(this, i);
-			if (pAux != NULL)
+			pElement = ll_get(this,i);
+			if (pElement != NULL && pFunc(pElement)>=0)
 			{
-				acum = acum + pFunc(pAux);
+				acumulador=acumulador+pFunc(pElement);
+				retorno=acumulador;
 			}
 		}
 	}
-	return acum;
+	return retorno;
 }
-*/
-
 

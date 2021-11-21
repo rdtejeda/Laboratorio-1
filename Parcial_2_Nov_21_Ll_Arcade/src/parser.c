@@ -11,16 +11,17 @@
 #include <ctype.h>
 #include <limits.h>
 
-#include "LinkedList.h"//
-#include "controller.h"//
-#include "arcade.h"//
-#include "parser.h"//
-#include "pedirValidar.h"//
-#include "Menu.h"//
-#include "Juego.h"//
+#include "LinkedList.h"
+#include "controller.h"
+#include "arcade.h"
+#include "parser.h"
+#include "pedirValidar.h"
+#include "Menu.h"
+#include "Juego.h"
 
 /*
  *brief Parsea los datos los datos de arcdes el archivo *.csv (modo texto).
+ *brief y los agraga a ala linkedlist
  *param *PFile al archivo, *pArray a la LInkedList
  *return 0 si lo logro la carga y -1 si salio mal
  */
@@ -39,7 +40,7 @@ int parser_ArcadeFromText(FILE* pFile , LinkedList* pLinkedList)
 	if(pFile!=NULL && pLinkedList!=NULL)
 	{
 		fscanf(pFile,"%[^,],%[^,],%[^,],%[^,],%[^,],%[^,],%[^\n]\n",
-				idArcade,nacionalidad,tipoSonido,cantidadJugadores,capMaxFichas,salon,nombreJuego);// salteo la 1era
+				idArcade,nacionalidad,tipoSonido,cantidadJugadores,capMaxFichas,salon,nombreJuego);
 		do
 		{
 			if(fscanf(pFile,"%[^,],%[^,],%[^,],%[^,],%[^,],%[^,],%[^\n]\n",
@@ -58,4 +59,3 @@ int parser_ArcadeFromText(FILE* pFile , LinkedList* pLinkedList)
 		puts("No se ha podido cargar la informacion desde *.csv");
 return retorno;
 }
-

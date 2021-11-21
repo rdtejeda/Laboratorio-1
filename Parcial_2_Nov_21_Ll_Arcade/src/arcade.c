@@ -39,8 +39,19 @@ Arcade* arcade_new()
 		{
 			puts("No se ha podido reservar espacio en memoria");
 		}
-
 return pArcade;
+}
+/**
+* \brief libera memoria reservada de forma dinamica que no pudo ser utilizada
+* \param *pArcade
+* \return es void
+*/
+void arcade_delete(Arcade* pArcade)
+{
+	if(pArcade!=NULL)
+	{
+		free(pArcade);
+	}
 }
 /**
 * \brief Realiza un *pArcade, carga los valores en todos los campos de una entidad Arcade
@@ -115,8 +126,8 @@ int arcade_modificar(LinkedList* pLinkedList)
 							break;
 						default:
 							break;
-										}
-									}while(opcion!=3);//"3. Salir"
+						}
+					}while(opcion!=3);//"3. Salir"
 
 				printf("Se ha modificado el arcade con Id %d\n",idModif);
 				retorno=0;
@@ -126,18 +137,6 @@ int arcade_modificar(LinkedList* pLinkedList)
 				puts("El arcade ya fue eliminado");
 		}
 return retorno;
-}
-/**
-* \brief libera memoria reservada de forma dinamica que no pudo ser utilizada
-* \param *pArcade
-* \return es void
-*/
-void arcade_delete(Arcade* pArcade)
-{
-	if(pArcade!=NULL)
-	{
-		free(pArcade);
-	}
 }
 /*
  * brief permite eliminar un employee lo elige, busca posición
@@ -477,6 +476,12 @@ int arcade_removeAllList(LinkedList* pLinkedList)
 		}
 return retorno;
 }
+/**
+  * \brief me da un id consecutivo y no repetido memorizando el ultimolvalor
+  * crea archivo bin para sobrevivir la info en el apagado de la aplicación
+  * \param void
+  * \return Retorna nuevo id si todo bien  y -1 si no logro
+  */
 int dameUnIdNuevoArcade(void)
 {
 	//TEMPORAL se Ejcutó una sola vez al principio
@@ -518,6 +523,12 @@ int dameUnIdNuevoArcade(void)
 			puts("No se ha podido inizilizar el archivo");
 	return estado;
 }
+/**
+  * \brief me da el id mas alto generado
+  * abre, lee y cierra el archivo
+  * \param void
+  * \return Retorna nuevo id si todo bien  y -1 si no logro
+  */
 int decimeElUltimoIdArcade(void)
 {
 	int estado=-1;

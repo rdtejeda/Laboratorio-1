@@ -12,22 +12,21 @@
 #include <ctype.h>
 #include <limits.h>
 
-#include "LinkedList.h"//
-#include "controller.h"//
-#include "arcade.h"//
-#include "parser.h"//
-#include "pedirValidar.h"//
-#include "Menu.h"//
-#include "Juego.h"//
+#include "LinkedList.h"
+#include "controller.h"
+#include "arcade.h"
+#include "parser.h"
+#include "pedirValidar.h"
+#include "Menu.h"
+#include "Juego.h"
 
 int main(void)
 {
 	LinkedList* listaArcades;
 	int opcion;
-	int estadoBin=0;
-	int estadoCsv=0;
+	int estadoCsv=-1;
 	listaArcades=ll_newLinkedList();
-	controller_leerArchivo(listaArcades);//1-LEER ARCADES DESDE ARCHIVO
+	estadoCsv=controller_leerArchivo(listaArcades);//1-LEER ARCADES DESDE ARCHIVO
 	do
 		{
 		opcion=imprimirMenuInicial();
@@ -57,13 +56,14 @@ int main(void)
 				case 8://9- Grabar Lista Arcade YOOOO
 					controller_saveAsText("arcades.csv", listaArcades);
 					break;
+				case 9://Del programado JAJA
+					break;
 				default:
 					break;
 			}
 		}while(opcion!=10);//10- SALIR
-	controller_shotdown(listaArcades,estadoBin,estadoCsv);
+	controller_shotdown(listaArcades,estadoCsv);
 	puts("¡SALIO DE LA APLICACION 'NOMINA DE ARCADES'!");
 	puts("!!!Que hay de nuevo viejo!!!");
-
 return EXIT_SUCCESS;
 }

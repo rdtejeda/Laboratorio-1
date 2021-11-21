@@ -1,4 +1,4 @@
-16:59:26 **** Incremental Build of configuration Debug for project Parcial_2_Nov_21_Ll_Arcade ****
+20:57:29 **** Build of configuration Debug for project Parcial_2_Nov_21_Ll_Arcade ****
 make all 
 Building file: ../src/Juego.c
 Invoking: GCC C Compiler
@@ -45,6 +45,3 @@ Invoking: GCC C Linker
 gcc  -o "Parcial_2_Nov_21_Ll_Arcade"  ./src/Juego.o ./src/LinkedList.o ./src/Menu.o ./src/Parcial_2_Nov_21_Ll_Arcade.o ./src/arcade.o ./src/controller.o ./src/parser.o ./src/pedirValidar.o   
 Finished building target: Parcial_2_Nov_21_Ll_Arcade
  
-16:59:40 **** Incremental Build of configuration Debug for project Parcial_2_Nov_21_Ll_Arcade ****
-make all 
-make: No se hace nada para 'all'.

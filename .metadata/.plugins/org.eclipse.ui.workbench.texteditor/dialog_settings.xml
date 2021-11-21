@@ -6,8 +6,9 @@
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
-		<item key="selection" value="pAuxiliarArcade"/>
+		<item key="selection" value="pElement"/>
 		<list key="findhistory">
+			<item value="pAux"/>
 			<item value="pAuxiliarEmployee"/>
 			<item value="numerofichas"/>
 			<item value="cantidadJugadores"/>
@@ -22,14 +23,13 @@
 			<item value="eliminarSalonDeLista"/>
 			<item value="posicion"/>
 			<item value="listaSalones"/>
-			<item value="No se ha podido procesar"/>
 		</list>
 		<list key="replacehistory">
+			<item value="pElement"/>
 			<item value="pAuxiliarArcade"/>
 			<item value="tiposonido"/>
 			<item value="numerofichas"/>
 			<item value="cantidad"/>
-			<item value="pElement"/>
 			<item value="returnAux"/>
 			<item value="pListaArcades"/>
 			<item value="libre"/>
