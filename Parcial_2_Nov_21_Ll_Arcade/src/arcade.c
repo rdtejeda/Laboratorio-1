@@ -137,7 +137,7 @@ Arcade* arcade_newParametros(char* idArcadeStr,char* nacionalidad,char* tipoSoni
 			puts("Algun dato no ha sido valido - Intentelo nuevamente");
 		}
 	}else
-			puts("No se ha podido crear nuevo empleado");
+			puts("No se ha podido crear nuevo arcade");
 return pArcade;
 }
 /**
@@ -202,7 +202,7 @@ return retorno;
 }
 /*
  * brief permite eliminar un employee lo elige, busca posición
- * param *pLinkedListEmpleados a LinkedList
+ * param *pLinkedListarcades a LinkedList
  * return o si todo bien y 1 si salio mal
  */
 int arcade_remover(LinkedList* pLinkedList)
@@ -517,7 +517,7 @@ return retorno;
 }
 /*
  * brief permite eliminar todos los arcades y los espacios de memiria asiganados
- * param *pLinkedListEmpleados a LinkedList
+ * param *pLinkedListarcades a LinkedList
  * return o si todo bien y -1 si salio mal
  */
 int arcade_removeAllList(LinkedList* pLinkedList)
@@ -547,8 +547,8 @@ return retorno;
 int dameUnIdNuevoArcade(void)
 {
 	//TEMPORAL se Ejcutó una sola vez al principio
-
-	int id=499;
+	/*
+	int id=MAXIMO500;
 	int cantidadt;
 	FILE* pFileBinTemp;
 	pFileBinTemp=fopen("UltimoId.bin","w");
@@ -559,7 +559,7 @@ int dameUnIdNuevoArcade(void)
 			fclose(pFileBinTemp);
 		}else
 				 puts("No se ha podido inizilizar el archivo");
-
+	*/
 	//TEMPORAL
 	int estado=-1;
 	int contador;
@@ -608,7 +608,6 @@ int decimeElUltimoIdArcade(void)
 
 return estado;
 }
-
 /**
   * \brief me da el ultimo id del archivo de arcade
   * abre, lee y cierra el archivo

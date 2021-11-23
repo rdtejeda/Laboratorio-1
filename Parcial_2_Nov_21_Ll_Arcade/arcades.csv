@@ -1,4 +1,5 @@
 id,nacionalidad,tipo_sonido,cant_jug,fichas_max,salon,game
+1,China,STEREO,1,365,Salon 2021,Metal Slug
 2,China,STEREO,1,280,Salon 2,Mortal Kombat
 3,Philippines,STEREO,5,414,Salon Carreras,Bubble Bobble
 4,United States,STEREO,3,315,Salon 6,Mortal Kombat
@@ -342,6 +343,7 @@ id,nacionalidad,tipo_sonido,cant_jug,fichas_max,salon,game
 342,Indonesia,STEREO,1,349,Salon 3,Castelvania
 343,Albania,MONO,2,375,Salon 6,Castelvania
 344,Dominican Republic,MONO,3,436,Salon 2,Tron
+345,United States,STEREO,1,419,Salon Carreras,Virtua Cop
 346,Malaysia,STEREO,4,401,Salon VR,Galaga
 347,Brazil,STEREO,3,378,Salon Carreras,Pong
 348,South Africa,STEREO,3,478,Salon VR,Space Invaders
@@ -452,7 +454,7 @@ id,nacionalidad,tipo_sonido,cant_jug,fichas_max,salon,game
 453,Brazil,MONO,1,141,Salon 3,Out Run
 454,Russia,MONO,5,390,Salon 4,Mortal Kombat
 455,China,MONO,2,384,Salon 4,Tetris
-456,Brazil,MONO,1,119,Salon Carreras,Pacman
+456,Brazil,MONO,4,119,Salon Carreras,Pacman
 457,Lithuania,MONO,3,211,Salon 4,Pacman
 458,China,MONO,4,348,Salon VR,Bubble Bobble
 459,Switzerland,STEREO,1,310,Salon 5,Space Invaders
@@ -492,6 +494,8 @@ id,nacionalidad,tipo_sonido,cant_jug,fichas_max,salon,game
 493,Chad,MONO,5,186,Salon VR,Castelvania
 494,Poland,STEREO,1,317,Salon Retro,Pong
 495,Brazil,STEREO,5,150,Salon 3,Tetris
+496,Mexico,MONO,4,134,Salon 4,Pong
 497,China,MONO,1,224,Salon Carreras,Out Run
 498,Mozambique,MONO,4,359,Salon 2021,Galaga
 499,South Africa,STEREO,1,483,Salon 5,Bubble Bobble
+500,Morocco,MONO,4,327,Salon VR,Double Dragon

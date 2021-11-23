@@ -41,22 +41,23 @@ int main(void)
 				case 3://4- ELIMINAR ARCADE
 					controller_EliminarArcade(listaArcades);
 					break;
-				case 4://5- IMPRIMIR ARCADES "ORDENADOS"
+				case 4://5- IMPRIMIR ARCADES ORDENADOS
 					controller_sortArcades(listaArcades);
 					break;
-				case 5://6- Generar archivo con JUEGOS
+				case 5://6-GENERAR ARCHIVO .TXT CON JUEGOS
 					controller_ListaDejuegos(listaArcades);
 					break;
-				case 6://7- Generar un archivo con arcades “Multijugador” (mas de 1 jugador)
+				case 6://7- GENERAR ARCHIVO .CSV CON ARCDE “Multijugador”(mas de 1 jugador)
 					controller_MultiJugador(listaArcades);
 					break;
-				case 7://8- Actualizar cantidad de fichas
+				case 7://8- ACTUALIZAR CANTIDAD MAXIMA DE FICHA DE TODOS LOS ARCADES
 					controller_ActualizarMapearCantFichas(listaArcades);
 					break;
-				case 8://9- Grabar Lista Arcade YOOOO
+				case 8://9- GRABAR ARCHIVO .CSV LISTA DEARCADES YOOOO
 					controller_saveAsText("arcades.csv", listaArcades);
 					break;
 				case 9://Del programado JAJA
+
 					break;
 				default:
 					break;

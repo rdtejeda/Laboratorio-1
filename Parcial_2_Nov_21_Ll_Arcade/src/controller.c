@@ -87,7 +87,7 @@ int controller_modificarArcade(LinkedList* pLinkedList)
 return retorno;
 }
 /** \brief Elimina un arcade
- * \param pLinkedListEmpleados LinkedList*
+ * \param pLinkedListarcades LinkedList*
  * \return 0 si lo logro la carga y -1 si salio mal
  */
 int controller_EliminarArcade(LinkedList* pLinkedList)
@@ -120,7 +120,7 @@ int controller_MultiJugador(LinkedList* listaArcades)
 		retorno=0;
 		}else
 			 puts("No se ha podido procesar");
-		ll_sort(listaArcades,arcade_CriterioOrdenaId,order);//0
+		ll_sort(listaArcades,arcade_CriterioOrdenaId,order);
 		controller_ListarArcade(pLinkedListMultJugador);
 		controller_saveAsText("Multijugador.csv",pLinkedListMultJugador);
 		printf("La lista Tiene %d\n",ll_len(pLinkedListMultJugador));
@@ -148,8 +148,8 @@ int controller_ActualizarMapearCantFichas(LinkedList* listaArcades)
 			 puts("No se ha podido procesar");
 return retorno;
 }
-/** \brief Listar empleados
- * \param pLinkedListEmpleados LinkedList*
+/** \brief Listar arcades
+ * \param pLinkedListarcades LinkedList*
  * \return 0 si lo logro la carga y -1 si salio mal
  */
 int controller_ListarArcade(LinkedList* pLinkedList)
@@ -215,7 +215,7 @@ int controller_ListUnArcade(LinkedList* pLinkedList,int posicion)
 return retorno;
 }
 /** \brief Listar juegos excistenetes en la lista
- * \param pLinkedListEmpleados LinkedList*
+ * \param pLinkedListarcades LinkedList*
  * \return 0 si lo logro la carga y -1 si salio mal
  */
 int controller_ListarJuegos(LinkedList* pLinkedList)
@@ -241,8 +241,8 @@ int controller_ListarJuegos(LinkedList* pLinkedList)
     }
 return retorno;
 }
-/** \brief Ordenar empleados
- * \param pLinkedListEmpleados LinkedList*
+/** \brief Ordenar arcades
+ * \param pLinkedListarcades LinkedList*
  * \return 0 si lo logro la carga y -1 si salio mal
  */
 int controller_sortArcades(LinkedList* pLinkedList)
@@ -262,12 +262,12 @@ int controller_sortArcades(LinkedList* pLinkedList)
 			}else
 				puts("La lista no ha sido ordenada, debe ingresar bien el criterio de ordenamiento");
 	}else
-		puts("Para poder ordenar la lista debe tener mas de un Empleado");
+		puts("Para poder ordenar la lista debe tener mas de un arcade");
 return retorno;
 }
 
 /** \brief hace la lista de juegos sin repetir y ordebada por orden alfabetico
- * \param pLinkedListEmpleados LinkedList*
+ * \param pLinkedListarcades LinkedList*
  * \return 0 si lo logro la carga y -1 si salio mal
  */
 int controller_ListaDejuegos(LinkedList* pLinkedList)
@@ -280,7 +280,7 @@ int controller_ListaDejuegos(LinkedList* pLinkedList)
 		retorno=0;
 
 	}else
-		puts("Para poder ordenar la lista debe tener mas de un Empleado");
+		puts("Para poder ordenar la lista debe tener mas de un arcade");
 return retorno;
 }
 
@@ -310,7 +310,7 @@ return retorno;
 }
 /*
  * brief Guarda los datos de los arcades en el archivo *.csv (modo texto).
- * param param *char path de archivo y *pLinkedListEmpleados a LinkedList
+ * param param *char path de archivo y *pLinkedListarcades a LinkedList
  * return  0 si lo logro la carga y -1 si salio mal
  */
 int controller_saveAsText(char* path , LinkedList* pLinkedList)
@@ -356,8 +356,8 @@ int controller_saveAsText(char* path , LinkedList* pLinkedList)
 return estado;
 }
 /*
- * brief Guarda los datos de los empleados en el archivo *.csv (modo texto).
- * param param *char path de archivo y *pLinkedListEmpleados a LinkedList
+ * brief Guarda los datos de los arcades en el archivo *.csv (modo texto).
+ * param param *char path de archivo y *pLinkedListarcades a LinkedList
  * return  0 si lo logro la carga y -1 si salio mal
  */
 int controller_saveJuegosText(char* path , LinkedList* pLinkedList)
@@ -388,7 +388,7 @@ return estado;
 }
 /*
  * brief da la baja del programa chequea el grabdo final y elimina la LinkedList
- * param *pLinkedListEmpleados a LinkedList estado de crag de archivo csv y bin
+ * param *pLinkedListarcades a LinkedList estado de crag de archivo csv y bin
  * return 0 si todo bien y -1 si salio mal
  */
 int controller_shotdown(LinkedList* pLinkedList,int estadocsv)

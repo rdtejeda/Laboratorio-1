@@ -48,7 +48,7 @@ int arcade_getNacionalidad(Arcade* this,char* nacionalidad);
 int arcade_getSalon(Arcade* this,char* salon);
 int arcade_getNombreJuego(Arcade* this,char* nombreJuego);
 
-int arcade_removeAllList(LinkedList* pLinkedListEmpleados);
+int arcade_removeAllList(LinkedList* pLinkedList);
 
 int dameUnIdNuevoArcade(void);
 int decimeElUltimoIdArcade(void);

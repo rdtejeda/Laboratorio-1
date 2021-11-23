@@ -67,7 +67,7 @@ int imprimirMenuInicial()
 	puts("1- INCORPORAR ARCADE");
 	puts("2- MODIFICAR ARCADE");
 	puts("3- ELIMINAR ARCADE");
-	puts("4- IMPRIMIR ARCADES");
+	puts("4- IMPRIMIR ARCADES ORDENADOS");
 	puts("5- GENERAR ARCHIVO .TXT CON JUEGOS");
 	puts("6- GENERAR ARCHIVO .CSV CON ARCDE “Multijugador”(mas de 1 jugador)");
 	puts("7- ACTUALIZAR CANTIDAD MAXIMA DE FICHA DE TODOS LOS ARCADES");
