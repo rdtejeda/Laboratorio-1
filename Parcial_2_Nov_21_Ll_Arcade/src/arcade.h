@@ -21,6 +21,7 @@ typedef struct
 
 Arcade* arcade_new();
 void arcade_delete(Arcade* pArcade);
+Arcade* arcade_pedirParametros();
 Arcade* arcade_newParametros(char* idArcade,char* nacionalidad,char* tipoSonido,char* cantidadJugadores,char* capMaxFichas,char* salon,char* nombreJuego);
 
 int arcade_modificar(LinkedList* pLinkedList);
@@ -53,5 +54,6 @@ int dameUnIdNuevoArcade(void);
 int decimeElUltimoIdArcade(void);
 
 int arcade_CriterioOrdenaJuego(void* pVoidUno, void* pVoidCero);
+int arcade_CriterioOrdenaId(void* pVoidUno, void* pVoidCero);
 
 #endif /* ARCADE_H_ */

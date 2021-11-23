@@ -52,44 +52,13 @@ return retorno;
 int controller_AgregarArcade(LinkedList* pLinkedList)
 {
 	int retorno=-1;
-	int idNew;
-	char idArcadeStr[8];
-	char nacionalidad[64];
-	int tipoSonido;
-	char tipoSonidoStr[8];
-	int cantidadJugadores;
-	char cantidadJugadoresStr[8];
-	int capMaxFichas;
-	char capMaxFichasStr[8];
-	char salon[64];
-	char nombreJuego[64];
 	Arcade* pBufferArcade;
-
-	if(pLinkedList!=NULL)
-	{
-		idNew=dameUnIdNuevoArcade();
-		sprintf(idArcadeStr,"%d",idNew);
-		pedirNombre(nacionalidad,sizeof(nacionalidad),"Ingrese Nacionalidad del Arcade","Error- La nacionalidad debe empezar con mayuscula",INTENTOS);
-		pedirTextoAlfanumerico(salon,sizeof(salon),"Ingrese Nombre del Salon","Error- El nombre debe empezar con mayuscula",INTENTOS);
-		pedirTextoAlfanumerico(nombreJuego, sizeof(nombreJuego),"Ingrese Nombre de el Juego","Eror- El nombre debe empezar con mayuscula",INTENTOS);
-		pedirInt(&cantidadJugadores, "Ingrese cantidad de jugadores del Arcade","Error - Maximo 10",MINIMO,MAXIMO10,INTENTOS);
-		sprintf(cantidadJugadoresStr,"%d",cantidadJugadores);
-		pedirInt(&capMaxFichas, "Ingrese cantidad Maxima de Fichas del Arcade","Error- Entre 10 y 100",MAXIMO10,MAXIMO500,INTENTOS);
-		sprintf(capMaxFichasStr,"%d",capMaxFichas);
-		pedirInt(&tipoSonido,"Ingrese Tipo de Sonido del Arcade 1-MONO o 2-STEREO","Error-Ingrese 1 0 2",MONO,STEREO,INTENTOS);
-		if(tipoSonido==1)
-		{
-			strcpy(tipoSonidoStr,"MONO");
-		}else
-			{
-			strcpy(tipoSonidoStr,"STEREO");
-			}
-		pBufferArcade=arcade_newParametros(idArcadeStr, nacionalidad, tipoSonidoStr, cantidadJugadoresStr, capMaxFichasStr, salon, nombreJuego);
+	pBufferArcade=arcade_pedirParametros();
 		if(pBufferArcade!=NULL)
 			{
 			if(!ll_add(pLinkedList,pBufferArcade))
 				{
-				puts("Se ha dado de alta al siguiente empleado");
+				puts("Se ha dado de alta al siguiente arcade");
 				controller_ListUnArcade(pLinkedList,ll_indexOf(pLinkedList,pBufferArcade));
 				retorno=0;
 				}else
@@ -97,7 +66,6 @@ int controller_AgregarArcade(LinkedList* pLinkedList)
 			}else
 				puts("No se ha podido agregar a la lista");
 		controller_saveAsText("arcades.csv", pLinkedList);
-	}else
 		puts("La lista no esta iniciada");
 return retorno;
 }
@@ -143,7 +111,7 @@ return retorno;
 int controller_MultiJugador(LinkedList* listaArcades)
 {
 	int retorno=-1;
-	//Arcade* auxiliarArcade; OJOTA
+	int order=0;
 	LinkedList* pLinkedListMultJugador;
 	pLinkedListMultJugador=ll_newLinkedList();
 		if(listaArcades!=NULL && ll_len(listaArcades)>0 && pLinkedListMultJugador!=NULL)
@@ -152,6 +120,7 @@ int controller_MultiJugador(LinkedList* listaArcades)
 		retorno=0;
 		}else
 			 puts("No se ha podido procesar");
+		ll_sort(listaArcades,arcade_CriterioOrdenaId,order);//0
 		controller_ListarArcade(pLinkedListMultJugador);
 		controller_saveAsText("Multijugador.csv",pLinkedListMultJugador);
 		printf("La lista Tiene %d\n",ll_len(pLinkedListMultJugador));
@@ -166,14 +135,17 @@ return retorno;
 int controller_ActualizarMapearCantFichas(LinkedList* listaArcades)
 {
 	int retorno=-1;
+	int factor=2;
 	if(listaArcades!=NULL && ll_len(listaArcades)>0)
 		{
-		ll_map(listaArcades,actualizarCantidadFichas);
+		puts("INGRESE EL FACTOR DE ACTUALIZACION DE CANTIDAD DE FICHAS");
+		pedirInt(&factor, "Ingrese un numero entero entre 1-10","ERROR-Valor entero",MINIMO,MAXIMO10,INTENTOS);
+		ll_map(listaArcades, actualizarCantidadFichas,factor);
 		retorno=0;
 		controller_ListarArcade(listaArcades);
+		puts("SE HAN ACTUALIZADO LA CANTIDAD MAXIMA DE FICHAS");
 		}else
 			 puts("No se ha podido procesar");
-		controller_ListarArcade(listaArcades);
 return retorno;
 }
 /** \brief Listar empleados
@@ -199,7 +171,7 @@ int controller_ListarArcade(LinkedList* pLinkedList)
 				arcade_getNacionalidad(pAuxiliarArcde,nacionalidad);
 				arcade_getSalon(pAuxiliarArcde,salon);
 				arcade_getNombreJuego(pAuxiliarArcde,nombreJuego);
-				printf("%d\t%-30s%d\t\t%d\t%d\t%-30s%-30s\n",arcade_getIdRet(pAuxiliarArcde),nacionalidad,
+				printf("%d\t%-25s%d\t\t%d\t%d\t%-20s%-20s\n",arcade_getIdRet(pAuxiliarArcde),nacionalidad,
 						arcade_getTipoSonidoRet(pAuxiliarArcde),arcade_getCantidadJugadoresRet(pAuxiliarArcde),
 						arcade_getCapFichasRet(pAuxiliarArcde),salon,nombreJuego);
 			}
@@ -231,7 +203,7 @@ int controller_ListUnArcade(LinkedList* pLinkedList,int posicion)
 			arcade_getNacionalidad(pAuxiliarArcde,nacionalidad);
 			arcade_getSalon(pAuxiliarArcde,salon);
 			arcade_getNombreJuego(pAuxiliarArcde,nombreJuego);
-			printf("%d\t%-30s%d\t\t%d\t%d\t%-30s%-30s\n",arcade_getIdRet(pAuxiliarArcde),nacionalidad,
+			printf("%d\t%-25s%d\t\t%d\t%d\t%-20s%-20s\n",arcade_getIdRet(pAuxiliarArcde),nacionalidad,
 						arcade_getTipoSonidoRet(pAuxiliarArcde),arcade_getCantidadJugadoresRet(pAuxiliarArcde),
 						arcade_getCapFichasRet(pAuxiliarArcde),salon,nombreJuego);
 
@@ -280,10 +252,30 @@ int controller_sortArcades(LinkedList* pLinkedList)
 	LinkedList* listaOrdenadaJuegos;
 	if(pLinkedList!=NULL && ll_len(pLinkedList)>1)
 	{
-		pedirInt(&criterio, "Para ordenar de Mayor a Menor Ingrese 0\nDe Menor a Mayor Ingrese 1","ERROR - Ingrese 0 o 1",CERO,MINIMO,INTENTOS);
-		listaOrdenadaJuegos=ll_clone(pLinkedList);
-		ll_sort(listaOrdenadaJuegos,arcade_CriterioOrdenaJuego,criterio);
-		controller_ListarArcade(listaOrdenadaJuegos);
+		if(pedirInt(&criterio, "Para ordenar de Mayor a Menor Ingrese 0\nDe Menor a Mayor Ingrese 1","ERROR - Ingrese 0 o 1",CERO,MINIMO,INTENTOS)==0)
+			{
+			listaOrdenadaJuegos=ll_clone(pLinkedList);
+			ll_sort(listaOrdenadaJuegos,arcade_CriterioOrdenaJuego,criterio);
+			controller_ListarArcade(listaOrdenadaJuegos);
+			puts("LA LISTA HA SIDO ORDENADA");
+			retorno=0;
+			}else
+				puts("La lista no ha sido ordenada, debe ingresar bien el criterio de ordenamiento");
+	}else
+		puts("Para poder ordenar la lista debe tener mas de un Empleado");
+return retorno;
+}
+
+/** \brief hace la lista de juegos sin repetir y ordebada por orden alfabetico
+ * \param pLinkedListEmpleados LinkedList*
+ * \return 0 si lo logro la carga y -1 si salio mal
+ */
+int controller_ListaDejuegos(LinkedList* pLinkedList)
+{
+	int retorno=-1;
+	if(pLinkedList!=NULL && ll_len(pLinkedList)>1)
+	{
+		juego_hacerListaDeJuegos(pLinkedList);
 		puts("LA LISTA HA SIDO ORDENADA");
 		retorno=0;
 
@@ -291,6 +283,7 @@ int controller_sortArcades(LinkedList* pLinkedList)
 		puts("Para poder ordenar la lista debe tener mas de un Empleado");
 return retorno;
 }
+
 /*
  * brief abre el archivo CSV (modo texto), solicita el parseo y cierra el archivo.
  * param *char path de archivo y *pLinkedList a LinkedList
@@ -404,9 +397,11 @@ int controller_shotdown(LinkedList* pLinkedList,int estadocsv)
 	if(pLinkedList!=NULL && estadocsv==0)
 		{
 		juego_hacerListaDeJuegos(pLinkedList);
+		puts("SE ACTUALIZÓ LA LISTA DE JUEGOS");
 		controller_MultiJugador(pLinkedList);
+		puts("SE ACTUALIZÓ LA LISTA DE ARCADES MULTIJUGADOR");
 		controller_saveAsText("arcades.csv",pLinkedList);
-		puts("SE HA GURDADO TODA LA INFORMACION");
+		puts("SE HA GUARDADO TODA LA LISTA DE ARCADES");
 		}
 	arcade_removeAllList(pLinkedList);
 	ll_deleteLinkedList(pLinkedList);

@@ -26,6 +26,7 @@
 #define INTENTOS 3
 #define MAXIMO4 4
 #define MAXIMO100 100
+#define MAXIMO500 500
 
 /**
 * \brief reserva de forma dinamica memoria para un dato tipo Arcade
@@ -52,6 +53,67 @@ void arcade_delete(Arcade* pArcade)
 	{
 		free(pArcade);
 	}
+}
+/**
+* \brief pide los valores en todos los campos de una entidad Arcade
+* \param es recibe puntero a char de los cuatro campos
+* \return Retorna *pArcade a direcion de memoria reservada
+*/
+Arcade* arcade_pedirParametros()
+{
+	int idNew;
+	char idArcadeStr[8];
+	char nacionalidad[64];
+	int tipoSonido;
+	char tipoSonidoStr[8];
+	int cantidadJugadores;
+	char cantidadJugadoresStr[8];
+	int capMaxFichas;
+	char capMaxFichasStr[8];
+	char salon[64];
+	char nombreJuego[64];
+	Arcade* pBufferArcade;
+	if(pedirNombre(nacionalidad,sizeof(nacionalidad),"Ingrese Nacionalidad del Arcade","Error- La nacionalidad debe empezar con mayuscula",INTENTOS)==0)
+		{
+		if(pedirTextoAlfanumerico(salon,sizeof(salon),"Ingrese Nombre del Salon","Error- El nombre debe empezar con mayuscula",INTENTOS)==0)
+			{
+			if(pedirTextoAlfanumerico(nombreJuego, sizeof(nombreJuego),"Ingrese Nombre de el Juego","Eror- El nombre debe empezar con mayuscula",INTENTOS)==0)
+				{
+				if(pedirInt(&cantidadJugadores, "Ingrese Cantidad de Jugadores del Arcade","Error - Maximo 10",MINIMO,MAXIMO10,INTENTOS)==0)
+					{
+					sprintf(cantidadJugadoresStr,"%d",cantidadJugadores);
+					if(pedirInt(&capMaxFichas, "Ingrese cantidad Maxima de Fichas del Arcade","Error- Entre 10 y 100",MAXIMO10,MAXIMO500,INTENTOS)==0)
+						{
+						sprintf(capMaxFichasStr,"%d",capMaxFichas);
+						if(pedirInt(&tipoSonido,"Ingrese Tipo de Sonido del Arcade 1-MONO o 2-STEREO","Error-Ingrese 1 0 2",MONO,STEREO,INTENTOS)==0)
+							{
+							if(tipoSonido==MONO)
+								{
+								strcpy(tipoSonidoStr,"MONO");
+								}else
+									{
+									strcpy(tipoSonidoStr,"STEREO");
+									}
+							idNew=dameUnIdNuevoArcade();
+							if(idNew>0)
+								{
+								sprintf(idArcadeStr,"%d",idNew);
+								}else
+									puts("No se ha podido asignar Nuevo Id");
+							}else
+								puts("No se ha podido asignar Sonido del Arcade");
+						}else
+							puts("No se ha podido asignar Fichas del Arcade");
+					}else
+						puts("No se ha podido asignar Cantidad de Jugadores del Arcade");
+				}else
+					puts("No se ha podido asignar Nombre de Juego");
+			}else
+				puts("No se ha podido asignar Nombre de Salon");
+		}else
+			puts("No se ha podido asignar Nacionalidad de Arcade");
+		pBufferArcade=arcade_newParametros(idArcadeStr, nacionalidad, tipoSonidoStr, cantidadJugadoresStr, capMaxFichasStr, salon, nombreJuego);
+return pBufferArcade;
 }
 /**
 * \brief Realiza un *pArcade, carga los valores en todos los campos de una entidad Arcade
@@ -480,13 +542,13 @@ return retorno;
   * \brief me da un id consecutivo y no repetido memorizando el ultimolvalor
   * crea archivo bin para sobrevivir la info en el apagado de la aplicación
   * \param void
-  * \return Retorna nuevo id si todo bien  y -1 si no logro
+  * \return Retorna nuevo id si todo bien  y 0 si no logro
   */
 int dameUnIdNuevoArcade(void)
 {
 	//TEMPORAL se Ejcutó una sola vez al principio
-	/*
-	int id=500;
+
+	int id=499;
 	int cantidadt;
 	FILE* pFileBinTemp;
 	pFileBinTemp=fopen("UltimoId.bin","w");
@@ -497,7 +559,7 @@ int dameUnIdNuevoArcade(void)
 			fclose(pFileBinTemp);
 		}else
 				 puts("No se ha podido inizilizar el archivo");
-	*/
+
 	//TEMPORAL
 	int estado=-1;
 	int contador;
@@ -540,15 +602,41 @@ int decimeElUltimoIdArcade(void)
 		fread(&contador,sizeof(int),1,pFileBin);
 		fclose(pFileBin);
 		estado=contador;
-		printf("el ultimo es %d\n",estado);
+		printf("El ultimo ID usado es %d\n",estado);
 		}else
 			puts("No se ha podido abrir el archivo");
 
 return estado;
 }
 
+/**
+  * \brief me da el ultimo id del archivo de arcade
+  * abre, lee y cierra el archivo
+  * \param void
+  * \return Retorna nuevo id si todo bien  y -1 si no logro
+  */
 /*
- * brief  transfiere los valores de nombre dos entidades employee
+int decimeElUltimoIdDelArchivo(void)
+{
+	int estado=-1;
+	int contador;
+	FILE* pFileBin;
+	pFileBin=fopen("UltimoId.bin","r");
+	if(pFileBin!=NULL)
+		{
+		fread(&contador,sizeof(int),1,pFileBin);
+		fclose(pFileBin);
+		estado=contador;
+		printf("el ultimo es %d\n",estado);
+		}else
+			puts("No se ha podido abrir el archivo");
+
+return estado;
+}
+*/
+/*
+ * brief  transfiere el criterio de ordenamisnto luego de
+ * comparar los valores de nombre de juego dos entidades employee
  * brief recibe dos punteros *void
  * return 1 o -1 segun el criterio establecido
  */
@@ -574,6 +662,32 @@ int arcade_CriterioOrdenaJuego(void* pVoidUno, void* pVoidCero)
 	if(strcmp(namecero,nameuno)>0)
 		{
 			retorno=-1;
+		}
+return retorno;
+}
+/*
+ * brief  transfiere el criterio de ordenamiento luego de
+ * comparar los valores de id de arcade dos entidades employee
+ * brief recibe dos punteros *void
+ * return 1 o -1 segun el criterio establecido
+ */
+int arcade_CriterioOrdenaId(void* pVoidUno, void* pVoidCero)
+{
+	int retorno=0;
+
+	Arcade* pArcadeCero;
+	Arcade* pArcadeUno;
+
+	pArcadeCero=(Arcade*)pVoidCero;
+	pArcadeUno=(Arcade*)pVoidUno;
+
+	if(pArcadeCero->idArcade<pArcadeUno->idArcade)
+		{
+			retorno=-1;
+		}
+	if(pArcadeCero->idArcade>pArcadeUno->idArcade)
+		{
+			retorno=1;
 		}
 return retorno;
 }

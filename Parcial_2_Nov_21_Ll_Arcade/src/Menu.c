@@ -68,11 +68,10 @@ int imprimirMenuInicial()
 	puts("2- MODIFICAR ARCADE");
 	puts("3- ELIMINAR ARCADE");
 	puts("4- IMPRIMIR ARCADES");
-	puts("5- Generar archivo con JUEGOS");
-	puts("6- Generar un archivo con arcades “Multijugador” (mas de 1 jugador)");
-	puts("7- Actualizar cantidad de fichas");
-	puts("8- Grabar Lista Arcade");
-	//puts("9- INFORMES");
+	puts("5- GENERAR ARCHIVO .TXT CON JUEGOS");
+	puts("6- GENERAR ARCHIVO .CSV CON ARCDE “Multijugador”(mas de 1 jugador)");
+	puts("7- ACTUALIZAR CANTIDAD MAXIMA DE FICHA DE TODOS LOS ARCADES");
+	puts("8- GRABAR ARCHIVO .CSV LISTA DEARCADES ");
 	puts("10- SALIR");
 	pedirInt(&opcion,"Ingese la opción deseada","ERROR-Ingrese Opcion entre 1 y 8 - Para Salir 10",MINIMO,MAXIMO10,INTENTOS);
 return opcion;
@@ -102,7 +101,7 @@ return opcion;
 void imprimirEncArcadeCargado()
 {
 	printf("____________________________________________________________________________________________________________\n");
-	printf("Id     Nacionalidad                Sonido    Jugadores  Max.Fichas Salon                  Juego\n");
+	printf("Id     Nacionalidad          Sonido    Jugadores   Max.Fichas   Salon              Juego\n");
 	printf("____________________________________________________________________________________________________________\n");
 }
 /**

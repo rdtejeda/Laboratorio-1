@@ -20,6 +20,7 @@ int controller_ListUnArcade(LinkedList* pLinkedList,int posicion);
 int controller_ListarJuegos(LinkedList* pLinkedList);
 
 int controller_sortArcades(LinkedList* pLinkedList);
+int controller_ListaDejuegos(LinkedList* pLinkedList);
 
 int controller_saveAsText(char* path , LinkedList* pLinkedList);
 int controller_saveJuegosText(char* path , LinkedList* pLinkedList);

@@ -55,7 +55,6 @@ int juego_hacerListaDeJuegos(LinkedList* listaArcades)
 	ll_sort(pLinkedListFiltrada,arcade_CriterioOrdenaJuego,MINIMO);
 	controller_ListarJuegos(pLinkedListFiltrada);
 	controller_saveJuegosText("Juegos.txt",pLinkedListFiltrada);
-	printf("La lista Tiene %d\n",ll_len(pLinkedListFiltrada));
 	return retorno;
 }
 /**
@@ -104,15 +103,15 @@ int filtrarCantidadJugadoresMasUno(void* auxArcade)
 /**
  * \brief funcion pasada por parametro a map para definir
  * criterio de mapeado de arcades en el campo maximo de fichas
- * \param  Void*
+ * \param  Void* elemento y *int factor a aplicar
  * \return Retorna 0 si cumple con la condicion
  *    				y -1 si no
  */
-void actualizarCantidadFichas(void* auxArcade)
+void actualizarCantidadFichas(void* auxArcade,int* factor)
 {
 	Arcade* pAuxArcade;
 	pAuxArcade=(Arcade*)auxArcade;
-	pAuxArcade->capMaxFichas=pAuxArcade->capMaxFichas*2;
+	pAuxArcade->capMaxFichas=pAuxArcade->capMaxFichas*(*factor);
 }
 /**
  * \brief funcion pasada por parametro a reduce para definir

@@ -45,7 +45,7 @@ int main(void)
 					controller_sortArcades(listaArcades);
 					break;
 				case 5://6- Generar archivo con JUEGOS
-					juego_hacerListaDeJuegos(listaArcades);
+					controller_ListaDejuegos(listaArcades);
 					break;
 				case 6://7- Generar un archivo con arcades “Multijugador” (mas de 1 jugador)
 					controller_MultiJugador(listaArcades);

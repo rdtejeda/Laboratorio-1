@@ -50,7 +50,7 @@ int ll_containsAll(LinkedList* this,LinkedList* this2);
 LinkedList* ll_subList(LinkedList* this,int from,int to);
 LinkedList* ll_clone(LinkedList* this);
 int ll_sort(LinkedList* this, int (*pFunc)(void* ,void*), int order);
-int ll_map(LinkedList* this, void (*pFunc)(void*));
+int ll_map(LinkedList* this, void (*pFunc)(void*,int* factor),int auxFactor);
 LinkedList* ll_filterNewList(LinkedList* this, int (*pFunc)(void*));
 int ll_filter(LinkedList* this, int (*pFunc)(void*));
 int ll_reduceInt(LinkedList* this,int (*pFunc)(void*));

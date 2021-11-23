@@ -65,7 +65,7 @@ static Node* getNode(LinkedList* this, int nodeIndex)
 			pNodoAux=pNodoAux->pNextNode;
 		}
     }
-	return pNodoAux;
+return pNodoAux;
 }
 /** \brief  Permite realizar el test de la funcion getNode la cual es privada
  * \param this LinkedList* Puntero a la lista
@@ -77,16 +77,14 @@ static Node* getNode(LinkedList* this, int nodeIndex)
  */
 Node* test_getNode(LinkedList* this, int nodeIndex)
 {
-
-	return getNode(this,nodeIndex);
+	Node* pNodoAuxiliar;
+	pNodoAuxiliar=NULL;
+	if(this!=NULL && nodeIndex>=0 && nodeIndex<ll_len(this))
+		{
+		pNodoAuxiliar=getNode(this,nodeIndex);
+		}
+return pNodoAuxiliar;
 }
-/*
- * Node* test_getNode(LinkedList* this, int nodeIndex)
-{
-
-	return getNode(this, nodeIndex);
-}
- */
 /** \brief Agrega y enlaza un nuevo nodo a la lista
  * \param this LinkedList* Puntero a la lista
  * \param nodeIndex int Ubicacion donde se agregara el nuevo nodo
@@ -131,7 +129,12 @@ return returnAux;
  */
 int test_addNode(LinkedList* this, int nodeIndex,void* pElement)
 {
-    return addNode(this,nodeIndex,pElement);
+	int retorno=-1;
+		if(this!=NULL && nodeIndex>=0 && nodeIndex<=ll_len(this))
+		{
+			return addNode(this,nodeIndex,pElement);
+		}
+	return retorno;
 }
 
 /** \brief  Agrega un elemento a la lista
@@ -426,7 +429,7 @@ LinkedList* ll_subList(LinkedList* this,int from,int to)
     LinkedList* cloneArray = NULL;
     void* pElementAux;
     int len=ll_len(this);
-    if((this != NULL) && (from >= 0 && len >= to)) //(this!=NULL && from>=0 && from<=len && to>=from && to<=0)
+    if(this!=NULL && from>=0 && from<=len && to>from && to<=len)
     {
     	cloneArray=ll_newLinkedList();
     	if(cloneArray!=NULL)
@@ -498,7 +501,7 @@ int ll_sort(LinkedList* this, int (*pFunc)(void* ,void*), int order)
 return returnAux;
 }
 //MAP: Permite Transformar los elementos de una lista
-int ll_map(LinkedList* this, void (*pFunc)(void*))
+int ll_map(LinkedList* this, void (*pFunc)(void*,int* factor),int auxFactor)//int ll_map(LinkedList* this, void (*pFunc)(void*))
 {
 	int returnAux = -1;
 	void* pElement;
@@ -509,7 +512,7 @@ int ll_map(LinkedList* this, void (*pFunc)(void*))
 			pElement = ll_get(this, i);//MAPEO
 			if(pElement != NULL)
 				{
-				pFunc(pElement);
+				pFunc(pElement,&auxFactor);
 				}
 			}
 		returnAux = 0;

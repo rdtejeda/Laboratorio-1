@@ -131,6 +131,7 @@ int pedirTextoAlfanumerico(char *pResultado, int len, char *mensaje, char *mensa
  		if(retorno==-1)
  		{
  			printf("\nTe quedaste sin intentos\n");
+ 			pResultado=NULL;
  		}
  	}else
 		 puts("No se ha podido procesar");
@@ -269,3 +270,132 @@ int esAlfaumerica(char *cadena)
 		 puts("No se ha podido procesar");
 	return retorno;
 }
+/**
+* \brief Solicita un numero al usuario, leuego de verificarlo devuelve el resultado
+* \param *pResultado, *mensaje, *mensajeError, minimo, maximo, intentos
+* \return Retorna 0 si se obtuvo el numero y -1 si no
+*/
+int pedirFloat(float *pResultado, char *mensaje, char *mensajeError, float minimo, float maximo, int intentos)
+{
+	int retorno = -1;
+	float bufferInt;
+	int i;
+	char bufferCadenaAux[32];
+
+	if(pResultado != NULL && mensaje != NULL && mensajeError != NULL && minimo <= maximo && intentos >= 0)
+	{
+		for(i=0; i<=intentos; i++)
+		{
+			printf("\n%s\n", mensaje);
+			__fpurge(stdin);
+			if(myGets(bufferCadenaAux,sizeof(bufferCadenaAux))==0)
+			{
+				if(esNumericaFloat(bufferCadenaAux)==0)
+					{
+					bufferInt = atof(bufferCadenaAux);
+					if(bufferInt >= minimo && bufferInt <= maximo)
+						{
+							*pResultado = bufferInt;
+							retorno = 0;
+							break;
+						}else
+							{
+							printf("%s", mensajeError);
+							}
+					}
+				else
+					{
+					printf("%s", mensajeError);
+					}
+			}
+			else
+				{
+				printf("%s", mensajeError);
+				}
+		}
+		if(retorno==-1)
+		{
+			printf("\nTe quedaste sin intentos\n");
+		}
+	}else
+		 puts("No se ha podido procesar");
+	return retorno;
+}
+/**
+* \brief Verifica si la cadena ingresada es numerica float
+* \param *cadena paso por referencia Cadena de caracteres a ser analizada
+* \return Retorna 0  si la cadena es numerica y -1  si no lo es
+*/
+int esNumericaFloat(char *cadena)
+{
+	int i=0;
+	int retorno = -1;
+	int contNeg=0;
+	int contPuntos=0;
+	if(cadena != NULL && strlen(cadena) > 0)
+	{
+		retorno=0;
+		while(cadena[i] != '\0')
+			{
+				if(cadena[i] < '0' || cadena[i] > '9')
+					{
+					if(cadena[i]=='-' || cadena[i]=='.')
+						{
+							if(cadena[i]=='-')
+							{
+								contNeg++;
+								if(i!=0)
+								{
+									retorno = -1;
+									break;
+								}
+							}
+							if(cadena[i]=='.')
+							{
+								contPuntos++;
+							}
+						}else
+						{
+							retorno = -1;
+							break;
+						}
+					}
+				i++;
+			}
+		if(contNeg>1 ||contPuntos>1)
+		{
+			retorno=-1;
+		}
+	}else
+		 puts("No se ha podido procesar");
+	return retorno;
+}
+//============================================================================
+/**
+* \brief Verifica si la cadena ingresada es solo letras mayusculas
+* \param *cadena Paso por referencia Cadena de caracteres a ser analizada
+* \return Retorna 0 si la cadena es alfa numerica y -1 si no lo es
+*/
+/*
+int esSoloMayuscula(char *cadena)
+{
+	int i=0;
+	int retorno = 0;
+	if(cadena != NULL)
+	{
+		while(cadena[i]!='\0' && strlen(cadena)>0)
+			{
+				if((cadena[i]<'A'||cadena[i]>'Z'))
+					{
+						puts("Deben ser todas mayusculas");
+						retorno=-1;
+						break;
+					}
+				i++;
+			}
+	}else
+		 puts("No se ha podido procesar");
+	return retorno;
+}
+*/
+//===============================================================================

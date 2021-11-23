@@ -123,7 +123,12 @@ return returnAux;
  */
 int test_addNode(LinkedList* this, int nodeIndex,void* pElement)
 {
-    return addNode(this,nodeIndex,pElement);
+	int retorno=-1;
+		if(this!=NULL && nodeIndex>=0 && nodeIndex<=ll_len(this))
+		{
+			return addNode(this,nodeIndex,pElement);
+		}
+	return retorno;
 }
 
 /** \brief  Agrega un elemento a la lista
@@ -418,7 +423,7 @@ LinkedList* ll_subList(LinkedList* this,int from,int to)
     LinkedList* cloneArray = NULL;
     void* pElementAux;
     int len=ll_len(this);
-    if((this != NULL) && (from >= 0 && len >= to)) //(this!=NULL && from>=0 && from<=len && to>=from && to<=0)
+    if(this!=NULL && from>=0 && from<=len && to>from && to<=len)
     {
     	cloneArray=ll_newLinkedList();
     	if(cloneArray!=NULL)
