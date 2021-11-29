@@ -26,12 +26,14 @@ int main(void)
 	int opcion;
 	int estadoCsv=-1;
 	listaArcades=ll_newLinkedList();
-	estadoCsv=controller_leerArchivo(listaArcades);//1-LEER ARCADES DESDE ARCHIVO
-	do
+	if(listaArcades!=NULL)
 		{
-		opcion=imprimirMenuInicial();
-		switch (opcion)
+		estadoCsv=controller_leerArchivo(listaArcades);//1-LEER ARCADES DESDE ARCHIVO
+		do
 			{
+			opcion=imprimirMenuInicial();
+			switch (opcion)
+				{
 				case 1://2- INCORPORAR ARCADE
 					controller_AgregarArcade(listaArcades);
 					break;
@@ -57,13 +59,15 @@ int main(void)
 					controller_saveAsText("arcades.csv", listaArcades);
 					break;
 				case 9://Del programado JAJA
-
+					//controller_sublist(listaArcades);
+					//controller_reduce(listaArcades);
 					break;
 				default:
 					break;
-			}
-		}while(opcion!=10);//10- SALIR
-	controller_shotdown(listaArcades,estadoCsv);
+				}
+			}while(opcion!=10);//10- SALIR
+		controller_shotdown(listaArcades,estadoCsv);
+		}
 	puts("¡SALIO DE LA APLICACION 'NOMINA DE ARCADES'!");
 	puts("!!!Que hay de nuevo viejo!!!");
 return EXIT_SUCCESS;

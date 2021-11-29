@@ -196,8 +196,9 @@ int arcade_modificar(LinkedList* pLinkedList)
 				}else
 					puts("Se cancelo la modificacion");
 			}else
-				puts("El arcade ya fue eliminado");
-		}
+				puts("Revisa el Id ingresado ya que no es valido");
+		}else
+			puts("Tuvimos problemas al leer la lista, intentalo nuevamente");
 return retorno;
 }
 /*
@@ -229,8 +230,9 @@ int arcade_remover(LinkedList* pLinkedList)
 					puts("Se cancelo la baja");
 
 			}else
-				puts("El arcade ya estaba eliminado");
-		}
+				puts("Revisa el Id ingresado ya que no es valido");
+		}else
+			puts("Tuvimos problemas al leer la lista, intentalo nuevamente");
 return retorno;
 }
 /**
@@ -245,7 +247,6 @@ int arcade_findById(LinkedList* pLinkedList, int id)
 	Arcade* pAuxiliarArcade;
 	if(pLinkedList!=NULL && id>0)
 		{
-
 		for (int i = 0; i < ll_len(pLinkedList); i++)
 			{
 				pAuxiliarArcade=ll_get(pLinkedList,i);
@@ -259,7 +260,8 @@ int arcade_findById(LinkedList* pLinkedList, int id)
 				}
 			}
 		retorno=posicion;
-		}
+		}else
+			puts("Tuvimos problemas al leer la lista o el Id es invalido, intentalo nuevamente");
 return retorno;
 }
 /**
@@ -535,7 +537,8 @@ int arcade_removeAllList(LinkedList* pLinkedList)
 			auxNode=auxNode->pNextNode;
 			}
 		retorno=0;
-		}
+		}else
+			puts("Tuvimos problemas al leer la lista, intentalo nuevamente");
 return retorno;
 }
 /**

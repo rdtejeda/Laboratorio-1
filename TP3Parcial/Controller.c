@@ -18,6 +18,26 @@
 #define MAXIMOHORAS 300
 #define MAXIMOSUELDO 500000
 #define CERO 0
+controller_sublist(pLinkedListEmpleados);
+/** \brief crea sublista empleado
+ * \param pLinkedListEmpleados LinkedList*
+ * \return 0 si lo logro la carga y -1 si salio mal
+ */
+int controller_sublist(LinkedList* pLinkedListEmpleados)
+{
+	int retorno=-1;
+	if(pLinkedListEmpleados!=NULL&&ll_len(pLinkedListEmpleados)>0)
+		{
+		LinkedList* listaSublist;
+		listaSublist=ll_subList(pLinkedListEmpleados, 990, 999);
+		controller_ListEmployee(listaSublist);
+			retorno=0;
+		}else
+			puts("No se puede Editar ya que La Lista esta vacía");
+return retorno;
+}
+
+
 
 /*
  * brief Carga los datos de los empleados desde el archivo *.csv (modo texto).

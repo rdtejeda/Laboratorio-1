@@ -1,47 +1,47 @@
-17:26:39 **** Build of configuration Debug for project Parcial_2_Nov_21_Ll_Arcade ****
+11:15:54 **** Build of configuration Debug for project TP3Parcial ****
 make all 
-Building file: ../src/Juego.c
+Building file: ../Controller.c
 Invoking: GCC C Compiler
-gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Juego.d" -MT"src/Juego.o" -o "src/Juego.o" "../src/Juego.c"
-Finished building: ../src/Juego.c
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"Controller.d" -MT"Controller.o" -o "Controller.o" "../Controller.c"
+../Controller.c:21:1: warning: data definition has no type or storage class
+   21 | controller_sublist(pLinkedListEmpleados);
+      | ^~~~~~~~~~~~~~~~~~
+../Controller.c:21:1: warning: type defaults to ‘int’ in declaration of ‘controller_sublist’ [-Wimplicit-int]
+../Controller.c:21:1: warning: parameter names (without types) in function declaration
+Finished building: ../Controller.c
  
-Building file: ../src/LinkedList.c
+Building file: ../Employee.c
 Invoking: GCC C Compiler
-gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/LinkedList.d" -MT"src/LinkedList.o" -o "src/LinkedList.o" "../src/LinkedList.c"
-Finished building: ../src/LinkedList.c
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"Employee.d" -MT"Employee.o" -o "Employee.o" "../Employee.c"
+Finished building: ../Employee.c
  
-Building file: ../src/Menu.c
+Building file: ../LinkedList.c
 Invoking: GCC C Compiler
-gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Menu.d" -MT"src/Menu.o" -o "src/Menu.o" "../src/Menu.c"
-Finished building: ../src/Menu.c
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"LinkedList.d" -MT"LinkedList.o" -o "LinkedList.o" "../LinkedList.c"
+Finished building: ../LinkedList.c
  
-Building file: ../src/Parcial_2_Nov_21_Ll_Arcade.c
+Building file: ../Menu.c
 Invoking: GCC C Compiler
-gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Parcial_2_Nov_21_Ll_Arcade.d" -MT"src/Parcial_2_Nov_21_Ll_Arcade.o" -o "src/Parcial_2_Nov_21_Ll_Arcade.o" "../src/Parcial_2_Nov_21_Ll_Arcade.c"
-Finished building: ../src/Parcial_2_Nov_21_Ll_Arcade.c
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"Menu.d" -MT"Menu.o" -o "Menu.o" "../Menu.c"
+Finished building: ../Menu.c
  
-Building file: ../src/arcade.c
+Building file: ../ValidarPedir.c
 Invoking: GCC C Compiler
-gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/arcade.d" -MT"src/arcade.o" -o "src/arcade.o" "../src/arcade.c"
-Finished building: ../src/arcade.c
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"ValidarPedir.d" -MT"ValidarPedir.o" -o "ValidarPedir.o" "../ValidarPedir.c"
+Finished building: ../ValidarPedir.c
  
-Building file: ../src/controller.c
+Building file: ../main.c
 Invoking: GCC C Compiler
-gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/controller.d" -MT"src/controller.o" -o "src/controller.o" "../src/controller.c"
-Finished building: ../src/controller.c
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"main.d" -MT"main.o" -o "main.o" "../main.c"
+Finished building: ../main.c
  
-Building file: ../src/parser.c
+Building file: ../parser.c
 Invoking: GCC C Compiler
-gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/parser.d" -MT"src/parser.o" -o "src/parser.o" "../src/parser.c"
-Finished building: ../src/parser.c
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"parser.d" -MT"parser.o" -o "parser.o" "../parser.c"
+Finished building: ../parser.c
  
-Building file: ../src/pedirValidar.c
-Invoking: GCC C Compiler
-gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/pedirValidar.d" -MT"src/pedirValidar.o" -o "src/pedirValidar.o" "../src/pedirValidar.c"
-Finished building: ../src/pedirValidar.c
- 
-Building target: Parcial_2_Nov_21_Ll_Arcade
+Building target: TP3Parcial
 Invoking: GCC C Linker
-gcc  -o "Parcial_2_Nov_21_Ll_Arcade"  ./src/Juego.o ./src/LinkedList.o ./src/Menu.o ./src/Parcial_2_Nov_21_Ll_Arcade.o ./src/arcade.o ./src/controller.o ./src/parser.o ./src/pedirValidar.o   
-Finished building target: Parcial_2_Nov_21_Ll_Arcade
+gcc  -o "TP3Parcial"  ./Controller.o ./Employee.o ./LinkedList.o ./Menu.o ./ValidarPedir.o ./main.o ./parser.o   
+Finished building target: TP3Parcial
  

@@ -13,3 +13,4 @@ int controller_ListOneEmployee(LinkedList* pArrayListEmployee, int posicion);
 int controller_countEmployeeFromText(char* path);
 int controller_countEmployeeFromBinary(char* path);
 
+int controller_sublist(LinkedList* pLinkedListEmpleados);

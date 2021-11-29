@@ -51,9 +51,11 @@ int main()
             	break;
             case 5:
             		controller_removeEmployee(pLinkedListEmpleados);
+
             	break;
             case 6:
                		controller_ListEmployee(pLinkedListEmpleados);
+               		//controller_sublist(pLinkedListEmpleados);
             	break;
             case 7:
                		controller_sortEmployee(pLinkedListEmpleados);

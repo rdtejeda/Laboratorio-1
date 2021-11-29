@@ -6,8 +6,10 @@
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
-		<item key="selection" value="pElement"/>
+		<item key="selection" value=""/>
 		<list key="findhistory">
+			<item value="reduce"/>
+			<item value="empleado"/>
 			<item value="pAux"/>
 			<item value="pAuxiliarEmployee"/>
 			<item value="numerofichas"/>
@@ -21,10 +23,9 @@
 			<item value="buscarPosicionDeSalonporSuId"/>
 			<item value="bajaDeSalonYsusArcadesDeLista"/>
 			<item value="eliminarSalonDeLista"/>
-			<item value="posicion"/>
-			<item value="listaSalones"/>
 		</list>
 		<list key="replacehistory">
+			<item value="arcade"/>
 			<item value="pElement"/>
 			<item value="pAuxiliarArcade"/>
 			<item value="tiposonido"/>
@@ -35,7 +36,6 @@
 			<item value="libre"/>
 			<item value="pCantSalones"/>
 			<item value="idSBaja"/>
-			<item value="arcade"/>
 			<item value="posicion"/>
 			<item value="j"/>
 			<item value="posSalon"/>
